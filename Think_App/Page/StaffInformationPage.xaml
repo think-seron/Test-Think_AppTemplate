@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.StaffInformationPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+>
+	<ScrollView
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		AbsoluteLayout.LayoutBounds="{Binding ScrollViewRect}"
+		AbsoluteLayout.LayoutFlags="WidthProportional"
+	>
+		<StackLayout>
+			<StackLayout
+				Orientation="Vertical"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			>
+				<StackLayout
+                    HorizontalOptions="FillAndExpand"
+					Orientation="Horizontal"
+					Padding="0,0,0,8"
+				>
+					<ffimageloading:CachedImage
+						Margin="17,24,15,0"
+						WidthRequest="{Binding StaffImgWidth}"
+						HeightRequest="{Binding StaffImgHeight}"
+						Source="{Binding StaffImgSouce}"
+						Aspect="AspectFill"
+						DownsampleToViewSize="false"
+					/>
+					<StackLayout
+                        HorizontalOptions="FillAndExpand"
+						Orientation="Vertical"
+					>
+						<StackLayout
+                            HorizontalOptions="FillAndExpand"
+							Orientation="Horizontal"
+							Padding="0,9,4,0"
+						>
+							<Label
+								Margin="0,10,0,0"
+								FontSize="{Binding StaffNameFontSize}"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								Text="{Binding StaffNameTxt}"
+                                HorizontalOptions="StartAndExpand"
+							/>
+							<Image
+								x:Name="Favorite"
+								Source="{Binding FavoIconSouce, Mode=TwoWay}"
+                                HorizontalOptions="EndAndExpand"
+                                VerticalOptions="Start"
+							>
+								<Image.GestureRecognizers>
+							        <TapGestureRecognizer Tapped="OnFavoIconClicked"/>
+							    </Image.GestureRecognizers>
+							</Image>
+						</StackLayout>
+
+						<Label
+                            HorizontalOptions="StartAndExpand"
+							FontSize="{Binding StaffNameKanaFontSize}"
+							Text="{Binding StaffNameKana}"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							Margin="0,0,0,7"
+						/>
+						<Label
+                            HorizontalOptions="StartAndExpand"
+							FontSize="{Binding StaffCareerFontSize}"
+							Text="{Binding StaffCareer, StringFormat='スタッフ歴 {0}'}"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							Margin="0,0,0,7"
+						/>
+						<Label
+                            HorizontalOptions="StartAndExpand"
+							FontSize="{Binding StaffCareerFontSize}"
+							Text="{Binding StaffComment}"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							Margin="0,0,0,1"
+						/>
+					
+						<AbsoluteLayout
+							WidthRequest="{Binding ReserveBtnWidth}"
+							HeightRequest="{Binding ReserveBtnHeight}"
+							HorizontalOptions="End"
+                            Margin="0,0,4,0"
+                            IsVisible="{Binding ReservBtnVisible}"
+						>
+							<Image
+								AbsoluteLayout.LayoutBounds="{Binding BtnRect}"
+								AbsoluteLayout.LayoutFlags="All"
+								IsVisible="{Binding BtnIsVisible}"
+								Source="MidiumWhiteButtonShadow.png"
+								Aspect="AspectFill"
+							/>
+							<!-- CustomButtonだとボタンの表示が崩れる -->
+							<Button
+								x:Name="ReserveStart"
+								AbsoluteLayout.LayoutBounds="{Binding BtnRect}"
+								AbsoluteLayout.LayoutFlags="All"
+								Text="指名して予約を始める"
+								IsVisible="{Binding BtnIsVisible}"
+								Style="{StaticResource WhiteButton}"
+							/>
+						</AbsoluteLayout>
+					</StackLayout>
+				</StackLayout>
+
+				<Label
+                    HorizontalOptions="StartAndExpand"
+					Margin="17,0,17,0"
+					Text="{Binding Message}"
+					FontSize="{Binding MessageFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+			</StackLayout>
+
+			<StackLayout
+				Padding="17,18,17,5"
+				Orientation="Horizontal"
+			>
+				<Label
+					Text="得意なイメージ"
+					FontSize="{Binding GoodImageFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					WidthRequest="100"
+					MinimumWidthRequest="100"
+				/>
+				<Label
+					Text="{Binding GoodImage}"
+					FontSize="{Binding GoodImageFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+			</StackLayout>
+
+			<StackLayout
+				Padding="17,0,17,18"
+				Orientation="Horizontal"
+			>
+				<Label
+					Text="得意な技術"
+					FontSize="{Binding GoodImageFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					WidthRequest="100"
+					MinimumWidthRequest="100"
+				/>
+				<Label
+					Text="{Binding GoodTechnic}"
+					FontSize="{Binding GoodImageFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+			</StackLayout>
+			
+			<StackLayout
+				BackgroundColor="{x:Static local:ColorList.colorBackground}"
+				HeightRequest="30"
+				WidthRequest="{Binding BoxViewWidth}"
+				Orientation="Vertical"
+			>
+				<BoxView
+					WidthRequest="{Binding BoxViewWidth}"
+					HeightRequest="1"
+					Color="{x:Static local:ColorList.colorCellBoader}"
+				/>
+				<Label
+					Margin="17,4,0,0"
+					Text="ヘアカタログ"
+					FontSize="11"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					HeightRequest="28"
+				/>
+				<BoxView
+					WidthRequest="{Binding BoxViewWidth}"
+					HeightRequest="1"
+					Color="{x:Static local:ColorList.colorCellBoader}"
+				/>
+			</StackLayout>
+			
+			<StackLayout
+				Orientation="Vertical"
+				x:Name="ScrollViewStackLayout"
+                Padding="0"
+                Spacing="0"
+			>
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+	<!--<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>
+
+
+		<BoxView
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,65,1,328"
+	                Android="0,45,1,328"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</BoxView>
+		<BoxView
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,392,1,1"
+	                Android="0,372,1,1"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</BoxView>
+
+		<Grid
+			Margin="0"
+			RowSpacing="0"
+			ColumnSpacing="0"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,65,1,159"
+	                Android="0,45,1,159"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+
+		    <Grid.RowDefinitions>
+				<RowDefinition Height="2.8*" />
+				<RowDefinition Height="1.4*" />
+				<RowDefinition Height="0.8*" />
+				<RowDefinition Height="3*" />
+				<RowDefinition Height="2*" />
+		    </Grid.RowDefinitions>    
+
+		    <Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.3*" />
+				<ColumnDefinition Width="4*" />
+				<ColumnDefinition Width="0.2*" />
+				<ColumnDefinition Width="4.5*" />
+				<ColumnDefinition Width="1*" />
+		    </Grid.ColumnDefinitions>
+			<Image
+				Grid.Row="0"
+				Grid.RowSpan="5"
+		        Grid.Column="1"
+				Aspect="AspectFill"
+				VerticalOptions="End"
+				HorizontalOptions="Center"
+				Source="{Binding StaffImgSouce}"
+			/>
+			<Label
+				Grid.Row="0"
+				Grid.Column="3"
+				HorizontalOptions="Start"
+				VerticalOptions="End"
+				FontSize="17"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding StaffName}"
+			/>
+			<Label
+				Grid.Row="1"
+				Grid.Column="3"
+				Grid.ColumnSpan="2"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+				FontSize="10"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding StaffNameKana}"
+			/>
+			<Label
+				Grid.Row="2"
+				Grid.Column="3"
+				Grid.ColumnSpan="2"
+				HorizontalOptions="Start"
+				VerticalOptions="Center"
+				FontSize="11"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding StaffHistory}"
+			/>
+			<Label
+				Grid.Row="3"
+				Grid.Column="3"
+				Grid.ColumnSpan="2"
+				HorizontalOptions="Start"
+				VerticalOptions="End"
+				FontSize="12"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding StaffComment}"
+			/>
+			<Button
+				Style="{StaticResource WhiteButton}"
+				Grid.Row="4"
+				Grid.Column="3"
+				Grid.ColumnSpan="2"
+				HorizontalOptions="Center"
+				VerticalOptions="Center"
+				x:Name="ReserveStart"
+				FontSize="8"
+				WidthRequest="160"
+				HeightRequest="29"
+				Text="指名して予約を始める"
+				IsVisible="{Binding BtnIsVisible}"
+			/>
+
+			<Image
+				x:Name="Favorite"
+				Grid.Row="0"
+				Grid.Column="4"
+				HorizontalOptions="Start"
+				VerticalOptions="Center"
+				Aspect="AspectFill"
+				Source="{Binding FavoIconSouce, Mode=TwoWay}"
+			>
+				<Image.GestureRecognizers>
+			        <TapGestureRecognizer Tapped="OnFavoIconClicked"/>
+			    </Image.GestureRecognizers>
+			</Image>
+		</Grid>
+
+		<Label
+			Text="{Binding Message}"
+			FontSize="13"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Margin="17,0,17,0"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,244,1,76"
+	                Android="0,224,1,76"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</Label>
+
+		<StackLayout
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Orientation="Horizontal"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,319,1,30"
+	                Android="0,299,1,30"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+			<Label
+				Text="得意なイメージ"
+				FontSize="12"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HeightRequest="32"
+				WidthRequest="122"
+				Margin="17,0,0,0"
+				HorizontalOptions="Center"
+				VerticalOptions="Start"
+			/>
+			<Label
+				Text="{Binding GoodImage}"
+				FontSize="12"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HeightRequest="32"
+				WidthRequest="220"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+			/>
+		</StackLayout>
+
+		<StackLayout
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Orientation="Horizontal"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,351,1,30"
+	                Android="0,331,1,30"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+			<Label
+				Text="得意な技術"
+				FontSize="12"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HeightRequest="32"
+				WidthRequest="122"
+				Margin="17,0,0,0"
+				HorizontalOptions="Center"
+				VerticalOptions="Start"
+			/>
+			<Label
+				Text="{Binding GoodTechnic}"
+				FontSize="12"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HeightRequest="32"
+				WidthRequest="220"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+			/>
+		</StackLayout>
+
+		<Label
+			Text="ヘアカタログ"
+			FontSize="11"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="16,403,1,13"
+	                Android="16,383,1,13"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</Label>
+
+		<ScrollView
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			AbsoluteLayout.LayoutBounds="{Binding ScrollViewRect}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+		>
+			<StackLayout
+				Orientation="Vertical"
+				x:Name="ScrollViewStackLayout"
+			>
+			</StackLayout>
+		</ScrollView>
+
+		<BoxView
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		>
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,421,1,1"
+	                Android="0,401,1,1"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</BoxView>
+
+	</AbsoluteLayout>-->
+</ContentPage>

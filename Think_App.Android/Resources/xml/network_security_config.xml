@@ -1,0 +1,7 @@
+﻿<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">think.entap.xyz</domain>
+        <domain includeSubdomains="true">s3-ap-northeast-1.amazonaws.com</domain>
+    </domain-config>
+</network-security-config>

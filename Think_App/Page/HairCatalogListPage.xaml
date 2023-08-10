@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.HairCatalogListPage"
+	xmlns:local="clr-namespace:Think_App"
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="ヘアカタログ"
+>
+    <StackLayout
+        Spacing="0"
+        BackgroundColor="{x:Static local:ColorList.colorWhite}"
+        >
+		
+        <flv:FlowListView
+            x:Name="GrdView"
+            Margin="26,0"
+            FlowColumnCount="3"
+            FlowItemsSource="{Binding ItemsSource, Mode=TwoWay}"
+            HasUnevenRows="False"
+            SeparatorVisibility="None"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+			BackgroundColor="White"
+            RowHeight="{Binding ItemHeight}"
+            >
+            <flv:FlowListView.Header>
+                <StackLayout
+                    Spacing="0"
+                    Padding="3,10,3,14">
+                    <Label
+			            Text="{Binding LabelTxt}"
+			            TextColor="{x:Static local:ColorList.colorFont}"
+			            FontSize="11"
+		            />
+                </StackLayout>
+            </flv:FlowListView.Header>
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+					<AbsoluteLayout
+                        Margin="2.5,5"
+						VerticalOptions="FillAndExpand"
+						HorizontalOptions="FillAndExpand"
+					>
+                        <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0,0,1,1"
+							AbsoluteLayout.LayoutFlags="All"
+							Source="{Binding Souce}"
+							Aspect="AspectFill"
+							DownsampleToViewSize="true"
+						/>
+
+						<ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0.5,0,90,28"
+							AbsoluteLayout.LayoutFlags="PositionProportional"
+							Source="ShortSeeMoreButtonShadow.png"
+							Aspect="AspectFill"
+							IsVisible="{Binding BtnIsVisible}"
+						/>
+						<local:CustomButton
+							AbsoluteLayout.LayoutBounds="0.5,0,90,28"
+							AbsoluteLayout.LayoutFlags="PositionProportional"
+							Clicked="MoreLookBtnClick"
+							Style="{StaticResource SeeMoreButton}"
+							IsVisible="{Binding BtnIsVisible}"
+						/>
+							
+					</AbsoluteLayout>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+        <!--<controls:GridView
+			x:Name="GrdView"
+			AbsoluteLayout.LayoutBounds="{Binding GridViewRect}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			ItemHeight="{Binding ItemHeight}"
+			ItemWidth="{Binding ItemWidth}"
+			ColumnSpacing="{Binding ColumnSpacing}"
+			Padding="26,0,26,0"
+			RowSpacing="{Binding RowSpacing}"
+			BackgroundColor="White"
+			ItemsSource="{Binding ItemsSource}"
+		>
+            <controls:GridView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell
+						xmlns="http://xamarin.com/schemas/2014/forms"
+						xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						xmlns:local="clr-namespace:Think_App"
+						xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+						x:Class="Think_App.HairCatalogListPage"
+					>
+						<AbsoluteLayout
+							VerticalOptions="FillAndExpand"
+							HorizontalOptions="FillAndExpand"
+						>
+                        	<ffimageloading:CachedImage
+								AbsoluteLayout.LayoutBounds="0,0,1,1"
+								AbsoluteLayout.LayoutFlags="All"
+								Source="{Binding Souce}"
+								Aspect="AspectFill"
+								DownsampleToViewSize="true"
+							/>
+
+							<ffimageloading:CachedImage
+								AbsoluteLayout.LayoutBounds="0.5,0,90,28"
+								AbsoluteLayout.LayoutFlags="PositionProportional"
+								Source="ShortSeeMoreButtonShadow.png"
+								Aspect="AspectFill"
+								IsVisible="{Binding BtnIsVisible}"
+							/>
+							<local:CustomButton
+								AbsoluteLayout.LayoutBounds="0.5,0,90,28"
+								AbsoluteLayout.LayoutFlags="PositionProportional"
+								Clicked="MoreLookBtnClick"
+								Style="{StaticResource SeeMoreButton}"
+								IsVisible="{Binding BtnIsVisible}"
+							/>
+							
+						</AbsoluteLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:GridView.ItemTemplate>
+        </controls:GridView>-->
+		
+	</StackLayout>
+</ContentPage>

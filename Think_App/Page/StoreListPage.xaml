@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.StoreListPage"
+	xmlns:local="clr-namespace:Think_App"
+	Title="店舗一覧"
+>
+	<AbsoluteLayout
+		x:Name="StoreListLayout"
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<Label
+			Text="店舗一覧"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="14"
+			AbsoluteLayout.LayoutBounds="16,26,105,AutoSize"
+		/>
+
+		<ListView
+			x:Name="ListView"
+			AbsoluteLayout.LayoutBounds="{Binding ListViewRect}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			CachingStrategy="RecycleElement"
+			RowHeight="183"
+		>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<local:ListViewStore/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,46,1,1"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+
+	</AbsoluteLayout>
+</ContentPage>

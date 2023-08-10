@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.WhiteButtonView"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	>
+	<StackLayout
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand"
+		Spacing="0"
+		Padding="0"
+		WidthRequest="163"
+		HeightRequest="28"
+		Scale="{Binding ScaleSize}"
+		>
+		<AbsoluteLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			>
+			<ffimageloading:CachedImage
+				AbsoluteLayout.LayoutFlags="All"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				Source="ShortWhiteButtonShadow.png"
+				Aspect="AspectFill"
+			/>
+			<StackLayout
+				Padding="1,1,1,0"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="0"
+				>
+				<local:CustomButton
+					Style="{StaticResource WhiteButton}"
+					Command="{Binding BtnClickedCommand, Mode=TwoWay}"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Text="{Binding BtnText ,Mode=TwoWay}"
+				/>
+			</StackLayout>
+		</AbsoluteLayout>
+	</StackLayout>
+</ContentView>

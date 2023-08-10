@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.HomeButtonView"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	xmlns:local="clr-namespace:Think_App"
+	HorizontalOptions="FillAndExpand"
+	VerticalOptions="FillAndExpand"
+	>
+		<AbsoluteLayout
+			IsVisible="{Binding ViewVisible, Mode=TwoWay}"
+		    >
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand"
+				Padding="2.5,1,2.5,0"
+				Spacing="0"
+				AbsoluteLayout.LayoutBounds="0,1,AutoSize,AutoSize"
+			>
+                <local:ImageAndTextButtonView
+                    IsVisible="{Binding ViewVisible, Mode=TwoWay}"
+                    BtnSize="{Binding BtnSize, Mode=TwoWay}"
+                    BtnBgColor="{Binding BtnBgColor, Mode=TwoWay}"
+                    BtnImage="{Binding BtnImage, Mode=TwoWay}"
+                    BtnImageHeight="{Binding BtnImageHeight}"
+                    BtnImageWidth="{Binding BtnImageWidth}"
+                    BtnText="{Binding BtnText, Mode=TwoWay}"
+					BtnFontSize="{Binding BtnFontSize, Mode=TwoWay}"
+					BtnTextColor="{Binding BtnTextColor, Mode=TwoWay}"
+                    BtnCommand="{Binding BtnCommand, Mode=TwoWay}"
+                    />
+		</StackLayout>
+
+		<local:RoundedBoxView
+			x:Name="Batch"
+			Color="{x:Static local:ColorList.colorbatch}"
+			AbsoluteLayout.LayoutBounds="1,0,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			WidthRequest="14"
+			HeightRequest="14"
+			CornerRadius="7"
+			IsVisible="{Binding BatchVisible, Mode=TwoWay}"
+		>
+		</local:RoundedBoxView>
+	</AbsoluteLayout>
+</ContentView>

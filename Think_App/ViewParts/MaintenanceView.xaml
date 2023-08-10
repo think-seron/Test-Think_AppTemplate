@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Think_App.MaintenanceView"
+    >
+    <StackLayout
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="CenterAndExpand"
+        Padding="0"
+        Spacing="24"
+        >
+        <Label
+            x:Name="Message"
+            TextColor="#FFFFFF"
+            FontSize="20"
+            HorizontalOptions="CenterAndExpand"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="End"
+            Margin="16,0"
+            >
+        </Label>
+        <Image
+            WidthRequest="43"
+            HeightRequest="34"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Source="Icon_Home.png"
+            />
+    </StackLayout>
+</ContentView>

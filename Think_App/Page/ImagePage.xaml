@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:BackCustomizeContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.ImagePage"
+	EnableBackButtonOverride="true"
+	BackgroundColor="{x:Static local:ColorList.colorBlack}"
+>
+	<AbsoluteLayout
+		x:Name="AbsLayout"
+	>
+		<local:ImageControlContainer
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			x:Name="ImageControlContainer"
+			IsControllable="false"
+		>
+			<AbsoluteLayout>
+				<Image
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					x:Name="PhotoImg"
+					Aspect="AspectFill"
+				/>
+				<Image
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					x:Name="GalleryImg"
+					Aspect="AspectFit"
+					BackgroundColor="{x:Static local:ColorList.colorBlack}"
+				/>
+				<Image
+					AbsoluteLayout.LayoutBounds="0,0,0,0"
+					AbsoluteLayout.LayoutFlags="None"
+					x:Name="HairImg"
+					Aspect="AspectFill"
+					IsVisible="false"
+				/>
+			</AbsoluteLayout>
+		</local:ImageControlContainer>
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0,0,1,Autosize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			x:Name="FaceDetectionAttention"
+			HeightRequest="62"
+			Margin="9,17,76,0"
+			IsVisible="false"
+		>
+			<local:CustomBoxView
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				FillColor="{x:Static local:ColorList.colorBlack}"
+				StrokeColor="Transparent"
+				BorderThickness="0"
+				CornerRadiusRate="8"
+				Opacity="0.5"
+			/>
+			<Label
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				x:Name="FaceDetectionAttentionLbl"
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorWhite}"
+				BackgroundColor="Transparent"
+			/>
+		</AbsoluteLayout>
+		<StackLayout
+			AbsoluteLayout.LayoutBounds="1,0,Autosize,Autosize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Margin="0,20,7,0"
+		>
+			<local:CustomImageButton
+				x:Name="SelectHairBtn"
+				Image="icon_select_hair.png"
+				WidthRequest="64"
+				HeightRequest="64"
+				IsVisible="false"
+			/>
+		</StackLayout>
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			x:Name="BoxForClosingSelectHairView"
+			Color="Transparent"
+			BackgroundColor="Transparent"
+			IsVisible="false"
+		>
+			<BoxView.GestureRecognizers>
+				<TapGestureRecognizer x:Name="CloseSelectHairViewTap" />
+			</BoxView.GestureRecognizers>
+		</BoxView>
+		<local:SelectHairView
+			AbsoluteLayout.LayoutBounds="0,1,1,Autosize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			x:Name="SelectHairView"
+			IsVisible="false"
+		/>
+	</AbsoluteLayout>
+</local:BackCustomizeContentPage>

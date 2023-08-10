@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	x:Class="Think_App.GalleryViewCell"
+>
+	<ffimageloading:CachedImage
+		x:Name="ThumbnailImg"
+		Source="{Binding GVCThumbnailImgSource}"
+		DownsampleWidth="{Binding GVCThumbnailImgDSWidth}"
+		DownsampleHeight="{Binding GVCThumbnailImgDSHeight}"
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		Aspect="AspectFill"
+		BackgroundColor="{Binding GVCThumbnailImgBGColor}"
+	/>	
+</ViewCell>

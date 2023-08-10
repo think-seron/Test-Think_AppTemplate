@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:CustomHomePage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.Home"
+	xmlns:local="clr-namespace:Think_App"
+	Title="{Binding TitleText}"
+	TitleImage="{Binding TitleImageSource}"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	NavigationPage.HasBackButton="false"
+
+>
+	<local:CustomHomePage.ToolbarItems>
+        <ToolbarItem
+            Icon ="{Binding ToolBarIcon}"
+            Command ="{Binding ToolbarCommand, Mode=TwoWay}"
+            Text="{Binding ToolbarText}"
+        />
+    </local:CustomHomePage.ToolbarItems>
+    <AbsoluteLayout>
+        <StackLayout
+        AbsoluteLayout.LayoutFlags="All"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Spacing="0"
+        Padding="0"
+        BackgroundColor="{x:Static local:ColorList.colorBackground}"
+        >
+        <Grid
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Margin="0"
+            RowSpacing="0"
+            ColumnSpacing="0"
+            >
+            
+            <!-- 行の定義 -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="0.55*" />
+                <RowDefinition Height="0.01*" />
+                <RowDefinition Height="1.48*" />
+                <RowDefinition Height="0.01*" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.01*" />
+                <RowDefinition Height="0.68*" />
+                <RowDefinition Height="0.01*" />
+                <RowDefinition Height="0.4*" />
+                <RowDefinition Height="0.01*" />
+
+                <RowDefinition Height="Auto" />
+
+                <RowDefinition Height="0.01*" />
+
+                <RowDefinition Height="0.4*" />
+            </Grid.RowDefinitions>    
+            <!-- 列の定義 -->
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <local:CarouselLayout
+                Grid.Row="0"
+                    Grid.Column="0"
+                    x:Name="Carousel"
+                    ItemsSource="{Binding CarouselItem, Mode=TwoWay}"
+                    BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    HeightRequest="{Binding SliderHeight}"
+                    IsEnabled="false"
+                    >
+                    <local:CarouselLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="FillAndExpand"
+                                  RowSpacing="0"
+                                  ColumnSpacing="0"
+                                  Padding="0,0,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="58"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*"/>
+                                    <ColumnDefinition Width="0.6*"/>
+                                    <ColumnDefinition Width="0.2*"/>
+                                </Grid.ColumnDefinitions>
+                            
+                                <ffimageloading:CachedImage
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    Grid.RowSpan="2"
+                                    Grid.ColumnSpan="3"
+                                    Source="{Binding CarouselImage, Mode=TwoWay}"
+                                    Aspect="AspectFill"
+                                />
+                            
+                                <ffimageloading:CachedImage
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="3"
+                                    Source="CommentMask.png"
+                                    Aspect="AspectFit"
+                                    Margin="0,0,0,10"
+                                    IsVisible="{Binding CommentMaskVisible}"
+                                />
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Comment}"
+                                    FontSize="12"
+                                    TextColor="{Binding MainTextColor}"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="CenterAndExpand"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="CenterAndExpand"
+                                    VerticalTextAlignment="Center"
+                                    LineBreakMode="WordWrap"
+                                    Margin="0,0,0,10"
+                                    IsVisible="{Binding CommentMaskVisible}"
+                                />
+                            </Grid>
+                        </DataTemplate>
+                </local:CarouselLayout.ItemTemplate>
+            </local:CarouselLayout>
+<!--            <RowDefinition Height="0.55*" />-->
+            <Label
+                Text="ホーム店舗"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                FontSize="10"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="16,0,0,3"
+                
+            />
+<!--            <RowDefinition Height="0.01*" />-->
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+            />
+<!--            <RowDefinition Height="1.48*" />-->
+            <StackLayout
+                x:Name="HomeInfoContainer"
+                BackgroundColor="{x:Static local:ColorList.colorWhite}"
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                Padding="5"
+            >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding HomeSelectCommand, Mode=TwoWay}"
+                        />
+                            
+                    </StackLayout.GestureRecognizers>
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Horizontal"
+                    Padding="11,6,0,6"
+                    >
+                    <StackLayout
+                        HorizontalOptions="Start"
+                        VerticalOptions="FillAndExpand"
+                        Spacing="0"
+                        Padding="0"
+                        >
+                        <ffimageloading:CachedImage
+                            x:Name="Thumnail"
+                            Source="{Binding HomeThumbNail, Mode=TwoWay}"
+                            Aspect="AspectFill"
+                            HeightRequest="{Binding ThumnNailSize, Mode=TwoWay}"
+                            WidthRequest="{Binding ThumnNailSize, Mode=TwoWay}"
+                        />
+                    </StackLayout>
+                    <StackLayout
+                        x:Name="HomeInfo"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Spacing="1"
+                        Padding="20,0,0,0"
+                        >
+                        <Label
+                            Text="{Binding HomeShopName, Mode=TwoWay}"
+                            FontSize="{Binding HomeShopNameFontSizes}"
+                            TextColor="{Binding MainTextColor}"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            />
+                        <Label
+                            Text="{Binding StylistName, Mode=TwoWay}"
+                            FontSize="{Binding StylistNameFontSizes}"
+                            TextColor="{Binding MainTextColor}"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            IsVisible="{Binding StylistNameVisible, Mode=TwoWay}"
+                        />
+                        <Label
+                            Text="{Binding HomeShopTelNumber, Mode=TwoWay}"
+                            FontSize="{Binding StylistNameFontSizes}"
+                            TextColor="{Binding MainTextColor}"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+
+                        />
+                        <Label
+                            Text="{Binding HomeShopPoints, Mode=TwoWay}"
+                            FontSize="{Binding StylistNameFontSizes}"
+                            TextColor="{Binding MainTextColor}"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Start"
+                            VerticalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="TailTruncation"
+                            IsVisible="{Binding PointsVisible, Mode=TwoWay}"
+                        />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout
+                    VerticalOptions="Start"
+                    HorizontalOptions="End"
+                    Padding="0"
+                    Spacing="0"
+                    >
+                    <ffimageloading:CachedImage
+                        Source="SmallFavoIconOn.png"
+                        Aspect="AspectFit"
+                        WidthRequest="17.7"
+                        HeightRequest="16"
+                    />
+                </StackLayout>
+            <StackLayout>
+            </StackLayout>
+                
+            </StackLayout>
+            
+<!--            <RowDefinition Height="0.01*" />-->
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+            />
+<!--        RowDefinition Height="0.4*" />-->
+            <Label
+                Text="{Binding ReservationCondition, Mode=TwoWay}"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                FontSize="10"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand"
+                Grid.Row="5"
+                Grid.Column="0"
+                Margin="16,0,0,3"
+
+            />
+<!--            <RowDefinition Height="0.01*" />-->
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="6"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+            />
+
+<!--            <RowDefinition Height="0.68*" />-->
+            <StackLayout
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                Spacing="0"
+                Padding="0"
+                  Grid.Row="7"
+                Grid.Column="0"
+                >
+            
+            <BoxView
+                Color="{x:Static local:ColorList.colorMain}"
+                HorizontalOptions="Start"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="3"
+            />
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Spacing="0"
+
+                    BackgroundColor="White"
+                    Padding="13,5,10,5"
+                >
+    <!--                    Padding="17,13,14,8"-->
+                    <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding ReservationTap, Mode=TwoWay}"
+                            />
+                    </StackLayout.GestureRecognizers>
+
+                            <StackLayout                                    
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Orientation="Horizontal"
+                                    Spacing="0"
+                                    Padding="0"
+                                    >
+                            <StackLayout
+                                Spacing="2"
+                                HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="FillAndExpand"
+                                    Orientation="Horizontal"
+
+                                >
+                            <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                        Command="{Binding ReservationTap, Mode=TwoWay}"
+                                    />
+                            </StackLayout.GestureRecognizers>
+                                <Label
+                                    x:Name="ReservedDate"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start"
+                                    Text="{Binding ReservationDate, Mode=TwoWay}"
+                                    FontSize="{Binding ReservationFontSizes}"
+                                    TextColor="{Binding MainTextColor}"
+                                    LineBreakMode="NoWrap"
+                                    Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+
+                                    />
+
+                                <Label
+                                    x:Name="ReservedShopName"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Start"
+                                    Text="{Binding ReservedShopName, Mode=TwoWay}"
+                                    FontSize="{Binding ReservationFontSizes}"
+                                    TextColor="{Binding MainTextColor}"
+                                    LineBreakMode="TailTruncation"
+                                    Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+                                />
+                            </StackLayout>
+                            <Label
+                                    HorizontalOptions="End"
+                                    VerticalOptions="End"
+                                    Text="{Binding ReservationCount, Mode=TwoWay}"
+                                    FontSize="{Binding CountFontSizes}"
+                                    TextColor="{Binding MainTextColor}"
+                                    Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+                                    />
+                            </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="8"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+            />
+
+            <Label
+                Text="メニュー"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                FontSize="10"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="EndAndExpand"
+                Grid.Row="9"
+                Grid.Column="0"
+                Margin="16,0,0,3"
+            />
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="10"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+            />
+
+
+            <StackLayout
+                x:Name="GridViewContainer"
+                Grid.Row="11"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Spacing="0"
+                Padding="3"
+                BackgroundColor="White"
+                >
+
+                <Grid
+                    x:Name="BtnGrid"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Margin="0"
+                    RowSpacing="0"
+                    ColumnSpacing="0"
+                    >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.0*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="1.0*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="1.0*" />
+                </Grid.RowDefinitions>
+                    
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                         <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                         <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                         <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+
+                </Grid.ColumnDefinitions>
+                    
+             <AbsoluteLayout
+                    Grid.Row="1"
+                    Grid.Column="1"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton1_1_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                <AbsoluteLayout
+                    Grid.Row="1"
+                    Grid.Column="3"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton1_3_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+              <AbsoluteLayout
+                    Grid.Row="1"
+                    Grid.Column="5"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton1_5_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+              <AbsoluteLayout
+                    Grid.Row="1"
+                    Grid.Column="7"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton1_7_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                <AbsoluteLayout
+                    Grid.Row="3"
+                    Grid.Column="1"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton3_1_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                <AbsoluteLayout
+                    Grid.Row="3"
+                    Grid.Column="3"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton3_3_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                <AbsoluteLayout
+                    Grid.Row="3"
+                    Grid.Column="5"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton3_5_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                <AbsoluteLayout
+                    Grid.Row="3"
+                    Grid.Column="7"
+                        >
+                <local:HomeButtonView
+                            AbsoluteLayout.LayoutFlags="All"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            BindingContext="{Binding HomeButton3_7_BC, Mode=TwoWay}"
+                        />
+                </AbsoluteLayout>
+                    
+                </Grid>
+
+            </StackLayout>
+
+
+            <BoxView
+                Color="{x:Static local:ColorList.colorCellBoader}"
+                Grid.Row="12"
+                Grid.Column="0"
+            />
+            <StackLayout
+                Grid.Row="13"
+                Grid.Column="0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                  BackgroundColor="{x:Static local:ColorList.colorBackground}"
+                />
+        </Grid>
+        </StackLayout>
+        <StackLayout
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="1,0,1,1"
+            Padding="0,0,8,0"
+            IsVisible="{Binding ConfigVisible, Mode=TwoWay}"
+            >
+            <local:ConfigList
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                BindingContext="{Binding ConfigListBC, Mode=TwoWay}"
+            />
+        </StackLayout>
+
+    </AbsoluteLayout>
+</local:CustomHomePage>

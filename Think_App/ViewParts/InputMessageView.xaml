@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.InputMessageView"
+>
+	<Grid
+		RowSpacing="0"
+		ColumnSpacing="0"
+		BackgroundColor="{x:Static local:ColorList.colorMain}"
+		HeightRequest="{Binding ViewHeight}"
+		HorizontalOptions="FillAndExpand"
+        Padding="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="45" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="58" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="58" />
+		</Grid.ColumnDefinitions>
+
+		<local:CustomButton Grid.Row="1" Grid.Column="0"
+			Source="icon_message_plus.png"
+			ImageWidth="16.5"
+			ImageHeight="16.5"
+			BackgroundColor="Transparent"
+			BorderColor="Transparent"
+			BorderWidth="0"
+			Command="{Binding PlusButtonClickedCommand}"
+		/>
+		<local:InputMessageEditorView Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+			x:Name="EditorView"
+			BindingContext="{Binding EditorViewModel, Mode=TwoWay}"
+		/>
+		<local:CustomButton Grid.Row="1" Grid.Column="2"
+			Text="送信"
+			TextColor="{x:Static local:ColorList.colorWhite}"
+			FontSize="18"
+			BackgroundColor="Transparent"
+			BorderColor="Transparent"
+			BorderWidth="0"
+			Command="{Binding SendButtonClickedCommand}"
+		/>
+	</Grid>
+</ContentView>

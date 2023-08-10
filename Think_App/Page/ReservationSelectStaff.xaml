@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ReservationSelectStaff"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="予約"
+	>
+	<StackLayout
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		Spacing="0"
+		Padding="0"
+		BackgroundColor ="{x:Static local:ColorList.colorBackground}"
+		>
+
+
+			<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Padding="16,26,16,5"
+						>
+						<Label
+							Text="スタッフ選択"
+							FontSize="14"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							HorizontalOptions="Start"
+							VerticalOptions="Start"
+						/>
+					</StackLayout>
+						<BoxView
+							Color="#C9C3C5"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							HeightRequest="1"
+						/>
+		
+				<ListView
+					x:Name="StaffList"
+					ItemsSource="{Binding StaffList, Mode=TwoWay}"
+					HasUnevenRows="true"
+					VerticalOptions ="FillAndExpand"
+					HorizontalOptions="FillAndExpand"
+				>
+				<ListView.ItemTemplate>
+				<DataTemplate>
+					
+					<local:CustomViewCell 
+								SelectedBackgroundColor="{x:Static local:ColorList.colorWhite}"
+								>
+					
+						<StackLayout
+							VerticalOptions="FillAndExpand"
+							HorizontalOptions="FillAndExpand"
+							Spacing="0"
+							Padding="17,9,10,13"
+							BackgroundColor="#FFFFFF"
+						
+							>
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer
+									Command="{Binding SelectedStaffCommand, Mode=TwoWay}"
+								/>
+							</StackLayout.GestureRecognizers>
+								<StackLayout
+								Orientation="Horizontal"
+								VerticalOptions="FillAndExpand"
+								HorizontalOptions="FillAndExpand"
+								Spacing="0"
+								Padding="0"
+									>
+						<StackLayout
+							HorizontalOptions="Start"
+							VerticalOptions="Start"
+							Spacing="0"
+							Padding="13"
+							IsVisible="{Binding DetailVisible, Mode=TwoWay}"
+
+						>
+							<ffimageloading:CachedImage
+								x:Name="Thumnail"
+								Source="{Binding StaffThumbNail, Mode=TwoWay}"
+								Aspect="AspectFill"
+								HeightRequest="{Binding ThumbNailSize, Mode=TwoWay}"
+								WidthRequest="{Binding ThumbNailSize, Mode=TwoWay}"
+								DownsampleToViewSize="true"
+							/>
+						</StackLayout>
+						<StackLayout
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							Spacing="0"
+							Padding="0"
+							>
+							<StackLayout
+								HorizontalOptions="End"
+								VerticalOptions="Start"
+								Spacing="0"
+								Padding="0"
+								IsVisible="{Binding DetailVisible, Mode=TwoWay}"
+								>
+								<ffimageloading:CachedImage
+								x:Name="IsFavorite"
+								Source="{Binding FavoriteImage, Mode=TwoWay}"
+								Aspect="AspectFit"
+								HeightRequest="16"
+								WidthRequest="17.7"
+							/>
+							</StackLayout>
+							<StackLayout
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+								Spacing="0"
+								Padding="0,0,0,0"
+								>
+							<Label
+								Text="{Binding StaffName, Mode=TwoWay}"
+								FontSize="18"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="StartAndExpand"
+								VerticalOptions="StartAndExpand"
+								HorizontalTextAlignment="Start"
+								VerticalTextAlignment="Center"
+							/>
+							</StackLayout>
+							<StackLayout
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+								Spacing="0"
+								Padding="0,6,0,0"
+								>
+							<Label
+								Text="{Binding StaffNameFurigana, Mode=TwoWay}"
+								FontSize="10"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="StartAndExpand"
+								VerticalOptions="StartAndExpand"
+								HorizontalTextAlignment="Start"
+								VerticalTextAlignment="Center"
+							/>
+							</StackLayout>
+
+							<StackLayout
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+								Spacing="0"
+								Padding="0,12,0,0"
+								IsVisible="{Binding StaffCareerVisible, Mode=TwoWay}"
+								>
+							<Label
+								Text="{Binding StaffCareer, StringFormat='スタッフ歴 {0}'}"
+								FontSize="12"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="StartAndExpand"
+								VerticalOptions="StartAndExpand"
+								HorizontalTextAlignment="Start"
+								VerticalTextAlignment="Center"
+											
+							/>
+							</StackLayout>
+
+							<StackLayout
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+								Spacing="0"
+								Padding="0,37,0,0"
+								IsVisible="{Binding StaffSummaryVisible, Mode=TwoWay}"
+								>
+							<Label
+								Text="{Binding StaffSummary, Mode=TwoWay}"
+								FontSize="12"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="StartAndExpand"
+								VerticalOptions="StartAndExpand"
+								HorizontalTextAlignment="Start"
+								VerticalTextAlignment="Center"
+							/>
+							</StackLayout>
+
+							<StackLayout
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="EndAndExpand"
+								Spacing="0"
+								Padding="0,10,18,0"
+								IsVisible="{Binding DetailVisible, Mode=TwoWay}"
+								>
+									
+								<AbsoluteLayout
+									WidthRequest="{Binding  WhiteBtnWidth, Mode=TwoWay}"
+									HeightRequest="{Binding WhiteBtnHight, Mode=TwoWay}"
+									HorizontalOptions="End"
+									VerticalOptions="End"
+									Padding="0,0,0,0"
+									>
+											<StackLayout
+
+													AbsoluteLayout.LayoutBounds="0,0,1,1"
+												AbsoluteLayout.LayoutFlags="All"
+												HorizontalOptions="FillAndExpand"
+												VerticalOptions="FillAndExpand"
+												Spacing="0"
+												Padding="2,3,2,0"
+												>
+												<Image
+
+													Source="MidiumWhiteButtonShadow.png"
+													Aspect="AspectFit"
+												/>
+											</StackLayout>
+									
+								<local:CustomButton
+									AbsoluteLayout.LayoutBounds="0,0,1,1"
+									AbsoluteLayout.LayoutFlags="All"
+									Text="詳細を見る"
+									Command="{Binding StaffDetailCommand, Mode=TwoWay}"
+									Style="{StaticResource WhiteButton}"
+
+
+								/>
+								</AbsoluteLayout>
+							</StackLayout>
+						
+						</StackLayout>
+						</StackLayout>
+					</StackLayout>
+				</local:CustomViewCell>
+				</DataTemplate>
+				</ListView.ItemTemplate>
+				</ListView>
+	</StackLayout>
+</ContentPage>

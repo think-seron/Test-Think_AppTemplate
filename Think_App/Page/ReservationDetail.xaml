@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.ReservationDetail"
+	xmlns:local="clr-namespace:Think_App"
+	Title="予約"
+	>
+<StackLayout
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		Spacing="0"
+		Padding="0"
+		BackgroundColor ="{x:Static local:ColorList.colorBackground}"
+		>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Padding="16,26,16,5"
+			>
+			<Label
+				Text="予約内容の確認"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+			/>
+		</StackLayout>
+			<BoxView
+				Color="#C9C3C5"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Start"
+				HeightRequest="1"
+			/>
+			<ScrollView
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				>
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					Padding="0"
+					BackgroundColor="{x:Static local:ColorList.colorWhite}"
+					>
+					<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="16,22,16,0"
+						>
+						<Label
+							Text="{Binding ReservationDate, StringFormat='{0}〜'}"
+								FontSize="18"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+					</StackLayout>
+
+					<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="16,18,16,0"
+						>
+						<Label
+							Text="{Binding ReservationStore}"
+								FontSize="18"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+					</StackLayout>
+					<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Spacing="1"
+						Padding="16,18,16,0"
+						>
+						<Label
+							Text="{Binding ReservationStyList, StringFormat='スタイリスト : {0}'}"
+								FontSize="14"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+						<Label
+							Text="{Binding ReservationMenu, StringFormat='施術内容 : {0}'}"
+								FontSize="14"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+						<Label
+						Text="{Binding ReservationSource, StringFormat='予約元 : {0}'}"
+								FontSize="14"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+						<Label
+							Text="{Binding ReservationUsingCoupon, StringFormat='クーポン利用 : {0}'}"
+								FontSize="14"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+							/>
+						<Label
+								Text="{Binding ReservationCouponContent, StringFormat='クーポンの内容 : {0}'}"
+								FontSize="14"
+								TextColor="{x:Static local:ColorList.colorFont}"
+								HorizontalOptions="Start"
+								VerticalOptions="Start"
+								IsVisible="{Binding ReservationCouponContentVisible}"
+							/>
+					<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="0,22,0,0">
+						<Frame
+							BackgroundColor="#969696"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							HasShadow="false"
+							Padding="0">
+							<StackLayout
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"
+								Spacing="0"
+								Padding="1"
+								>
+						<Frame
+							BackgroundColor="{x:Static local:ColorList.colorWhite}"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Center"
+							HasShadow="false"
+							Padding="1"
+							>
+							<StackLayout
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"
+								Spacing="0"
+								Padding="5">
+								<Label
+									Text="MEMO"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+											
+								/>
+										<ScrollView
+											HorizontalOptions="FillAndExpand"
+											VerticalOptions="FillAndExpand"
+											>
+											<StackLayout
+												HorizontalOptions="FillAndExpand"
+												VerticalOptions="FillAndExpand"
+												Spacing="5"
+												Padding="0"
+												>
+												<Label
+													Text="{Binding EditorText, Mode=TwoWay}"
+													FontSize="14"
+													TextColor="{x:Static local:ColorList.colorFont}"
+													HorizontalOptions="FillAndExpand"
+													HeightRequest="114"
+													VerticalOptions="Start"
+													HorizontalTextAlignment="Start"
+													VerticalTextAlignment="Start"
+												/>
+											</StackLayout>
+										</ScrollView>
+								
+							</StackLayout>	
+						</Frame>
+						</StackLayout>
+						</Frame>
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="EndAndExpand"
+					Spacing="0"
+					Padding="18,18,18,30"
+					>
+					<StackLayout
+						Orientation="Horizontal"
+						VerticalOptions="EndAndExpand"
+						Spacing="0"
+						Padding="0,0,0,0"
+						>
+						<AbsoluteLayout
+							WidthRequest="{Binding TelBtnWidth}"
+							HeightRequest="{Binding TelBtnHeight}"
+						>
+							<Image
+								AbsoluteLayout.LayoutBounds="0,0,1,1"
+								AbsoluteLayout.LayoutFlags="All"
+								Source="MidiumWhiteButtonShadow.png"
+								Aspect="AspectFit"
+							/>
+							<local:CustomButton
+								Command="{Binding CallCommand,Mode=TwoWay}"
+								AbsoluteLayout.LayoutBounds="0,0,1,1"
+								AbsoluteLayout.LayoutFlags="All"
+								Style="{StaticResource WhiteButton}"
+								Text="サロンに電話する"
+								Source="tel.png"
+								ImageLayoutPosition="Left"
+								ImageWidth="{Binding BtnImgSize}"
+								ImageHeight="{Binding BtnImgSize}"
+							/>
+						</AbsoluteLayout>
+						<AbsoluteLayout
+							WidthRequest="{Binding TelBtnWidth}"
+							HeightRequest="{Binding TelBtnHeight}"
+						>
+							<Image
+								AbsoluteLayout.LayoutBounds="0,0,1,1"
+								AbsoluteLayout.LayoutFlags="All"
+								Source="MidiumWhiteButtonShadow.png"
+								Aspect="AspectFit"
+							/>
+							<local:CustomButton
+								Command="{Binding CanselCommand, Mode=TwoWay}"
+								AbsoluteLayout.LayoutBounds="0,0,1,1"
+								AbsoluteLayout.LayoutFlags="All"
+								Style="{StaticResource WhiteButton}"
+								Text="予約キャンセル"
+								IsEnabled="{Binding CancelBtnEnable, Mode=TwoWay}"
+								UseCustomColor="true"
+								DisableColor="{x:Static local:ColorList.colorNeutralDisable}"
+							/>
+						</AbsoluteLayout>
+					</StackLayout>
+
+					<StackLayout
+						HorizontalOptions="EndAndExpand"
+						VerticalOptions="EndAndExpand"
+						Spacing="3"
+						Padding="0"
+					>
+						<Label
+							FormattedText="{Binding CanselText, Mode=TwoWay}"
+							FontSize="14"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							HorizontalOptions="StartAndExpand"
+							VerticalOptions="StartAndExpand"
+						/>
+					</StackLayout>
+					
+				</StackLayout>
+				
+			</StackLayout>
+		</ScrollView>
+	</StackLayout>
+</ContentPage>

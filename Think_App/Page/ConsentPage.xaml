@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ConsentPage"
+	xmlns:local="clr-namespace:Think_App"
+    >
+	<!--<ContentPage.BindingContext>
+		<local:ConsentPageViewModel/>
+	</ContentPage.BindingContext>-->
+	
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,0.61"
+            AbsoluteLayout.LayoutFlags="SizeProportional"
+            Source="loginBgImg.png"
+            Aspect="AspectFill"
+        />
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Source="ImageMask_White.png"
+            Aspect="Fill"
+        />   
+
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform x:TypeArguments="Rectangle"
+			                iOS="0,0,1,65"
+			                Android="0,0,1,45"
+			                />
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,19,1,0.68"
+			AbsoluteLayout.LayoutFlags="SizeProportional"
+			Margin="20,0,20,0"
+			BackgroundColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+		/>
+		<WebView
+			AbsoluteLayout.LayoutBounds="0,19,1,0.68"
+			AbsoluteLayout.LayoutFlags="SizeProportional"
+			Margin="21,1,21,1"
+			Source="{Binding Source, Mode=TwoWay}"
+            BackgroundColor="#FFFFFF"
+		/>
+
+		<StackLayout
+            Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="0.5,0.81,320,20"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+            Padding="2,0"
+            Orientation="Horizontal"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="8"
+            >
+            <local:CheckBoxView
+			    x:Name="CheckBox"
+                HorizontalOptions="EndAndExpand"
+			    VerticalOptions="CenterAndExpand"
+				IsEnabled="False"
+		    />
+            <Label
+                Text="利用規約とプライバシーポリシーについて同意する"
+			    FontSize="12"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                HorizontalOptions="StartAndExpand"
+                VerticalOptions="CenterAndExpand"
+                VerticalTextAlignment="Center"
+                />
+        </StackLayout>
+		<!--<CheckBox
+			x:Name="CheckBox"
+            Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="0.5,0.81,320,20"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+            Text="利用規約とプライバシーポリシーについて同意する"
+			TextFontSize="12"
+			VerticalOptions="Center"
+			TextColor="{x:Static local:ColorList.colorFont}"
+            BackgroundColor="Red"
+            IsDisabled="False"
+            IsVisible="True"
+		/>-->
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="同意する"
+				Style="{StaticResource StandardCustomButton}"
+				Command="{Binding ConsentCommand}"
+				IsEnabled="{Binding ButtonEnable, Mode=TwoWay}"
+			/>
+		</AbsoluteLayout>
+
+	</AbsoluteLayout>
+</ContentPage>

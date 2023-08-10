@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.BeautyBolgTileItem"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	xmlns:local="clr-namespace:Think_App"
+	>
+<AbsoluteLayout
+	                WidthRequest="{Binding BlogImageSize,Mode=TwoWay}"
+	                HeightRequest="{Binding BlogImageSize,Mode=TwoWay}"
+	                VerticalOptions="Center"
+	                HorizontalOptions="Start"
+					IsVisible="{Binding ItemIsVisible, Mode=TwoWay}"
+	            >
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                    AbsoluteLayout.LayoutFlags="All"
+	                    Source="{Binding BlogImageSouce, Mode=TwoWay}"
+	                    Aspect="AspectFill"
+	                    DownsampleToViewSize="true"
+	                />
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+	                    AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+	                    HeightRequest="{Binding DateLabelHeight, Mode=TwoWay}"
+	                    Source="MyBlogDateShadow.png"
+	                    Aspect="AspectFill"
+	                />
+	
+			 <Label
+					AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize"
+					AbsoluteLayout.LayoutFlags="PositionProportional"
+					HeightRequest="{Binding DateLabelHeight, Mode=TwoWay}"
+                    Text="{Binding ImageDateStringrShort, Mode=TwoWay}"
+                    TextColor="{x:Static local:ColorList.colorWhite}"
+                    FontSize="{Binding BlogImageFontSize}"
+                    HorizontalOptions="CenterAndExpand"
+					VerticalOptions="Center"
+	                />
+	               
+	                <AbsoluteLayout.GestureRecognizers>
+	                    <TapGestureRecognizer Command="{Binding OnImageClickCommand, Mode=TwoWay}"/>
+	                </AbsoluteLayout.GestureRecognizers>
+		</AbsoluteLayout>
+</ContentView>

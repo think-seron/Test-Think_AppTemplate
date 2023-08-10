@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Frame
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Think_App.ImageAndTextButtonViewDroid"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Name="this"
+	HasShadow="true"
+	WidthRequest="{Binding Source={x:Reference this}, Path=BtnSize}"
+	HeightRequest="{Binding Source={x:Reference this}, Path=BtnSize}"
+	BackgroundColor="{Binding Source={x:Reference this}, Path=BtnBgColor}"
+	CornerRadius="8"
+	Padding="0"
+	>
+    <Grid
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        ColumnSpacing="0"
+        RowSpacing="4"
+        Padding="1"
+        >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+       
+        <Image
+	        Grid.Row="0"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            Source="{Binding Source={x:Reference this}, Path=BtnImage}"
+            HeightRequest="{Binding Source={x:Reference this}, Path=BtnImageHeight}"
+            WidthRequest="{Binding Source={x:Reference this}, Path=BtnImageWidth}"
+	    />
+        <Label
+            Grid.Row="1"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="Start"
+            Text="{Binding Source={x:Reference this}, Path=BtnText}"
+			FontSize="{Binding Source={x:Reference this}, Path=BtnFontSize}"
+			TextColor="{Binding Source={x:Reference this}, Path=BtnTextColor}"
+			FontAttributes="Bold"
+            />
+    </Grid>
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer
+            Command="{Binding Source={x:Reference this}, Path=BtnCommand}"
+            />
+    </Frame.GestureRecognizers>
+</Frame>

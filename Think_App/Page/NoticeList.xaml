@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.NoticeList"
+	xmlns:local="clr-namespace:Think_App"
+	Title="お知らせ"
+>
+<!--	<ContentPage.ToolbarItems>
+		<ToolbarItem
+			x:Name="ToolbarItems"
+			Icon="{Binding ToolbarIcon, Mode=TwoWay}"
+			Command="{Binding ToolbarItemsClick, Mode=TwoWay}"
+		/>
+	</ContentPage.ToolbarItems>-->
+	<AbsoluteLayout
+		x:Name="AreaSelectLayout"
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+		
+		<Label
+			AbsoluteLayout.LayoutBounds="16,26,1,15"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Text="{Binding SalonName, StringFormat='{0}  お知らせ一覧'}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="13"
+			LineBreakMode="TailTruncation"
+		/>
+
+		<ListView
+			x:Name="ListView"
+			AbsoluteLayout.LayoutBounds="{Binding ListViewRect}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			RowHeight="84"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			Footer="{Binding}"
+			CachingStrategy="RecycleElement"
+		>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<local:ListViewNotice/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			<ListView.FooterTemplate>
+				<DataTemplate>
+					<StackLayout
+						BackgroundColor="{x:Static local:ColorList.colorBackground}"
+						HeightRequest="{Binding HooterHeight}"
+						WidthRequest="{Binding HooterWidth}"
+						IsVisible="{Binding HooterIsVisible}"
+						Padding="0,0,17,0"
+					>
+						<StackLayout
+							WidthRequest="105"
+							HeightRequest="{Binding HooterBtnHeight}"
+							HorizontalOptions="End"
+							VerticalOptions="CenterAndExpand"
+						>
+							<AbsoluteLayout>
+								<Image
+									AbsoluteLayout.LayoutBounds="0,0,1,1"
+									AbsoluteLayout.LayoutFlags="All"
+									Source="SeeMoreButtonShadow.png"
+								/>
+								<local:CustomButton
+									Clicked="FooterBtnClick"
+									AbsoluteLayout.LayoutBounds="0,0,1,1"
+									AbsoluteLayout.LayoutFlags="All"
+									Style="{StaticResource SeeMoreButton}"
+								/>
+							</AbsoluteLayout>
+						</StackLayout>
+					</StackLayout>
+				</DataTemplate>
+			</ListView.FooterTemplate>
+		</ListView>
+
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,46,1,1"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+
+	</AbsoluteLayout>
+</ContentPage>

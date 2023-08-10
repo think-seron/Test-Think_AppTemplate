@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.ListViewCoupon"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+>
+	<StackLayout
+		x:Name="Coupon"
+		Margin="17,19,17,18"
+		Spacing="0"
+	>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="StartAndExpand"
+			Spacing="0"
+			Padding="0"
+		>
+			<Label
+				FontSize="{Binding CouponTitleFontSize}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding CouponTitle}"
+				LineBreakMode="TailTruncation"
+			/>
+		</StackLayout>
+
+		<StackLayout
+    		HorizontalOptions="FillAndExpand"
+    		VerticalOptions="End"
+    		Orientation="Horizontal"
+    		Spacing="0"
+		>
+			<StackLayout
+				HorizontalOptions="Start"
+				VerticalOptions="Fill"
+				Spacing="0"
+				Padding="0"
+		    >
+				<ffimageloading:CachedImage
+					Aspect="AspectFill"
+					VerticalOptions="Center"
+					HorizontalOptions="Center"
+					Source="{Binding CouponImageSouce}"
+					WidthRequest="{Binding CouponThumbnailSize}"
+					HeightRequest="{Binding CouponThumbnailSize}"
+				/>
+			</StackLayout>
+			<StackLayout
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="0"
+				Padding="28,13,0,0"
+			>
+				<Label
+					FontSize="{Binding ShopNameFontSize}"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					Text="{Binding ShopName}"
+					LineBreakMode="TailTruncation"
+					HorizontalOptions="Start"
+					VerticalOptions="Start"
+				/>            
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="CenterAndExpand"
+					Spacing="4"
+					Padding="0"
+				>
+					<Label
+						FontSize="{Binding OperationContentFontSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding OperationContent, StringFormat='施術内容 : {0}'}"
+						LineBreakMode="TailTruncation"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+					/>
+					<Label
+						FontSize="{Binding DiscountContentFontSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding DiscountContent, StringFormat='割引内容 : {0}'}"
+						LineBreakMode="TailTruncation"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+					/>
+					<Label
+						FontSize="{Binding TermsOfUseFontSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding TermsOfUse, StringFormat='利用条件 : {0}'}"
+						LineBreakMode="TailTruncation"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+					/>
+					<Label
+						FontSize="{Binding SpatialConditionFontSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding SpatialCondition, StringFormat='提示条件 : {0}'}"
+						LineBreakMode="TailTruncation"
+						HorizontalOptions="Start"
+						VerticalOptions="Start"
+					/>
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+
+	</StackLayout>
+	<!--<Grid
+		Margin="0"
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+	    <Grid.RowDefinitions>
+			<RowDefinition Height="0.85*" />
+			<RowDefinition Height="2.35*" />
+
+			<RowDefinition Height="2.1*" />
+			<RowDefinition Height="0.63*" />
+			<RowDefinition Height="0.63*" />
+			<RowDefinition Height="0.63*" />
+			<RowDefinition Height="2.01*" />
+			
+			<RowDefinition Height="0.8*" />
+	    </Grid.RowDefinitions>    
+	    <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.45*" />
+			<ColumnDefinition Width="3.6*" />
+			<ColumnDefinition Width="0.96*" />
+			<ColumnDefinition Width="4.99*" />
+	    </Grid.ColumnDefinitions>
+
+		<Label
+			Grid.Row="1"
+			Grid.Column="1"
+			Grid.ColumnSpan="3"
+			Margin="15,0,0,0"
+			FontSize="{Binding CouponTitleFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding CouponTitle}"
+			LineBreakMode="TailTruncation"
+		/>
+
+		<ffimageloading:CachedImage
+			Grid.Row="2"
+			Grid.RowSpan="5"
+	        Grid.Column="1"
+			Aspect="AspectFill"
+			Source="{Binding CouponImageSouce}"
+			DownsampleToViewSize="true"
+		/>
+
+		<Label
+			Grid.Row="2"
+			Grid.Column="3"
+			Margin="0,9,0,0"
+			FontSize="{Binding ShopNameFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding ShopName}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="3"
+			Grid.Column="3"
+			FontSize="{Binding OperationContentFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding OperationContent, StringFormat='施術内容 : {0}'}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="4"
+			Grid.Column="3"
+			FontSize="{Binding DiscountContentFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding DiscountContent, StringFormat='割引内容 : {0}'}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="5"
+			Grid.Column="3"
+			FontSize="{Binding TermsOfUseFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding TermsOfUse, StringFormat='利用条件 : {0}'}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="6"
+			Grid.Column="3"
+			FontSize="{Binding SpatialConditionFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding SpatialCondition, StringFormat='提示条件 : {0}'}"
+			LineBreakMode="TailTruncation"
+		/>
+	</Grid>-->
+</ViewCell>

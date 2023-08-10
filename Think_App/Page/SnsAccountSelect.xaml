@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.SnsAccountSelect"
+	xmlns:local="clr-namespace:Think_App"
+>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+			<Style x:Key="SNSButtonLayoutStyle" TargetType="AbsoluteLayout" BasedOn="{StaticResource StandardCustomButtonSize}">
+     			<Setter Property="Margin" Value="{Binding SNSButtonMargin}"/>
+     		</Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,0.61"
+            AbsoluteLayout.LayoutFlags="SizeProportional"
+            Source="loginBgImg.png"
+            Aspect="AspectFill"
+        />
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Source="ImageMask_White.png"
+            Aspect="Fill"
+        />   
+
+        <StackLayout
+            AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Margin="{Binding BottomMargin}"
+        >
+		    <Label
+			    Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			    TextColor="{x:Static local:ColorList.colorFont}"
+			    FontSize="16"
+			    HorizontalTextAlignment="Center"
+			    VerticalTextAlignment="Center"
+			    FormattedText="{Binding CustomFormattedText}"
+			    HeightRequest="46"
+                Margin="{Binding TextMargin}"
+		    />
+
+            <AbsoluteLayout
+			    AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+			    AbsoluteLayout.LayoutFlags="PositionProportional"
+			    Style="{StaticResource SNSButtonLayoutStyle}"
+                IsVisible="{Binding IsAppleSignInAvailable}"
+				HeightRequest="{Binding ButtonHeight}"
+                WidthRequest="{Binding  ButtonWidth}"
+		    >
+			    <Image
+				    Style="{StaticResource ButtonShadow}"
+			    />
+			    <local:CustomButton
+				    AbsoluteLayout.LayoutBounds="0,0,1,1"
+				    AbsoluteLayout.LayoutFlags="All"
+				    Text=" Sign in with Apple"
+				    TextColor="{x:Static local:ColorList.colorWhite}"
+				    BackgroundColor="#000000"
+				    Command="{Binding AppleCommand}"
+				    Style="{StaticResource SNSCustomButton}"
+				    HighlightColor="#506696"
+					HeightRequest="{Binding ButtonHeight}"
+                    WidthRequest="{Binding  ButtonWidth}"
+                    FontSize="{Binding ButtonFontSize}"
+			    />
+		    </AbsoluteLayout>
+
+		    <AbsoluteLayout
+			    AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+			    AbsoluteLayout.LayoutFlags="PositionProportional"
+			    Style="{StaticResource SNSButtonLayoutStyle}"
+				HeightRequest="{Binding ButtonHeight}"
+                WidthRequest="{Binding  ButtonWidth}"
+		    >
+			    <Image
+				    Style="{StaticResource ButtonShadow}"
+			    />
+			    <local:CustomButton
+				    AbsoluteLayout.LayoutBounds="0,0,1,1"
+				    AbsoluteLayout.LayoutFlags="All"
+				    Text="Facebook"
+				    TextColor="{x:Static local:ColorList.colorWhite}"
+				    BackgroundColor="#2E5097"
+				    Command="{Binding facebookCommand}"
+				    Style="{StaticResource SNSCustomButton}"
+				    HighlightColor="#506696"
+					HeightRequest="{Binding ButtonHeight}"
+                    WidthRequest="{Binding  ButtonWidth}"
+                    FontSize="{Binding ButtonFontSize}"
+			    />
+		    </AbsoluteLayout>
+
+		    <AbsoluteLayout
+			    AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+			    AbsoluteLayout.LayoutFlags="PositionProportional"
+			    Style="{StaticResource SNSButtonLayoutStyle}"
+				HeightRequest="{Binding ButtonHeight}"
+                WidthRequest="{Binding  ButtonWidth}"
+		    >
+			    <Image
+				    Style="{StaticResource ButtonShadow}"
+			    />
+			    <local:CustomButton
+				    AbsoluteLayout.LayoutBounds="0,0,1,1"
+				    AbsoluteLayout.LayoutFlags="All"
+				    BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				    Style="{StaticResource SNSCustomButton}"
+				    Text="Google"
+				    TextColor="#4A4A4A"
+				    Command="{Binding GoogleCommand}"
+				    Source="googleBtn.png"
+				    ImageWidth="224"
+				    ImageHeight="5"
+				    ImageLayoutPosition="Bottom"
+					HeightRequest="{Binding ButtonHeight}"
+                    WidthRequest="{Binding  ButtonWidth}"
+                    FontSize="{Binding ButtonFontSize}"
+			    />
+		    </AbsoluteLayout>
+		    <AbsoluteLayout
+			    AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+			    AbsoluteLayout.LayoutFlags="PositionProportional"
+			    Style="{StaticResource SNSButtonLayoutStyle}"
+				HeightRequest="{Binding ButtonHeight}"
+                WidthRequest="{Binding  ButtonWidth}"
+		    >
+			    <Image
+				    Style="{StaticResource ButtonShadow}"
+			    />
+			    <local:CustomButton
+				    AbsoluteLayout.LayoutBounds="0,0,1,1"
+				    AbsoluteLayout.LayoutFlags="All"
+				    Text="LINE"
+				    TextColor="{x:Static local:ColorList.colorWhite}"
+				    BackgroundColor="#53CA3F"
+				    Style="{StaticResource SNSCustomButton}"
+				    HighlightColor="#7ACB6C"
+				    Command="{Binding LineCommand}"
+					HeightRequest="{Binding ButtonHeight}"
+                    WidthRequest="{Binding  ButtonWidth}"
+                    FontSize="{Binding ButtonFontSize}"
+			    />
+		    </AbsoluteLayout>
+        </StackLayout>
+	</AbsoluteLayout>
+</ContentPage>

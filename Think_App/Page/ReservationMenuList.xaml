@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ReservationMenuList"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="予約"
+	>
+	<StackLayout
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		Spacing="0"
+		Padding="0"
+		BackgroundColor ="{x:Static local:ColorList.colorBackground}"
+		>
+		
+		<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Padding="16,26,16,5"
+						>
+						<Label
+							Text="クーポン・メニュー"
+							FontSize="14"
+							TextColor="{x:Static local:ColorList.colorFont}"
+							HorizontalOptions="Start"
+							VerticalOptions="Start"
+						/>
+					</StackLayout>
+						<BoxView
+							Color="#C9C3C5"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							HeightRequest="1"
+						/>
+		
+				<ListView
+					ItemsSource="{Binding MenuList, Mode=TwoWay}"
+					HasUnevenRows="true"
+					VerticalOptions ="FillAndExpand"
+					HorizontalOptions="FillAndExpand"
+				>
+<!--								HeightRequest="{Binding MenuListHeight, Mode=TwoWay}"-->
+
+				<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout
+							x:Name="ContentsContainer"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							Spacing="0"
+							Padding="0"
+							BackgroundColor="#FFFFFF"
+							>
+<!--														HeightRequest="{Binding ItemHeight, Mode=TwoWay}"-->
+
+							<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer
+									Command="{Binding MenuSelectCommand, Mode=TwoWay}"
+									/>
+							</StackLayout.GestureRecognizers>
+
+								<StackLayout
+								HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Spacing="0"
+									Padding="0"
+								>
+							<StackLayout
+								x:Name="Coupon"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="FillAndExpand"
+								Padding="11,19,15,8"
+								Spacing="0"
+								IsVisible="{Binding CouponVisible, Mode=TwoWay}"
+								>
+
+								<StackLayout
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="StartAndExpand"
+									Spacing="1"
+									Padding="0"
+											>
+									<Label
+										FontSize="{Binding CouponTitleFontSize}"
+										TextColor="{x:Static local:ColorList.colorFont}"
+										Text="{Binding CouponTitle}"
+										LineBreakMode="TailTruncation"
+									/>
+								</StackLayout>
+
+								<StackLayout
+											HorizontalOptions="FillAndExpand"
+											VerticalOptions="End"
+											Orientation="Horizontal"
+											Spacing="0"
+											Padding="0,12,0,0"
+											>
+											<StackLayout
+												HorizontalOptions="Start"
+												VerticalOptions="Fill"
+												Spacing="0"
+												Padding="0"
+												>
+												<ffimageloading:CachedImage
+										
+													Aspect="AspectFill"
+													VerticalOptions="Center"
+													HorizontalOptions="Center"
+													Source="{Binding CouponImageSouce}"
+													WidthRequest="{Binding CouponThumbnailSize, Mode=TwoWay}"
+													HeightRequest="{Binding CouponThumbnailSize, Mode=TwoWay}"
+
+												/>
+											</StackLayout>
+
+
+											<StackLayout
+												HorizontalOptions="StartAndExpand"
+												VerticalOptions="FillAndExpand"
+												Spacing="0"
+												Padding="28,13,0,0"
+												
+												>
+
+												<Label
+													FontSize="{Binding ShopNameFontSize}"
+													TextColor="{x:Static local:ColorList.colorFont}"
+													Text="{Binding ShopName}"
+													LineBreakMode="TailTruncation"
+													HorizontalOptions="Start"
+													VerticalOptions="Start"
+												/>
+
+												<StackLayout
+													HorizontalOptions="FillAndExpand"
+													VerticalOptions="CenterAndExpand"
+													Spacing="4"
+													Padding="0"
+													>
+													<Label
+														FontSize="{Binding OperationContentFontSize}"
+														TextColor="{x:Static local:ColorList.colorFont}"
+														Text="{Binding OperationContent, StringFormat='施術内容 : {0}'}"
+														LineBreakMode="TailTruncation"
+														HorizontalOptions="Start"
+														VerticalOptions="Start"
+													/>
+													<Label
+														FontSize="{Binding DiscountContentFontSize}"
+														TextColor="{x:Static local:ColorList.colorFont}"
+														Text="{Binding DiscountContent, StringFormat='割引内容 : {0}'}"
+														LineBreakMode="TailTruncation"
+														HorizontalOptions="Start"
+														VerticalOptions="Start"
+													/>
+													<Label
+														FontSize="{Binding TermsOfUseFontSize}"
+														TextColor="{x:Static local:ColorList.colorFont}"
+														Text="{Binding TermsOfUse, StringFormat='利用条件 : {0}'}"
+														LineBreakMode="TailTruncation"
+														HorizontalOptions="Start"
+														VerticalOptions="Start"
+													/>
+													<Label
+														FontSize="{Binding SpatialConditionFontSize}"
+														TextColor="{x:Static local:ColorList.colorFont}"
+														Text="{Binding SpatialCondition, StringFormat='提示条件 : {0}'}"
+														LineBreakMode="TailTruncation"
+														HorizontalOptions="Start"
+														VerticalOptions="Start"
+													/>
+													</StackLayout>
+											</StackLayout>
+											
+								</StackLayout>
+
+							</StackLayout>
+
+							<StackLayout
+								x:Name="Menu"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="FillAndExpand"
+								Spacing="0"
+								Padding="8,22,12,28"
+								IsVisible="{Binding MenuVisible, Mode=TwoWay}"
+								>
+								<StackLayout
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="Start"
+									Spacing="0"
+									Padding="0"
+									>
+									<Label
+										Text="{Binding MenuTitle, Mode=TwoWay}"
+										FontSize="18"
+										FontAttributes="Bold"
+										TextColor="{x:Static local:ColorList.colorFont}"
+										HorizontalOptions="Start"
+										VerticalOptions="Start"
+									/>
+								</StackLayout>
+
+
+								<StackLayout
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="FillAndExpand"
+									Orientation="Horizontal"
+									Spacing="0"
+									Padding="0,8,0,0"
+
+									>
+									<Label
+										HorizontalOptions="StartAndExpand"
+										VerticalTextAlignment="Center"
+										HorizontalTextAlignment="Start"
+										Text="{Binding MenuDuration, StringFormat='所要時間 : {0}分〜'}"
+										FontSize="14"
+										TextColor="{x:Static local:ColorList.colorFont}"
+										/>
+									<Label
+										HorizontalOptions="EndAndExpand"
+										VerticalTextAlignment="Center"
+										HorizontalTextAlignment="End"
+										Text="{Binding MenuPrice, StringFormat='¥ {0}'}"
+										FontSize="14"
+										TextColor="{x:Static local:ColorList.colorFont}"
+										/>
+										
+								</StackLayout>
+
+                                <StackLayout
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="End"
+                                            Orientation="Horizontal"
+                                            Spacing="0"
+                                            Padding="0,12,0,0"
+                                            >
+
+                                        <Label
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="Start"
+                                            HorizontalTextAlignment="Start"
+                                            FontSize="{Binding OperationContentFontSize}"
+                                            TextColor="{x:Static local:ColorList.colorFont}"
+                                            Text="{Binding MenuOperationContent}"
+                                            LineBreakMode="WordWrap"
+                                            />
+
+                                </StackLayout>
+							</StackLayout>
+
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+				</ListView.ItemTemplate>
+				</ListView>
+	</StackLayout>
+</ContentPage>

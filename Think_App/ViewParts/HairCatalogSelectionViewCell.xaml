@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"	
+	x:Class="Think_App.HairCatalogSelectionViewCell"
+>
+	<Grid
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="{Binding HCSVCImageHeight}" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" />
+		</Grid.ColumnDefinitions>
+
+		<Image Grid.Row="0" Grid.Column="0"
+			Source="{Binding HCSVCImageSource}"
+			Aspect="AspectFill"
+			HorizontalOptions="FillAndExpand"
+		/>
+		<Label Grid.Row="1" Grid.Column="0"
+			Text="{Binding HCSVCHairStyleNameLblText}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="12"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center"
+		/>
+	</Grid>
+</ViewCell>

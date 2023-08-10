@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SavadDataSelectedPage"
+>
+	<AbsoluteLayout x:Name="AbsLayout">
+		<Image
+			x:Name="SelectedImage"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			Aspect="AspectFill"
+			BackgroundColor="{x:Static local:ColorList.colorBlack}"
+		/>
+		<StackLayout
+			AbsoluteLayout.LayoutBounds="0,1,1,Autosize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+		>
+			<Image
+				Source="mask_white_blur.png"
+				Aspect="Fill"
+				HorizontalOptions="FillAndExpand"
+				HeightRequest="178"
+			/>
+		</StackLayout>
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,1,Autosize,Autosize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Margin="0,0,0,45"
+			Scale="{Binding ScreenSizeScale}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				x:Name="EditBtn"
+				Text="画像を編集する"
+				Style="{StaticResource StandardCustomButton}"
+			/>
+		</AbsoluteLayout>
+	</AbsoluteLayout>
+</ContentPage>

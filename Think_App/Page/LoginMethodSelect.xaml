@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.LoginMethodSelect"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<ContentPage.BindingContext>
+		<local:LoginMethodSelectViewModel/>
+	</ContentPage.BindingContext>
+	
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+		<Image
+			AbsoluteLayout.LayoutBounds="0,0,1,0.61"
+			AbsoluteLayout.LayoutFlags="All"
+			Source="loginBgImg.png"
+			Aspect="AspectFill"
+		/>
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Source="ImageMask_White.png"
+            Aspect="Fill"
+        />  
+		<!--<Image
+			AbsoluteLayout.LayoutFlags="SizeProportional"
+			Source="loginBgImg.png"
+			Aspect="AspectFill"
+		>
+			<Image.AbsoluteLayout.LayoutBounds>
+				<OnPlatform x:TypeArguments="Rectangle"
+				                iOS="0,0,1,0.61"
+				                Android="0,0,1,0.61"
+				                />
+			</Image.AbsoluteLayout.LayoutBounds>
+		</Image>-->
+		
+<!--		<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}"
+			IsVisible = "false">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform x:TypeArguments="Rectangle"
+			                iOS="0,0,1,65"
+			                Android="0,0,1,45"
+			                />
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+		<Label
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="0.5,0.57,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Text="ログイン方法を選択してください"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="17"
+			HorizontalTextAlignment="Center"
+			HeightRequest="20"
+		/>
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.68,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="SNSでログイン"
+				Style="{StaticResource StandardCustomButton}"
+				Command="{Binding SNSCommand}"
+			/>
+		</AbsoluteLayout>
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.79,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="引き継ぎコードでログイン"
+				Style="{StaticResource StandardCustomButton}"
+				FontSize="15"
+				Command="{Binding CodeCommand}"
+			/>
+		</AbsoluteLayout>
+
+	</AbsoluteLayout>
+</ContentPage>

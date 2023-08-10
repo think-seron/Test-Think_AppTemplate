@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ModalView"
+	xmlns:local="clr-namespace:Think_App"
+	BackgroundColor="Transparent"
+>
+	<AbsoluteLayout>
+        <ContentView
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="#000000"
+			Opacity="0.6"
+            />
+		<Image
+			Scale="{Binding ScreenSizeScale}"
+			AbsoluteLayout.LayoutBounds="{Binding ImageRect}"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Source="{Binding ImageSource}"
+			Aspect="{Binding ImageAspect}"
+			WidthRequest="{Binding ImageWidth}"
+			HeightRequest="{Binding ImageHeight}"
+		/>
+		<Label
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="{Binding NomalModalLabelRect, Mode=TwoWay}"
+			AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+			Text="{Binding ModalLabelTxt, Mode=TwoWay}"
+			FontSize="{Binding ModalLabelFontSize}"
+			TextColor="White"
+			HeightRequest="75"
+			HorizontalOptions="Center"
+			HorizontalTextAlignment="Center"
+		/>
+		<local:CustomButton
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="{Binding OKBtnLayoutBounds, Mode=TwoWay}"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Text="OK"
+			Style="{StaticResource modalCustomButtonBlue}"
+			x:Name="OKButton"
+		/>
+
+		<Grid
+			Margin="0"
+			RowSpacing="0"
+			ColumnSpacing="0"
+			AbsoluteLayout.LayoutBounds="{Binding SelectBtnLayoutBounds, Mode=TwoWay}"
+			AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional"
+		>
+			<!-- 行の定義 -->
+		    <Grid.RowDefinitions>
+				<RowDefinition Height="10*" />
+		    </Grid.RowDefinitions>    
+		    <!-- 列の定義 -->
+		    <Grid.ColumnDefinitions>
+				<ColumnDefinition Width="5*" />
+				<ColumnDefinition Width="5*" />
+		    </Grid.ColumnDefinitions>
+			<local:CustomButton
+				Text="{Binding NoButtonTxt, Mode=TwoWay}"
+				Style="{StaticResource modalSelectButton}"
+				x:Name="NoButton"
+				HorizontalOptions="EndAndExpand"
+				Margin="0,0,2,0"
+				BackgroundColor="{x:Static local:ColorList.colorNegative}"
+				HighlightColor="{x:Static local:ColorList.colorNegativeHightLight}"
+				UseCustomColor="true"
+			/>
+			<local:CustomButton
+				Grid.Column="1"
+				Text="{Binding YesButtonTxt, Mode=TwoWay}"
+				Style="{StaticResource modalSelectButton}"
+				x:Name="YesButton"
+				HorizontalOptions="StartAndExpand"
+				Margin="2,0,0,0"
+				BackgroundColor="{x:Static local:ColorList.colorPositive}"
+				HighlightColor="{x:Static local:ColorList.colorPositiveHightlight}"
+				UseCustomColor="true"
+			/>
+		</Grid>
+	</AbsoluteLayout>
+</ContentView>

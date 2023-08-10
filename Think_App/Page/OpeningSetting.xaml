@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.OpeningSetting"
+	xmlns:local="clr-namespace:Think_App"
+	Title="設定"
+>
+	<!--<ContentPage.BindingContext>
+		<local:OpeningSettingViewModel/>
+	</ContentPage.BindingContext>-->
+	
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+		
+		<Label
+			Text="公開設定"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="12"
+			VerticalOptions="End"
+			AbsoluteLayout.LayoutBounds="16,18,105,18"
+		/>
+
+		<local:CustomSwitchCell
+			x:Name="BlogSwitchCell"
+			BindingContext="{Binding CustomSwitchCellBlog, Mode=TwoWay}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			AbsoluteLayout.LayoutBounds="0,38,1,48"
+		/>
+		
+		<BoxView
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+			AbsoluteLayout.LayoutBounds="0,85,1,1"
+		/>
+
+		<Label
+			AbsoluteLayout.LayoutFlags="XProportional"
+			Text="公開するとサロンと共有することができます。"
+			HorizontalOptions="Center"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="11"
+			AbsoluteLayout.LayoutBounds="1,99,250,13"
+		/>
+	</AbsoluteLayout>
+</ContentPage>

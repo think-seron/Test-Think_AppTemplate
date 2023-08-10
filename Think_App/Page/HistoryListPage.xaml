@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.HistoryListPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="施術履歴"
+>
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<Label
+			AbsoluteLayout.LayoutBounds="16,26,1,15"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Text="施術履歴"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="13"
+			LineBreakMode="TailTruncation"
+		/>
+
+		<CollectionView
+			x:Name="ListView"
+			AbsoluteLayout.LayoutBounds="{Binding ListViewRect}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			BackgroundColor="{x:Static local:ColorList.colorBackground}"
+			ItemsSource="{Binding HistoryItemSouce}"
+			Footer="{Binding}"
+		>
+			<CollectionView.ItemTemplate>
+				<DataTemplate>
+					<local:ListViewHistory>
+						<local:ListViewHistory.GestureRecognizers>
+							<TapGestureRecognizer
+								Command="{Binding Source={RelativeSource AncestorType={x:Type local:HistoryListPageViewModel}}, Path=HistoryTapCommand}"
+								CommandParameter="{Binding}"
+								/>
+						</local:ListViewHistory.GestureRecognizers>
+					</local:ListViewHistory>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
+			<CollectionView.FooterTemplate>
+				<DataTemplate>
+					<StackLayout
+						BackgroundColor="{x:Static local:ColorList.colorBackground}"
+						HeightRequest="{Binding HooterHeight}"
+						WidthRequest="{Binding HooterWidth}"
+						IsVisible="{Binding HooterIsVisible}"
+						Padding="0,0,17,0"
+					>
+						<StackLayout
+							WidthRequest="105"
+							HeightRequest="{Binding HooterBtnHeight}"
+							HorizontalOptions="End"
+							VerticalOptions="CenterAndExpand"
+						>
+							<AbsoluteLayout>
+								<Image
+									AbsoluteLayout.LayoutBounds="0,0,1,1"
+									AbsoluteLayout.LayoutFlags="All"
+									Source="SeeMoreButtonShadow.png"
+									Aspect="AspectFill"
+								/>
+								<local:CustomButton
+									Clicked="FooterBtnClick"
+									AbsoluteLayout.LayoutBounds="0,0,1,1"
+									AbsoluteLayout.LayoutFlags="All"
+									Style="{StaticResource SeeMoreButton}"
+								/>
+							</AbsoluteLayout>
+						</StackLayout>
+					</StackLayout>
+				</DataTemplate>
+			</CollectionView.FooterTemplate>
+		</CollectionView>
+
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,46,1,1"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+	</AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.CodeLogin"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<!--<ContentPage.BindingContext>
+		<local:CodeLoginViewModel/>
+	</ContentPage.BindingContext>-->
+
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+		<local:CustomEntryCell
+			BindingContext="{Binding CustomEntryCode, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="0,46,1,48"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+		/>
+
+		<Label
+			AbsoluteLayout.LayoutBounds="0,106,1,AutoSize"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Margin="25,0,25,0"
+			Text="以前お使いの端末でこのアプリを起動し、設定メニューの引き継ぎコード情報に表示されるコードを入力してください"
+			FontSize="12"
+			TextColor="{x:Static local:ColorList.colorFont}"
+		/>
+		
+		<BoxView
+			Color="{x:Static local:ColorList.colorCellBoader}"
+			AbsoluteLayout.LayoutBounds="0,93,1,1"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+		/>
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="ログイン"
+				Style="{StaticResource StandardCustomButton}"
+				x:Name="LoginBtn"
+			/>
+		</AbsoluteLayout>
+
+	</AbsoluteLayout>
+</ContentPage>

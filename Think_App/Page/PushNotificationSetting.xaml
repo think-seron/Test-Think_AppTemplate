@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.PushNotificationSetting"
+	xmlns:local="clr-namespace:Think_App"
+	Title="設定"
+>
+	<!--<ContentPage.BindingContext>
+		<local:PushNotificationSettingViewModel/>
+	</ContentPage.BindingContext>-->
+	
+	<StackLayout
+		x:Name="AreaSelectLayout"
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+        Padding="0"
+        Spacing="0"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+		
+		<Label
+			Text="プッシュ通知設定"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="12"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+			VerticalTextAlignment="End"
+            Margin="16,18,0,0"
+			HeightRequest="18"
+		/>
+
+		<local:CustomSwitchCell
+			x:Name="ReserveBefore1day"
+			BindingContext="{Binding BdgReserveBefore1day, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+			HeightRequest="48"
+		/>
+		
+		<local:CustomSwitchCell
+			x:Name="ReserveBeforeHour"
+			BindingContext="{Binding BdgReserveBeforeHour, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            HeightRequest="48"
+		/>
+		
+		<local:CustomSwitchCell
+			x:Name="Notice"
+			BindingContext="{Binding BdgNotice, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            HeightRequest="48"
+		/>
+			
+		<local:CustomSwitchCell
+			x:Name="Ticket"
+			BindingContext="{Binding BdgTicket, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            HeightRequest="48"
+		/>
+			
+		<local:CustomSwitchCell
+			x:Name="Message"
+			BindingContext="{Binding BdgMessage, Mode=TwoWay}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            HeightRequest="48"
+		/>
+			
+		<BoxView
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            HeightRequest="1"
+		/>
+
+	</StackLayout>
+</ContentPage>

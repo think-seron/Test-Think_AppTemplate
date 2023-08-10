@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Think_App"
+    mc:Ignorable="d"
+    x:Class="Think_App.App"
+    >
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{x:Static local:ColorList.colorMain}"/>
+                <Setter Property="BarTextColor"
+                        Value="{x:Static local:ColorList.colorWhite}"/>
+            </Style>
+            <Style TargetType="local:CustomNavigationPage">
+                <Setter Property="BarBackgroundColor"
+                        Value="{x:Static local:ColorList.colorMain}"/>
+                <Setter Property="BarTextColor"
+                        Value="{x:Static local:ColorList.colorWhite}"/>
+            </Style>
+
+			<Style x:Key="StandardCustomButton" TargetType="local:CustomButton">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="FontSize" Value="18"/>
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorNeutral}"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="WidthRequest" Value="224"/>
+				<Setter Property="HeightRequest" Value="50"/>
+				<Setter Property="AnchorX" Value="0.5"/>
+				<Setter Property="AnchorY" Value="0"/>
+				<!--<Setter Property="BorderWidth" Value="1"/>
+				<Setter Property="BorderColor" Value="{x:Static local:ColorList.colorCustomBtnBoader}"/>-->
+				<Setter Property="BorderRadius" Value="8"/>
+				<Setter Property="HighlightColor" Value="{x:Static local:ColorList.colorNeutralHightlight}"/>
+				<Setter Property="DisableColor" Value="{x:Static local:ColorList.colorNeutralDisable}"/>
+				<Setter Property="UseCustomColor" Value="true"/>
+				<Setter Property="Margin" Value="4,3,4,5"/>
+     		</Style>
+			<Style x:Key="modalCustomButtonBlue" TargetType="local:CustomButton">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="FontSize" Value="18"/>
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorPositive}"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="WidthRequest" Value="216"/>
+				<Setter Property="HeightRequest" Value="42"/>
+				<Setter Property="AnchorX" Value="0.5"/>
+				<Setter Property="AnchorY" Value="0"/>
+				<Setter Property="BorderRadius" Value="4"/>
+				<Setter Property="HighlightColor" Value="{x:Static local:ColorList.colorPositiveHightlight}"/>
+				<Setter Property="UseCustomColor" Value="true"/>
+     		</Style>
+			<Style x:Key="SNSCustomButton" TargetType="Button">
+				<Setter Property="FontSize" Value="16"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="WidthRequest" Value="224"/>
+				<Setter Property="HeightRequest" Value="50"/>
+				<Setter Property="AnchorX" Value="0.5"/>
+				<Setter Property="AnchorY" Value="0"/>
+				<!--<Setter Property="BorderWidth" Value="1"/>
+				<Setter Property="BorderColor" Value="{x:Static local:ColorList.colorCustomBtnBoader}"/>-->
+				<Setter Property="BorderRadius" Value="8"/>
+				<Setter Property="Margin" Value="4,3,4,5"/>
+     		</Style>
+			<Style x:Key="HomeMenuButton" TargetType="local:CustomButton">
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorHomeMenuBtn}"/>
+				<Setter Property="HighlightColor" Value="{x:Static local:ColorList.colorNeutralHightlight}"/>
+				<Setter Property="BorderRadius" Value="8"/>
+				<Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+				<Setter Property="AbsoluteLayout.LayoutBounds" Value="0,0,1,1"/>
+				<Setter Property="TextColor" Value="{x:Static local:ColorList.colorWhite}"/>
+				<Setter Property="FontSize" Value="14"/>
+				<Setter Property="ContentLayout" Value="Top, 20"/>
+				<Setter Property="UseCustomColor" Value="true"/>
+     		</Style>
+			<Style x:Key="HomeMenuButtonLabel" TargetType="Label">
+				<Setter Property="TextColor" Value="{x:Static local:ColorList.colorWhite}"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+				<Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.85,1,0.25"/>
+				<Setter Property="Scale" Value="{Binding ScreenSizeScale, Mode=TwoWay}"/>
+     		</Style>
+			<Style x:Key="HomeMenuButtonImg" TargetType="Image">
+				<!-- ImageビューでVerticalOptions,HorizontalOptions設定してしまうとandroidで画像が表示されない場合がある
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="HorizontalOptions" Value="Center"/>-->
+				<Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+				<Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.187,1,0.4"/>
+				<!--<Setter Property="Scale" Value="{Binding ScreenSizeScale, Mode=TwoWay}"/>-->
+     		</Style>
+			<Style x:Key="BatchIcon" TargetType="local:RoundedBoxView">
+				<Setter Property="HeightRequest" Value="14"/>
+				<Setter Property="WidthRequest" Value="14"/>
+				<Setter Property="CornerRadius" Value="7"/>
+				<Setter Property="Color" Value="{Binding RightBatchColor}"/>
+				<Setter Property="IsVisible" Value="{Binding BatchVisible, Mode=TwoWay}"/>
+			</Style>
+			<Style x:Key="modalSelectButton" TargetType="local:CustomButton">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="FontSize" Value="17"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="WidthRequest" Value="153"/>
+				<Setter Property="HeightRequest" Value="40"/>
+				<Setter Property="BorderRadius" Value="4"/>
+     		</Style>
+     		<Style x:Key="modalSelectButton_reservation" TargetType="local:CustomButton">
+    			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="FontSize" Value="17"/>
+				<Setter Property="VerticalOptions" Value="Center"/>
+				<Setter Property="HeightRequest" Value="40"/>
+				<Setter Property="BorderRadius" Value="4"/>
+			</Style>
+			
+			<Style x:Key="WhiteButton" TargetType="local:CustomButton">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorWhite}"/>
+				<Setter Property="BorderRadius" Value="6"/>
+				<Setter Property="FontSize" Value="12"/>
+				<Setter Property="Margin" Value="4,2,4,6"/>
+     		</Style>
+			<!--<Style x:Key="WhiteButton2" TargetType="Button">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorWhite}"/>
+				<Setter Property="BorderRadius" Value="9"/>
+     		</Style>-->
+			<Style x:Key="StandardCustomButtonSize" TargetType="AbsoluteLayout">
+     			<Setter Property="WidthRequest" Value="224"/>
+				<Setter Property="HeightRequest" Value="50"/>
+     		</Style>
+			<Style x:Key="ButtonShadow" TargetType="Image">
+     			<Setter Property="Source" Value="Button_Shadow.png"/>
+				<Setter Property="Aspect" Value="AspectFill"/>
+				<Setter Property="AbsoluteLayout.LayoutBounds" Value="0,0,1,1"/>
+				<Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+     		</Style>
+			<Style x:Key="SeeMoreButton" TargetType="local:CustomButton">
+     			<Setter Property="TextColor" Value="{x:Static local:ColorList.colorFont}"/>
+				<Setter Property="BackgroundColor" Value="{x:Static local:ColorList.colorWhite}"/>
+				<Setter Property="BorderRadius" Value="6"/>
+				<Setter Property="FontSize" Value="12"/>
+				<Setter Property="Text" Value="もっと見る"/>
+				<Setter Property="Margin" Value="4,2,4,6"/>
+     		</Style>
+		</ResourceDictionary>
+    </Application.Resources>
+</Application>

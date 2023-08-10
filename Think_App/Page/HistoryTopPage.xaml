@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.HistoryTopPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="履歴"
+>
+	<!--<StackLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+		Orientation="Vertical"
+	>
+		<StackLayout
+			Padding="16,22,16,3"
+			Spacing="0"
+			Margin="0"
+			Orientation="Horizontal"
+		>
+			<Label
+				WidthRequest="{Binding WidthSize}"
+				Text="施術履歴"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="{Binding HistoryLabelFontSize}"
+				LineBreakMode="TailTruncation"
+			/>
+		</StackLayout>
+
+		<StackLayout
+			Padding="0"
+			Margin="0"
+			Spacing="0"
+		>
+			<BoxView
+				WidthRequest="{Binding WidthSize}"
+				HeightRequest="1"
+				Color="{x:Static local:ColorList.colorCellBoader}"
+			/>
+			<ListView
+				x:Name="ListView"
+				HeightRequest="{Binding ListViewHeight}"
+				RowHeight="{Binding ListViewRowHeight}"
+				BackgroundColor="{x:Static local:ColorList.colorBackground}"
+				CachingStrategy="RecycleElement"
+				ItemsSource="{Binding HistoryItemSouce}"
+				HasUnevenRows="false"
+				Margin="0"
+			>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<local:ListViewHistory/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<BoxView
+				WidthRequest="{Binding WidthSize}"
+				HeightRequest="1"
+				Color="{x:Static local:ColorList.colorCellBoader}"
+			/>
+		</StackLayout>
+
+
+		<StackLayout
+			WidthRequest="105"
+			HorizontalOptions="End"
+			Padding="0,6,17,0"
+		>
+			<AbsoluteLayout>
+				<StackLayout
+
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					VerticalOptions="Start"
+					HorizontalOptions="FillAndExpand"
+					Padding="0,0,0,0"
+
+					>
+				<Image
+					Source="SeeMoreButtonShadow.png"
+					Aspect="AspectFill"
+					HeightRequest="36"
+				/>
+					</StackLayout>
+				<StackLayout
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					Padding="4,0,4,0"
+					>
+				<local:CustomButton
+						
+					x:Name="HistoryButton"
+					HorizontalOptions="Center"
+						VerticalOptions="Start"
+						BackgroundColor="White"
+						Text="test"
+						BorderRadius="6"
+						FontSize="12"
+						HeightRequest="28"
+						WidthRequest="96"
+				/>
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+
+		<StackLayout
+			Padding="16,22,16,3"
+		>
+			<Label
+				Text="My美log"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="13"
+				LineBreakMode="TailTruncation"
+			/>
+		</StackLayout>
+
+	    <StackLayout
+	        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	        AbsoluteLayout.LayoutFlags="All"
+	        BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	        Padding="0"
+	        Spacing="0"
+	        Margin="0"
+	    >
+	        <BoxView
+	            WidthRequest="{Binding WidthSize}"
+	            HeightRequest="1"
+	            Color="{x:Static local:ColorList.colorCellBoader}"
+	        />
+	        <Label
+	            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	            AbsoluteLayout.LayoutFlags="All"
+	            Text="My美Logが登録されていません"
+	            TextColor="{x:Static local:ColorList.colorFont}"
+	            FontSize="13"
+	            VerticalOptions="Center"
+	            HorizontalOptions="Center"
+	            IsVisible="false"
+	        />
+	        <StackLayout
+	            Orientation="Horizontal"
+	            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	            AbsoluteLayout.LayoutFlags="All"
+	            Padding="23,15,23,15"
+	            Spacing="0"
+	            IsVisible="true"
+	        >
+	            <AbsoluteLayout
+	                WidthRequest="{Binding BlogImageSize}"
+	                HeightRequest="{Binding BlogImageSize}"
+	                VerticalOptions="Center"
+	                HorizontalOptions="Start"
+	            >
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                    AbsoluteLayout.LayoutFlags="All"
+	                    Source="{Binding Image1Souce}"
+	                    Aspect="AspectFill"
+	                    DownsampleToViewSize="true"
+	                />
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+	                    AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Source="MyBlogDateShadow.png"
+	                    Aspect="AspectFill"
+	                    IsVisible="{Binding Image1ShadowIsVisible}"
+	                />
+	                <Label
+	                    AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize"
+	                    AbsoluteLayout.LayoutFlags="PositionProportional"
+	                    WidthRequest="{Binding DateLabelWidth}"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Text="{Binding Image1DateStringrShort}"
+	                    TextColor="{x:Static local:ColorList.colorWhite}"
+	                    FontSize="{Binding BlogImageFontSize}"
+	                    HorizontalOptions="Center"
+	                />
+	                <AbsoluteLayout.GestureRecognizers>
+	                    <TapGestureRecognizer Tapped="OnImage1Clicked"/>
+	                </AbsoluteLayout.GestureRecognizers>
+	            </AbsoluteLayout>
+	            <AbsoluteLayout
+	                WidthRequest="{Binding BlogImageSize}"
+	                HeightRequest="{Binding BlogImageSize}"
+	                VerticalOptions="Center"
+	                HorizontalOptions="CenterAndExpand"
+	            >
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                    AbsoluteLayout.LayoutFlags="All"
+	                    Source="{Binding Image2Souce}"
+	                    Aspect="AspectFill"
+	                    DownsampleToViewSize="true"
+	                />
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+	                    AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Source="MyBlogDateShadow.png"
+	                    Aspect="AspectFill"
+	                    IsVisible="{Binding Image2ShadowIsVisible}"
+	                />
+	                <Label
+	                    AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize"
+	                    AbsoluteLayout.LayoutFlags="PositionProportional"
+	                    WidthRequest="{Binding DateLabelWidth}"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Text="{Binding Image2DateStringrShort}"
+	                    TextColor="{x:Static local:ColorList.colorWhite}"
+	                    FontSize="{Binding BlogImageFontSize}"
+	                    HorizontalOptions="Center"
+	                />
+	                <AbsoluteLayout.GestureRecognizers>
+	                    <TapGestureRecognizer Tapped="OnImage2Clicked"/>
+	                </AbsoluteLayout.GestureRecognizers>
+	            </AbsoluteLayout>
+	            <AbsoluteLayout
+	                WidthRequest="{Binding BlogImageSize}"
+	                HeightRequest="{Binding BlogImageSize}"
+	                VerticalOptions="Center"
+	                HorizontalOptions="End"
+	            >
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                    AbsoluteLayout.LayoutFlags="All"
+	                    Source="{Binding Image3Souce}"
+	                    Aspect="AspectFill"
+	                    DownsampleToViewSize="true"
+	                />
+	                <ffimageloading:CachedImage
+	                    AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+	                    AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Source="MyBlogDateShadow.png"
+	                    Aspect="AspectFill"
+	                    IsVisible="{Binding Image3ShadowIsVisible}"
+	                />
+	                <Label
+	                    AbsoluteLayout.LayoutBounds="0.5,1,AutoSize,AutoSize"
+	                    AbsoluteLayout.LayoutFlags="PositionProportional"
+	                    WidthRequest="{Binding DateLabelWidth}"
+	                    HeightRequest="{Binding DateLabelHeight}"
+	                    Text="{Binding Image3DateStringrShort}"
+	                    TextColor="{x:Static local:ColorList.colorWhite}"
+	                    FontSize="{Binding BlogImageFontSize}"
+	                    HorizontalOptions="Center"
+	                />
+	                <AbsoluteLayout.GestureRecognizers>
+	                    <TapGestureRecognizer Tapped="OnImage3Clicked"/>
+	                </AbsoluteLayout.GestureRecognizers>
+	            </AbsoluteLayout>
+	        </StackLayout>
+	        <BoxView
+	            WidthRequest="{Binding WidthSize}"
+	            HeightRequest="1"
+	            Color="{x:Static local:ColorList.colorCellBoader}"
+	        />
+	    </StackLayout>
+		
+		<StackLayout
+			WidthRequest="105"
+			HorizontalOptions="End"
+			Padding="0,6,17,0"
+		>
+			<AbsoluteLayout>
+				<StackLayout
+
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					VerticalOptions="Start"
+					HorizontalOptions="FillAndExpand"
+					Padding="0,0,0,0"
+
+					>
+				<Image
+					Source="SeeMoreButtonShadow.png"
+					Aspect="AspectFill"
+					HeightRequest="36"
+				/>
+					</StackLayout>
+
+				<StackLayout
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					Padding="4,0,4,0"
+					>
+				<local:CustomButton
+						
+					x:Name="BeautyBlogButton"
+					HorizontalOptions="Center"
+						VerticalOptions="Start"
+					BackgroundColor="{x:Static local:ColorList.colorWhite}"
+						Text="{Binding BlogButonTxt}"
+						BorderRadius="6"
+						FontSize="12"
+						HeightRequest="28"
+						WidthRequest="96"
+						TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+	</StackLayout>-->
+</ContentPage>

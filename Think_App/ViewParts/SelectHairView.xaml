@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SelectHairView"
+	BackgroundColor="{x:Static local:ColorList.colorBlack}"
+	HeightRequest="230"
+>
+	<Grid
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="35" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" />
+		</Grid.ColumnDefinitions>
+
+		<local:CarouselLayout
+            Grid.Row="0" Grid.Column="0"
+			x:Name="SelectHairUnitCarouselView"
+		>
+			<local:CarouselLayout.ItemTemplate>
+				<DataTemplate>
+					<ContentView
+						Content="{Binding ViewContent}" />
+				</DataTemplate>
+			</local:CarouselLayout.ItemTemplate>
+		</local:CarouselLayout>
+		
+		<Grid Grid.Row="1" Grid.Column="0"
+			x:Name="HairTypeSelector"
+			RowSpacing="0"
+			ColumnSpacing="0"
+		>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="1*" />
+			</Grid.RowDefinitions>
+		</Grid>
+	</Grid>
+</ContentView>

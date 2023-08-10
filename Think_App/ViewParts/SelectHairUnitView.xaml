@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SelectHairUnitView"
+>
+	<ScrollView>
+		<local:GridView
+			x:Name="SelectHairGridView"
+			MaxColumns="{Binding GridMaxColumns}"
+			RowSpacing="{Binding GridRowSpacing}"
+			ColumnSpacing="{Binding GridColumnSpacing}"
+			TileHeight="{Binding GridTileHeight}"
+			VerticalOptions="FillAndExpand"
+			HorizontalOptions="FillAndExpand"
+			Margin="{Binding GridMargin}"
+			ItemsSource="{Binding GridItemsSource}"
+		>
+			<local:GridView.ItemTemplate>
+				<DataTemplate>
+					<local:SelectHairCell />
+				</DataTemplate>
+			</local:GridView.ItemTemplate>
+		</local:GridView>
+	</ScrollView>
+</ContentView>

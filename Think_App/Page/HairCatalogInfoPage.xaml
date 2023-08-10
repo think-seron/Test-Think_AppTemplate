@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.HairCatalogInfoPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="ヘアカタログ"
+>
+	<StackLayout Spacing="0">
+		<ffimageloading:CachedImage
+			WidthRequest="{Binding ImageWidth}"
+			HeightRequest="{Binding ImageHeight}"
+			Aspect="AspectFit"
+			Source="{Binding Souce}"
+			DownsampleToViewSize="true"
+			BackgroundColor="Gray"
+		/>
+		<StackLayout
+			Padding="17,41,17,0"
+		>
+			<Label
+				FontSize="{Binding LabelFontSize}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding LabelTxt}"
+			/>
+		</StackLayout>
+		<StackLayout
+			Padding="17,9,17,0"
+		>
+			<Label
+				FontSize="{Binding StaffNameLblFontSize}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				Text="{Binding StaffNameLblTxt}"
+				Opacity="{Binding StaffNameLblOpacity}"
+				HeightRequest="{Binding StaffNameLblHeight}"
+				HorizontalTextAlignment="Start"
+				VerticalTextAlignment="Start"
+			/>
+		</StackLayout>
+
+		<StackLayout
+            IsVisible="{Binding MessageSendBtnVisible}"
+			WidthRequest="{Binding ButtonWidth}"
+			HeightRequest="{Binding ButtonHeight}"
+			Padding="0,0,11,0"
+			HorizontalOptions="End"
+		>
+			<AbsoluteLayout>
+				<Image
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Source="LargeWhiteButtonShadow.png"
+					Aspect="AspectFill"
+				/>
+				<local:CustomButton
+					x:Name="MessageSendBtn"
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Style="{StaticResource WhiteButton}"
+					Text="{Binding BtnTxt}"
+					FontSize="{Binding BtnFontSize}"
+				/>
+			</AbsoluteLayout>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

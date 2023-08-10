@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.StoreSelect"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<AbsoluteLayout
+		x:Name="StoreSelectLayout"
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+		
+		<Label
+			Text="{Binding TopLabelTxt}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="13"
+			AbsoluteLayout.LayoutBounds="16,26,105,15"
+		/>
+
+		<Label
+			AbsoluteLayout.LayoutBounds="1,28,115,13"
+			AbsoluteLayout.LayoutFlags="XProportional"
+			Text="{Binding TopRightLabelTxt}"
+			HorizontalOptions="Center"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="11"
+		/>
+
+		<ListView
+			x:Name="ListView"
+			AbsoluteLayout.LayoutBounds="{Binding ListViewRect}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			RowHeight="48"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			CachingStrategy="RecycleElement"
+		>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<local:ListViewLabel/>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,46,1,1"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+		
+	</AbsoluteLayout>
+</ContentPage>

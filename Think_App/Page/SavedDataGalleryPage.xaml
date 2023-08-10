@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SavedDataGalleryPage"
+	BackgroundColor="{x:Static local:ColorList.colorBackground}"
+>
+	<AbsoluteLayout x:Name="AbsLayout">
+		<local:GalleryView
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			x:Name="GalleryView"
+			MaxColumns="3"
+			RowSpacing="11"
+			ColumnSpacing="11"
+			InnerPadding="27,22,27,22"
+		>
+			<local:GalleryView.ItemTemplate>
+				<DataTemplate>
+					<local:GalleryViewCell />
+				</DataTemplate>
+			</local:GalleryView.ItemTemplate>
+		</local:GalleryView>
+	</AbsoluteLayout>	
+</ContentPage>

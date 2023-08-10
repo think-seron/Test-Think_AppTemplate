@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.NoticePage"
+	xmlns:local="clr-namespace:Think_App"
+	Title="お知らせ"
+>
+	<StackLayout
+		x:Name="AreaSelectLayout"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Padding="11,22,11,22"
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+		<Label
+			Text="{Binding NoticeTitle}"
+			FontSize="{Binding NoticeTitleFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Start"
+            LineBreakMode="WordWrap"
+		/>
+
+		<ScrollView
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			AbsoluteLayout.LayoutBounds="{Binding ScrollViewRect}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+		>
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         VerticalOptions="FillAndExpand"
+                         Spacing="0"
+                         Padding="26,22,26,0">
+    			<Label
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+    				Text="{Binding NoticeContents}"
+    				FontSize="{Binding NoticeContentsFontSize}"
+    				TextColor="{x:Static local:ColorList.colorFont}"
+                    LineBreakMode="WordWrap"
+    			/>
+            </StackLayout>
+		</ScrollView>
+	</StackLayout>
+</ContentPage>

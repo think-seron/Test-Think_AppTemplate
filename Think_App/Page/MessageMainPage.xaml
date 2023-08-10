@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.MessageMainPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+	Title="メッセージ"
+	BackgroundColor="{x:Static local:ColorList.colorBackground}"
+>
+	<!--<ContentPage.ToolbarItems>
+		<ToolbarItem
+			x:Name="RightToolbarItem"
+			Icon="{Binding ToolberIcon, Mode=TwoWay}"
+			Command="{Binding ToolbarItemsClick, Mode=TwoWay}"
+		/>
+	</ContentPage.ToolbarItems>-->
+	<AbsoluteLayout>
+		<StackLayout
+			AbsoluteLayout.LayoutBounds="0,1,1,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			x:Name="InputControlContainer"
+			Spacing="0"
+            Padding="0"
+		>
+			<local:InputMessageView
+				x:Name="InputMessageView"
+			/>
+			<local:SelectImageSourceView
+				x:Name="SelectImageSourceView"
+				HeightRequest="{Binding SelectImageSourceViewHeight}"
+				BindingContext="{Binding SelectImageSourceViewModel}"
+			/>
+		</StackLayout>
+		<local:MessageListView
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			x:Name="MessageList"
+			IsScrollable="true"
+			HasUnevenRows="true"
+			SeparatorVisibility="None"
+			BackgroundColor="Transparent"
+			ItemsSource="{Binding MessageListViewItemsSource}"
+			TappedCommand="{Binding PageTappedCommand}"
+		>
+			<local:MessageListView.ItemTemplate>
+				<DataTemplate>
+					<local:MessageListCell />
+				</DataTemplate>
+			</local:MessageListView.ItemTemplate>
+		</local:MessageListView>
+	</AbsoluteLayout>
+</ContentPage>

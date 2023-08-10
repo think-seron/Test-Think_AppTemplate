@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ListViewNotice"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<StackLayout
+		AbsoluteLayout.LayoutBounds="{Binding BindingRect}"
+		AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+		Orientation="Horizontal"
+	>
+		<Label
+			Text="{Binding LabelText}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="{Binding LabelFontSize}"
+			VerticalOptions="Start"
+			HorizontalOptions="StartAndExpand"
+			Margin="16,21,0,0"
+			LineBreakMode="TailTruncation"
+		/>
+		<!--<Image
+			Source="UnreadIcon"
+			VerticalOptions="Start"
+			HorizontalOptions="End"
+			Margin="0,11,10,0"
+			Opacity="{Binding ImgOpacity}"
+		/>-->
+		<local:CircleView 
+			VerticalOptions="Start"
+			HorizontalOptions="End"
+			Margin="0,11,10,0"
+			Color="{x:Static local:ColorList.colorbatch}"
+			IsVisible="{Binding BatchIsVisible}"
+			WidthRequest="{Binding BatchSize}"
+			HeightRequest="{Binding BatchSize}"
+		/>
+
+	</StackLayout>
+</ViewCell>

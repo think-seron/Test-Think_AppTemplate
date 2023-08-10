@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.CustomEntryCell"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<AbsoluteLayout>
+		<BoxView
+			Color="{x:Static local:ColorList.colorWhite}"
+			AbsoluteLayout.LayoutBounds="0,0,1,48"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+		/>
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+		<StackLayout
+			AbsoluteLayout.LayoutBounds="0,0,1,48"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			Orientation="Horizontal"
+			VerticalOptions="Center"
+		>
+			<Label
+				Text="{Binding LabelText, Mode=TwoWay}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="16"
+				VerticalOptions="Center"
+				HorizontalOptions="Start"
+				WidthRequest="115"
+				Margin="16,0,0,0"
+			/>
+			<Entry
+				x:Name="Entry"
+				Text="{Binding EntryText, Mode=TwoWay}"
+				Placeholder="{Binding Placeholder, Mode=TwoWay}"
+				HorizontalTextAlignment="End"
+				VerticalOptions="Center"
+				HorizontalOptions="FillAndExpand"
+				Keyboard="{Binding EntryKeyboard, Mode=TwoWay}"
+				Margin="0,0,16,0"
+				IsEnabled="{Binding EntryIsEnabled}"
+			/>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentView>

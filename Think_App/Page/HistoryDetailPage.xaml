@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.HistoryDetailPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="施術履歴"
+>
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+		<Grid
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="SizeProportional"
+		>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="5.85*" />
+				<RowDefinition Height="0.3*" />
+				<RowDefinition Height="3.85*" />
+		    </Grid.RowDefinitions>    
+		    <Grid.ColumnDefinitions>
+				<ColumnDefinition Width="10*" />
+		    </Grid.ColumnDefinitions>
+
+			<!--<ffimageloading:CachedImage
+				Aspect="AspectFill"
+				Source="loginBgImg.png"
+			/>-->
+
+			<local:CarouselLayout
+				x:Name="Carousel"
+				ItemsSource="{Binding CarouselItem}"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+			>
+				<local:CarouselLayout.ItemTemplate>
+					<DataTemplate>
+						<StackLayout
+							Spacing="0"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							>
+							<ffimageloading:CachedImage
+								Source="{Binding CarouselImage}"
+								Aspect="AspectFit"
+								DownsampleToViewSize="true"
+								VerticalOptions="FillAndExpand"
+							/>
+						</StackLayout>
+					</DataTemplate>
+				</local:CarouselLayout.ItemTemplate>
+			</local:CarouselLayout>
+			
+			<ScrollView
+				Grid.Row="2"
+			>
+				<StackLayout
+					Orientation="Vertical"
+				>
+					<Label
+						Margin="23,5,0,35"
+						FontSize="{Binding DateTxtSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding DateTxt}"
+					/>
+					<Label
+						Margin="23,0,0,23"
+						FontSize="{Binding DateTxtSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding StoreNameTxt}"
+					/>
+					<Label
+						Margin="23,0,0,4"
+						FontSize="{Binding StylistTxtSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding StylistTxt, StringFormat='スタイリスト : {0}'}"
+					/>
+					<Label
+						Margin="23,0,0,0"
+						FontSize="{Binding StylistTxtSize}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+						Text="{Binding TreatmentDescription, StringFormat='施術内容 : {0}'}"
+					/>
+				</StackLayout>
+			</ScrollView>
+		</Grid>
+	</AbsoluteLayout>
+</ContentPage>

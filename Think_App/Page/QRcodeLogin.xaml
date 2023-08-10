@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.QRcodeLogin"
+	xmlns:local="clr-namespace:Think_App"
+>
+	<AbsoluteLayout
+		x:Name="QRLoginView"
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+	>
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform
+					x:TypeArguments="Rectangle"
+	                iOS="0,0,1,65"
+	                Android="0,0,1,45"
+				/>
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+		<local:CustomEntryCell
+			BindingContext="{Binding CustomEntryTel, Mode=TwoWay}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			AbsoluteLayout.LayoutBounds="0,46,1,48"
+		/>
+
+		<Label
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			AbsoluteLayout.LayoutBounds="1,106,1,14"
+			HorizontalOptions="End"
+			Text="サロンにお知らせしている電話番号を入力してください。"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="{Binding TextSize}"
+			Margin="0,0,14,0"
+		/>
+		
+		<BoxView
+			Color="{x:Static local:ColorList.colorCellBoader}"
+			AbsoluteLayout.LayoutFlags="XProportional,WidthProportional"
+			AbsoluteLayout.LayoutBounds="0,93,1,1"
+		/>
+
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="ログイン"
+				Style="{StaticResource StandardCustomButton}"
+				x:Name="LoginBtn"
+			/>
+		</AbsoluteLayout>
+
+		
+		<!--<local:ModalView
+			x:Name="ModalView"
+			BindingContext="{Binding BindModalView, Mode=TwoWay}"
+		/>-->
+	</AbsoluteLayout>
+</ContentPage>

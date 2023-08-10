@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.HistoryTop"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="履歴"
+	>
+	<StackLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+		Orientation="Vertical"
+	>
+		<StackLayout
+			Padding="16,22,16,3"
+			Spacing="0"
+			Margin="0"
+			Orientation="Horizontal"
+		>
+			<Label
+				WidthRequest="{Binding WidthSize}"
+				Text="施術履歴"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+			/>
+		</StackLayout>
+
+		<StackLayout
+			Padding="0"
+			Spacing="0"
+			VerticalOptions="Start"
+			HorizontalOptions="FillAndExpand"
+		>
+			<BoxView
+				VerticalOptions="Start"
+				HorizontalOptions="FillAndExpand"
+				HeightRequest="1"
+				Color="{x:Static local:ColorList.colorCellBoader}"
+			/>
+			<CollectionView
+				x:Name="ListView"
+				HeightRequest="{Binding ListViewHeight, Mode=TwoWay}"
+				BackgroundColor="{x:Static local:ColorList.colorBackground}"
+				ItemsSource="{Binding HistoryItemSouce, Mode=TwoWay}"
+				Margin="0"
+				SelectedItem="{Binding HisotyrSelectedItem, Mode=TwoWay}"
+			>
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<local:ListViewHistory>
+							<local:ListViewHistory.GestureRecognizers>
+								<TapGestureRecognizer
+									Command="{Binding Source={RelativeSource AncestorType={x:Type local:HistoryTopViewModel}}, Path=HistoryTapCommand}"
+									CommandParameter="{Binding}"
+									/>
+							</local:ListViewHistory.GestureRecognizers>
+						</local:ListViewHistory>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+			<BoxView
+				VerticalOptions="Start"
+				HorizontalOptions="FillAndExpand"
+				HeightRequest="1"
+				Color="{x:Static local:ColorList.colorCellBoader}"
+			/>
+		</StackLayout>
+
+		<StackLayout
+			WidthRequest="105"
+			HorizontalOptions="End"
+			Padding="0,6,17,0"
+		>
+			<AbsoluteLayout
+			IsVisible="{Binding HistoryBtnVisible, Mode=TwoWay}"
+				>
+				<StackLayout
+
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					VerticalOptions="Start"
+					HorizontalOptions="FillAndExpand"
+					Padding="0,0,0,0"
+
+					>
+				<Image
+					Source="SeeMoreButtonShadow.png"
+					Aspect="AspectFill"
+					HeightRequest="36"
+				/>
+					</StackLayout>
+				<StackLayout
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					Padding="4,0,4,0"
+					>
+				<local:CustomButton
+					x:Name="HistoryButton"
+					HorizontalOptions="Center"
+						VerticalOptions="Start"
+						BackgroundColor="White"
+						Text="もっと見る"
+						BorderRadius="6"
+						FontSize="12"
+						HeightRequest="28"
+						WidthRequest="96"
+						Command="{Binding HistoryBtnClicked, Mode=TwoWay}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+
+		<StackLayout
+			Padding="16,22,16,3"
+			Spacing="0"
+            IsVisible="{Binding BilogAvailable}"
+		>
+			<Label
+				Text="My美log"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="13"
+				LineBreakMode="TailTruncation"
+			/>
+		</StackLayout>
+
+		<StackLayout
+	        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	        AbsoluteLayout.LayoutFlags="All"
+	        BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	        Padding="0"
+	        Spacing="0"
+	        Margin="0"
+            IsVisible="{Binding BilogAvailable}"
+	    >
+	        <BoxView
+	            HorizontalOptions="FillAndExpand"
+	            HeightRequest="1"
+	            Color="{x:Static local:ColorList.colorCellBoader}"
+	        />
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="Start"
+				Spacing="0"
+				Padding="0"
+				HeightRequest="{Binding BeautyBlogHeight, Mode=TwoWay}"
+				>
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Start"
+					Padding="0,16,0,0"
+					IsVisible="{Binding BeautyBlogEmpty, Mode=TwoWay}"
+					>
+					<Label
+						Text="{Binding BeautyBlogEmptyText, Mode=TwoWay}"
+			            TextColor="{x:Static local:ColorList.colorFont}"
+			            FontSize="13"
+			            VerticalOptions="Start"
+			            HorizontalOptions="Center"	
+			        />
+				</StackLayout>
+	        
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Padding="0"
+					Spacing="0"
+					Orientation="Horizontal"
+					IsVisible="{Binding BeautyBlogNotEmpty, Mode=TwoWay}"
+					>
+					<local:BeautyBolgTileItem
+						BindingContext="{Binding BeautyBlogItem1, Mode=TwoWay}"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+					/>
+					<local:BeautyBolgTileItem
+						BindingContext="{Binding BeautyBlogItem2, Mode=TwoWay}"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+					/>
+					<local:BeautyBolgTileItem
+						BindingContext="{Binding BeautyBlogItem3, Mode=TwoWay}"
+						HorizontalOptions="CenterAndExpand"
+						VerticalOptions="CenterAndExpand"
+					/>
+				</StackLayout>
+			</StackLayout>
+			<BoxView
+		            HorizontalOptions="FillAndExpand"
+		            HeightRequest="1"
+		            Color="{x:Static local:ColorList.colorCellBoader}"
+		        />
+			</StackLayout>
+
+
+			<StackLayout
+			WidthRequest="105"
+			HorizontalOptions="End"
+			Padding="0,6,17,0"
+            IsVisible="{Binding BilogAvailable}"
+		>
+			<AbsoluteLayout
+				>
+				<StackLayout
+
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					VerticalOptions="Start"
+					HorizontalOptions="FillAndExpand"
+					Padding="0,0,0,0"
+
+					>
+				<Image
+					Source="SeeMoreButtonShadow.png"
+					Aspect="AspectFill"
+					HeightRequest="36"
+				/>
+					</StackLayout>
+				<StackLayout
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Spacing="0"
+					Padding="4,0,4,0"
+					>
+				<local:CustomButton
+						x:Name="BeautyBlogButton"
+						HorizontalOptions="Center"
+						VerticalOptions="Start"
+						BackgroundColor="White"
+						Text="{Binding BlogButonTxt, Mode=TwoWay}"
+						BorderRadius="6"
+						FontSize="12"
+						HeightRequest="28"
+						WidthRequest="96"
+						Command="{Binding BeautyBlogBtnClicked, Mode=TwoWay}"
+						TextColor="{x:Static local:ColorList.colorFont}"
+				/>
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

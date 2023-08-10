@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.ScheduleListItem"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	>
+	<AbsoluteLayout
+		WidthRequest="{Binding BtnWidth, Mode=TwoWay}"
+		HeightRequest="{Binding BtnHeight, Mode=TwoWay}"
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		>
+		<StackLayout
+			AbsoluteLayout.LayoutFlags="All"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Padding="0.2,0.0"
+			IsVisible="{Binding BtnTimeVisible, Mode=TwoWay}"
+			>
+			<Label
+				Text="{Binding TimeText, Mode=TwoWay}"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+				VerticalTextAlignment="Center"
+				HorizontalTextAlignment="Center"
+			/>
+		</StackLayout>
+
+		
+		<StackLayout
+			AbsoluteLayout.LayoutFlags="All"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Padding="0,0,0,0"
+			IsVisible="{Binding BtnImgVisible, Mode=TwoWay}"
+			>
+			<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer
+							Command="{Binding BtnClickedCommand, Mode=TwoWay}"
+							x:Name="EnableBtnTap"
+					
+						/>
+					</StackLayout.GestureRecognizers>
+			<ffimageloading:CachedImage
+				x:Name="EnableBtn"
+						Source="{Binding BtnImgSource, Mode=TwoWay}"
+						WidthRequest="44.0"
+						HeightRequest="44.0"
+						Aspect="AspectFit"
+				DownsampleUseDipUnits="true"
+						/>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentView>

@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ListViewStaffStore"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+>
+	<!--<Grid
+		Margin="0"
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+
+	    <Grid.RowDefinitions>
+			<RowDefinition Height="1.35*" />
+			<RowDefinition Height="1.35*" />
+			<RowDefinition Height="1.8*" />
+			<RowDefinition Height="0.1*" />
+			<RowDefinition Height="1.8*" />
+			<RowDefinition Height="2.25*" />
+			<RowDefinition Height="1.35*" />
+	    </Grid.RowDefinitions>    
+
+	    <Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.47*" />
+			<ColumnDefinition Width="3.64*" />
+			<ColumnDefinition Width="0.39*" />
+			<ColumnDefinition Width="4.3*" />
+			<ColumnDefinition Width="1.2*" />
+	    </Grid.ColumnDefinitions>
+		<ffimageloading:CachedImage
+			Grid.Row="1"
+			Grid.RowSpan="5"
+	        Grid.Column="1"
+			Aspect="AspectFill"
+			Source="{Binding ImageSouce}"
+			DownsampleToViewSize="true"
+		/>
+		<Label
+			Grid.Row="0"
+			Grid.RowSpan="2"
+			Grid.Column="3"
+			HorizontalOptions="Start"
+			VerticalOptions="End"
+			FontSize="{Binding StaffNameFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding StaffName}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="2"
+			Grid.Column="3"
+			Grid.ColumnSpan="2"
+			HorizontalOptions="Start"
+			VerticalOptions="Start"
+			FontSize="{Binding StaffKanaFontSize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding StaffKana}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="4"
+			Grid.Column="3"
+			Grid.ColumnSpan="2"
+			HorizontalOptions="Start"
+			VerticalOptions="Start"
+			FontSize="{Binding StaffCareerFontsize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding StaffCareer, StringFormat='スタッフ歴 {0}'}"
+			LineBreakMode="TailTruncation"
+		/>
+		<Label
+			Grid.Row="5"
+			Grid.Column="3"
+			Grid.ColumnSpan="2"
+			HorizontalOptions="Start"
+			VerticalOptions="Start"
+			FontSize="{Binding StaffCareerFontsize}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			Text="{Binding StaffCome}"
+			LineBreakMode="TailTruncation"
+		/>
+
+		<Image
+			x:Name="Favorite"
+			Grid.Row="0"
+			Grid.RowSpan="2"
+			Grid.Column="4"
+			HorizontalOptions="Start"
+			VerticalOptions="Center"
+			Aspect="AspectFill"
+			Source="{Binding FavoIconSouce}"
+			BindingContext="{Binding BdContext}"
+		>
+			<Image.GestureRecognizers>
+		        <TapGestureRecognizer Tapped="OnStaffFavoIconClicked"/>
+		    </Image.GestureRecognizers>
+		</Image>
+	</Grid>-->
+
+    <StackLayout
+        Spacing="0"
+        Padding="0"
+        Orientation="Horizontal"
+    >
+        <StackLayout
+            Padding="17,23,0,25"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+        >
+            <ffimageloading:CachedImage
+                Aspect="AspectFill"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center"
+                Source="{Binding ImageSouce}"
+                WidthRequest="{Binding ThumbnailSize}"
+                HeightRequest="{Binding ThumbnailSize}"
+                DownsampleToViewSize="true"
+            />
+        </StackLayout>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Padding="16,23,0,23"
+            Spacing="0"
+            Margin="0"
+            Orientation="Vertical"
+        >
+            <Label
+                Margin="0,0,0,5"
+                FontSize="{Binding StaffNameFontSize}"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                Text="{Binding StaffName}"
+                LineBreakMode="TailTruncation"
+            />
+            <Label
+                Margin="0,0,0,13"
+                FontSize="{Binding StaffKanaFontSize}"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                Text="{Binding StaffKana}"
+                LineBreakMode="TailTruncation"
+            />
+            <Label
+                Margin="0,0,0,26"
+                FontSize="{Binding StaffCareerFontsize}"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                Text="{Binding StaffCareer, StringFormat='スタッフ歴 {0}'}"
+                LineBreakMode="TailTruncation"
+            />
+            <Label
+                VerticalOptions="StartAndExpand"
+                FontSize="{Binding StaffCareerFontsize}"
+                TextColor="{x:Static local:ColorList.colorFont}"
+                Text="{Binding StaffCome}"
+                LineBreakMode="TailTruncation"
+            />
+        </StackLayout>
+        <StackLayout
+            Padding="0,9,12.37,0"
+            HorizontalOptions="End"
+            VerticalOptions="Start"
+        >
+            <Image
+                x:Name="Favorite"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                Aspect="AspectFill"
+                Source="{Binding FavoIconSouce, Mode=TwoWay}"
+                BindingContext="{Binding BdContext}"
+            >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnStaffFavoIconClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </StackLayout>
+</ViewCell>

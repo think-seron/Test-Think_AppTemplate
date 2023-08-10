@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.MyBeautyBlogEditPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="My 美Log"
+>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem
+			x:Name="ToolbarItems"
+			Text="完了"
+			Icon=""
+			Clicked="compClick"
+		/>
+	</ContentPage.ToolbarItems>
+	<ScrollView>
+		<StackLayout
+			Spacing="0"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		>
+			<AbsoluteLayout
+				WidthRequest="{Binding ScreenWidth}"
+				HeightRequest="208"
+			>
+				<ffimageloading:CachedImage
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Source="{Binding ImgSouce}"
+					DownsampleToViewSize="true"
+					Aspect="AspectFill"
+					VerticalOptions="Center"
+				>
+					<ffimageloading:CachedImage.GestureRecognizers>
+				        <TapGestureRecognizer Tapped="OnImageClicked"/>
+				    </ffimageloading:CachedImage.GestureRecognizers>
+				</ffimageloading:CachedImage>
+				
+				<AbsoluteLayout
+					AbsoluteLayout.LayoutBounds="1,0,201,98"
+					AbsoluteLayout.LayoutFlags="PositionProportional"
+					IsVisible="{Binding MyBlogPlusListViewIsVisible}"
+				>
+					<ffimageloading:CachedImage
+						AbsoluteLayout.LayoutBounds="0,0,1,1"
+						AbsoluteLayout.LayoutFlags="All"
+						Source="MyBlogPlusListViewShadow.png"
+						Aspect="Fill"
+					/>
+					<ListView
+						x:Name="MyBlogPlusListView"
+						AbsoluteLayout.LayoutBounds="0,0,1,1"
+						AbsoluteLayout.LayoutFlags="All"
+						RowHeight="45"
+						BackgroundColor="{x:Static local:ColorList.colorWhite}"
+						CachingStrategy="RecycleElement"
+						Margin="4,2,4,6"
+					>
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								 <ViewCell>
+									<Label
+										Text="{Binding MyBlogMenuSelectListText}"
+										FontSize="13"
+										HeightRequest="45"
+										Margin="20,0,0,0"
+										VerticalTextAlignment="Center"
+										TextColor="{x:Static local:ColorList.colorFont}"
+									/>
+								 </ViewCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</AbsoluteLayout>
+			</AbsoluteLayout>
+			<Label
+				FontSize="14"
+				Text="カテゴリ"
+				TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+				Margin="16,11,16,11"
+				WidthRequest="{Binding ScreenWidth}"
+			/>
+			
+			<StackLayout
+				Orientation="Horizontal"
+				HeightRequest="84"
+				Spacing="0"
+				Padding="0,0,0,11"
+			>
+				<Grid
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					RowSpacing="0"
+					ColumnSpacing="0"
+				>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="73" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="19*" />
+						<ColumnDefinition Width="73" />
+						<ColumnDefinition Width="15*" />
+						<ColumnDefinition Width="73" />
+						<ColumnDefinition Width="15*" />
+						<ColumnDefinition Width="73" />
+						<ColumnDefinition Width="15*" />
+						<ColumnDefinition Width="73" />
+						<ColumnDefinition Width="19*" />
+					</Grid.ColumnDefinitions>
+
+	                <AbsoluteLayout
+	                   Grid.Column="1"
+	                >
+	                    <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+							Source="BlogCateBtnShadow.png"
+							DownsampleToViewSize="true"
+						/>
+                         <local:ImageAndTextButtonView
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+                            Margin="4,2,4,6"
+                            BtnSize="73"
+                            BtnBgColor="{Binding HairBtnColor, Mode=TwoWay}"
+                            BtnImage="icon_message_simulation.png"
+                            BtnImageHeight="38"
+                            BtnImageWidth="38"
+                            BtnText="ヘア"
+					        BtnFontSize="10"
+					        BtnTextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                            BtnCommand="{Binding HairBtnCommand}"
+                            />
+						<!--<local:CustomButton
+							Command="{Binding HairBtnCommand}"
+	                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+	                        Margin="4,2,4,6"
+							BackgroundColor="{Binding HairBtnColor}"
+							BorderRadius="8"
+							Text="ヘア"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="10"
+							Source="icon_message_simulation.png"
+							ImageLayoutPosition="Top"
+							ImageWidth="38.17"
+							ImageHeight="38"
+							ImagePadding="7"
+						/>-->
+	                </AbsoluteLayout>
+					<AbsoluteLayout
+	                    Grid.Column="3"
+	                >
+	                    <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+							Source="BlogCateBtnShadow.png"
+							DownsampleToViewSize="true"
+						/>
+                         <local:ImageAndTextButtonView
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+                            Margin="4,2,4,6"
+                            BtnSize="73"
+                            BtnBgColor="{Binding NailBtnColor, Mode=TwoWay}"
+                            BtnImage="Icon_Nail.png"
+                            BtnImageHeight="44"
+                            BtnImageWidth="21"
+                            BtnText="ネイル"
+					        BtnFontSize="10"
+					        BtnTextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                            BtnCommand="{Binding NailBtnCommand}"
+                            />
+						<!--<local:CustomButton
+							Command="{Binding NailBtnCommand}"
+	                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+	                        Margin="4,2,4,6"
+							BackgroundColor="{Binding NailBtnColor}"
+							BorderRadius="8"
+							Text="ネイル"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="10"
+							Source="Icon_Nail.png"
+							ImageWidth="21"
+							ImageHeight="44"
+							ImageLayoutPosition="Top"
+							ImagePadding="2"
+						/>-->
+	                </AbsoluteLayout>
+					<AbsoluteLayout
+	                    Grid.Column="5"
+	                >
+	                    <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+							Source="BlogCateBtnShadow.png"
+							DownsampleToViewSize="true"
+						/>
+                        <local:ImageAndTextButtonView
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+                            Margin="4,2,4,6"
+                            BtnSize="73"
+                            BtnBgColor="{Binding EyelashBtnColor, Mode=TwoWay}"
+                            BtnImage="Icon_MatsuEku.png"
+                            BtnImageHeight="14"
+                            BtnImageWidth="50"
+                            BtnText="まつエク"
+					        BtnFontSize="10"
+					        BtnTextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                            BtnCommand="{Binding EyelashBtnCommand}"
+                            />
+						<!--<local:CustomButton
+							Command="{Binding EyelashBtnCommand}"
+	                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+	                        Margin="4,2,4,6"
+							BackgroundColor="{Binding EyelashBtnColor}"
+							BorderRadius="8"
+							Text="まつエク"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="10"
+							Source="Icon_MatsuEku.png"
+							ImageWidth="50.8"
+							ImageHeight="13.95"
+							ImageLayoutPosition="Top"
+							ImagePadding="30"
+							ImageOffset="0.5,20"
+	                    />-->
+	                </AbsoluteLayout>
+					<AbsoluteLayout
+	                    Grid.Column="7"
+	                >
+	                    <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+							Source="BlogCateBtnShadow.png"
+							DownsampleToViewSize="true"
+						/>
+                         <local:ImageAndTextButtonView
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+                            Margin="4,2,4,6"
+                            BtnSize="73"
+                            BtnBgColor="{Binding EstheticBtnColor, Mode=TwoWay}"
+                            BtnImage="icon_hand.png"
+                            BtnImageHeight="40"
+                            BtnImageWidth="50"
+                            BtnText="エステ"
+					        BtnFontSize="10"
+					        BtnTextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                            BtnCommand="{Binding EstheticBtnCommand}"
+                            />
+						<!--<local:CustomButton
+							Command="{Binding EstheticBtnCommand}"
+	                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+	                        AbsoluteLayout.LayoutFlags="All"
+	                        Margin="4,2,4,6"
+							BackgroundColor="{Binding EstheticBtnColor}"
+							BorderRadius="8"
+							Text="エステ"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="10"
+							Source="icon_hand.png"
+							ImageWidth="50"
+							ImageHeight="40"
+							ImageLayoutPosition="Top"
+							ImagePadding="6"
+	                    />-->
+	                </AbsoluteLayout>
+				</Grid>
+			</StackLayout>
+			
+			<BoxView
+				WidthRequest="{Binding ScreenWidth}"
+				HeightRequest="1"
+				BackgroundColor="{x:Static local:ColorList.colorCellBoader}"
+			/>
+			<StackLayout
+				HeightRequest="48"
+				Orientation="Horizontal"
+				VerticalOptions="Center"
+				Padding="0,0,9,0"
+			>
+				<Label
+					VerticalOptions="Center"
+					FontSize="14"
+					Margin="16,0,0,0"
+					Text="日付"
+					TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+				/>
+
+				<AbsoluteLayout
+					VerticalOptions="Center"
+					HorizontalOptions="EndAndExpand"
+				>
+					<local:CustomBoxView
+						AbsoluteLayout.LayoutFlags="PositionProportional"
+						AbsoluteLayout.LayoutBounds="1,0.5,236,33"
+						BorderThickness="1"
+						CornerRadiusRate="45"
+						FillColor="{x:Static local:ColorList.colorWhite}"
+						StrokeColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+					/>
+					<Image
+						AbsoluteLayout.LayoutFlags="PositionProportional"
+						AbsoluteLayout.LayoutBounds="1,0.5,24,10.12"
+						Source="icon_arrow_down.png"
+						Margin="0,0,7,0"
+					/>
+					<local:CustomDatePicker
+						AbsoluteLayout.LayoutFlags="PositionProportional"
+						AbsoluteLayout.LayoutBounds="1,0.5,236,33"
+						HorizontalTextAlignment="Center"
+						DateSelected="OnSelectedDate"
+						Format="{Binding DatePickerFormat}"
+						BackgroundColor="Transparent"
+						BorderHidden="true"
+						FontSize="18"
+						TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+					/>
+				</AbsoluteLayout>
+			</StackLayout>
+			<BoxView
+				WidthRequest="{Binding ScreenWidth}"
+				HeightRequest="1"
+				BackgroundColor="{x:Static local:ColorList.colorCellBoader}"
+			/>
+            <StackLayout
+                HeightRequest="48"
+                Orientation="Horizontal"
+                VerticalOptions="Center"
+            >
+                <Label
+                    WidthRequest="67"
+                    VerticalOptions="Center"
+                    FontSize="14"
+                    Margin="16,0,0,0"
+                    Text="タイトル"
+					TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                />
+                <Entry
+					VerticalOptions="Center"
+                    Margin="3,0,0,0"
+                    HeightRequest="48"
+                    WidthRequest="{Binding CustomEntryCellWidth}"
+					TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+					Text="{Binding EntryTxt, Mode=TwoWay}"
+                />
+            </StackLayout>
+			<BoxView
+				WidthRequest="{Binding ScreenWidth}"
+				HeightRequest="1"
+				BackgroundColor="{x:Static local:ColorList.colorCellBoader}"
+			/>
+			<local:CustomEditor
+				Placeholder="本文"
+				Margin="16,21,16,21"
+				FontSize="18"
+				TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                HeightRequest="{Binding EditorHeight}"
+				Text="{Binding CustomEditorTxt, Mode=TwoWay}"
+			/>
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

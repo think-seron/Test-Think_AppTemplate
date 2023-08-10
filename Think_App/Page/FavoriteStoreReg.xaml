@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.FavoriteStoreReg"
+	xmlns:local="clr-namespace:Think_App"
+	Title="店舗選択"
+>
+	<!--<ContentPage.BindingContext>
+		<local:FavoriteStoreRegViewModel/>
+	</ContentPage.BindingContext>-->
+	
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,0.61"
+            AbsoluteLayout.LayoutFlags="SizeProportional"
+            Source="loginBgImg.png"
+            Aspect="AspectFill"
+        />
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Source="ImageMask_White.png"
+            Aspect="Fill"
+        />   
+
+		<!--<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC, Mode=TwoWay}">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform x:TypeArguments="Rectangle"
+			                iOS="0,0,1,65"
+			                Android="0,0,1,45"
+			                />
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+		<Label
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			AbsoluteLayout.LayoutBounds="0.5,0.57,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Text="お気に入りの店舗を登録しよう！"
+			HeightRequest="20"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="17"
+			HorizontalTextAlignment="Center"
+		/>
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.9,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="OK"
+				Style="{StaticResource StandardCustomButton}"
+				Command="{Binding RegStartCommand}"
+				IsVisible="{Binding BtnIsEnabled, Mode=TwoWay}"
+			/>
+		</AbsoluteLayout>
+
+	</AbsoluteLayout>
+</ContentPage>

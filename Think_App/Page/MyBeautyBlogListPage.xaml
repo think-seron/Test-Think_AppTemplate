@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.MyBeautyBlogListPage"
+	xmlns:local="clr-namespace:Think_App"
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="My 美Log"
+>
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		x:Name="BlogAbsoluteLayout"
+	>
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			AbsoluteLayout.LayoutBounds="0,27,1,33"
+			Margin="27,0,27,0"
+		>
+			<Label
+				AbsoluteLayout.LayoutFlags="SizeProportional"
+				AbsoluteLayout.LayoutBounds="22,0,0.5,1"
+				Text="{Binding CtgText}"
+				TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+				VerticalTextAlignment="Center"
+			/>
+			<Image
+				AbsoluteLayout.LayoutFlags="PositionProportional"
+				AbsoluteLayout.LayoutBounds="1,0.5,24,10.12"
+				Source="icon_arrow_down.png"
+				Margin="0,0,7,0"
+			/>
+			<local:CustomButton
+				x:Name="CtgSelectBtn"
+				AbsoluteLayout.LayoutFlags="All"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				BorderColor="{x:Static local:ColorList.colorCellBoader}"
+				BorderWidth="1"
+				BorderRadius="4"
+				BackgroundColor="Transparent"
+			/>
+		</AbsoluteLayout>
+		
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,86,1,1"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			Color="{x:Static local:ColorList.colorCellBoader}"
+		/>
+        <flv:FlowListView
+            AbsoluteLayout.LayoutBounds="{Binding GridViewRect}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+            x:Name="GrdView"
+            Margin="21,25,21,0"
+            FlowColumnCount="3"
+            HasUnevenRows="False"
+            SeparatorVisibility="None"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            RowHeight="{Binding ItemHeight}"
+            BackgroundColor="{x:Static local:ColorList.colorWhite}"
+            >
+            <flv:FlowListView.FlowColumnTemplate>
+                <DataTemplate>
+					<AbsoluteLayout
+						VerticalOptions="FillAndExpand"
+						HorizontalOptions="FillAndExpand"
+						BackgroundColor="{Binding GridViewBgColor}"
+                        Margin="5,3"
+						>
+                        <ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="{Binding GridViewImgRect}"
+							AbsoluteLayout.LayoutFlags="All"
+							Source="{Binding ImgSouce}"
+							Aspect="AspectFill"
+							DownsampleToViewSize="true"
+						/>
+						<ffimageloading:CachedImage
+							AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+							AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+							HeightRequest="{Binding GridViewLabelHeightRequest}"
+							Source="MyBlogDateShadow.png"
+							Aspect="AspectFill"
+							DownsampleToViewSize="true"
+						/>
+						<Label
+							AbsoluteLayout.LayoutBounds="{Binding GridViewLabelRect}"
+							AbsoluteLayout.LayoutFlags="PositionProportional"
+							WidthRequest="{Binding GridViewLabelWidthRequest}"
+							HeightRequest="{Binding GridViewLabelHeightRequest}"
+							Text="{Binding DateStringrShort}"
+							TextColor="{x:Static local:ColorList.colorWhite}"
+							FontSize="{Binding GridViewLabelFontSize}"
+							HorizontalOptions="Center"
+						/>
+                    </AbsoluteLayout>
+                </DataTemplate>
+            </flv:FlowListView.FlowColumnTemplate>
+        </flv:FlowListView>
+		<!--<controls:GridView
+			x:Name="GrdView"
+			AbsoluteLayout.LayoutBounds="{Binding GridViewRect}"
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			ItemHeight="{Binding ItemHeight}"
+			ItemWidth="{Binding ItemWidth}"
+			ColumnSpacing="{Binding ColumnSpacing}"
+			Padding="26,25,26,0"
+			RowSpacing="{Binding RowSpacing}"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		>
+            <controls:GridView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell
+						xmlns="http://xamarin.com/schemas/2014/forms"
+						xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+						xmlns:local="clr-namespace:Think_App"
+						xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+						x:Class="Think_App.HairCatalogListPage"
+					>
+						<AbsoluteLayout
+							VerticalOptions="FillAndExpand"
+							HorizontalOptions="FillAndExpand"
+							BackgroundColor="{Binding GridViewBgColor}"
+						>
+                        	<ffimageloading:CachedImage
+								AbsoluteLayout.LayoutBounds="{Binding GridViewImgRect}"
+								AbsoluteLayout.LayoutFlags="All"
+								Source="{Binding ImgSouce}"
+								Aspect="AspectFill"
+								DownsampleToViewSize="true"
+							/>
+							<ffimageloading:CachedImage
+								AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+								AbsoluteLayout.LayoutFlags="WidthProportional,PositionProportional"
+								HeightRequest="{Binding GridViewLabelHeightRequest}"
+								Source="MyBlogDateShadow.png"
+								Aspect="AspectFill"
+								DownsampleToViewSize="true"
+							/>
+							<Label
+								AbsoluteLayout.LayoutBounds="{Binding GridViewLabelRect}"
+								AbsoluteLayout.LayoutFlags="PositionProportional"
+								WidthRequest="{Binding GridViewLabelWidthRequest}"
+								HeightRequest="{Binding GridViewLabelHeightRequest}"
+								Text="{Binding DateStringrShort}"
+								TextColor="{x:Static local:ColorList.colorWhite}"
+								FontSize="{Binding GridViewLabelFontSize}"
+								HorizontalOptions="Center"
+							/>
+							 もっと見るボタン 現状使わないからコメント中
+							<local:CustomButton
+								AbsoluteLayout.LayoutBounds="0,0,AutoSize,AutoSize"
+								Clicked="MoreLookBtnClick"
+								WidthRequest="97"
+								HeightRequest="28"
+								Text="もっと見る"
+								FontSize="10"
+								Style="{StaticResource WhiteButton}"
+								IsVisible="{Binding BtnIsVisible}"
+							/>
+							
+						</AbsoluteLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </controls:GridView.ItemTemplate>
+        </controls:GridView>-->
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="{Binding MyBlogPlusListViewRect}"
+			IsVisible="{Binding MyBlogPlusListViewIsVisible}"
+		>
+			<ffimageloading:CachedImage
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Source="MyBlogPlusListViewShadow.png"
+				Aspect="AspectFill"
+			/>
+			<ListView
+				x:Name="MyBlogPlusListView"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				RowHeight="45"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				CachingStrategy="RecycleElement"
+				Margin="4,2,4,6"
+			>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						 <ViewCell>
+							<Label
+								Text="{Binding MyBlogMenuSelectListText}"
+								FontSize="13"
+								HeightRequest="45"
+								Margin="20,0,0,0"
+								VerticalTextAlignment="Center"
+								TextColor="{x:Static local:ColorList.colorFont}"
+							/>
+						 </ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</AbsoluteLayout>
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			AbsoluteLayout.LayoutBounds="0,60,1,272"
+			Margin="27,0,27,0"
+			IsVisible="{Binding CtgListIsVisible}"
+		>
+			<BoxView
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				BackgroundColor="{x:Static local:ColorList.colorCellBoader}"
+			/>
+			<ListView
+				x:Name="MyBlogCtgListView"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				RowHeight="45"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				Margin="1,1,1,1"
+			>
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						 <ViewCell>
+							<Label
+								Text="{Binding MyBlogMenuSelectListText}"
+								TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+								FontSize="13"
+								HeightRequest="45"
+								Margin="20,0,0,0"
+								VerticalTextAlignment="Center"
+							/>
+						 </ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</AbsoluteLayout>
+	</AbsoluteLayout>
+</ContentPage>

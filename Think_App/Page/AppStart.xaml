@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.AppStart"
+	xmlns:local="clr-namespace:Think_App"
+	NavigationPage.HasBackButton="false"
+>
+
+	<ContentPage.BindingContext>
+		<local:AppStartViewModel/>
+	</ContentPage.BindingContext>
+	
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+		<Image
+			AbsoluteLayout.LayoutBounds="0,0,1,0.61"
+			AbsoluteLayout.LayoutFlags="SizeProportional"
+			Source="loginBgImg.png"
+			Aspect="AspectFill"
+		/>
+        <Image
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            Source="ImageMask_White.png"
+            Aspect="Fill"
+        />   
+<!--		<Image.AbsoluteLayout.LayoutBounds>
+		<OnPlatform x:TypeArguments="Rectangle"
+		                iOS="0,0,1,0.61"
+		                Android="0,0,1,0.61"
+		                />
+		</Image.AbsoluteLayout.LayoutBounds>-->
+<!--		<local:CustomNavigationBar
+			AbsoluteLayout.LayoutFlags="WidthProportional"
+			BindingContext="{Binding CustomNavibarBC}"
+			IsVisible="false">
+			<AbsoluteLayout.LayoutBounds>
+				<OnPlatform x:TypeArguments="Rectangle"
+			                iOS="0,0,1,65"
+			                Android="0,0,1,45"
+			                />
+			</AbsoluteLayout.LayoutBounds>
+		</local:CustomNavigationBar>-->
+
+		<AbsoluteLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.79,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Style="{StaticResource StandardCustomButtonSize}"
+		>
+			<Image
+				Style="{StaticResource ButtonShadow}"
+			/>
+			<local:CustomButton
+				x:Name="AppStartButton"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				AbsoluteLayout.LayoutFlags="All"
+				Text="はじめる"
+				Style="{StaticResource StandardCustomButton}"
+				Command="{Binding StartCommand}"
+			/>
+		</AbsoluteLayout>
+		<StackLayout
+			AbsoluteLayout.LayoutBounds="0.5,0.89,AutoSize,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional"
+			HorizontalOptions="Center"
+			VerticalOptions="Center"
+			Spacing="0"
+			Padding="0"
+			>
+			<StackLayout.GestureRecognizers>
+		        <TapGestureRecognizer Tapped="OnLabelClicked"/>
+		    </StackLayout.GestureRecognizers>
+		<Label
+			Scale="{Binding ScreenSizeScale, Mode=TwoWay}"
+			Text="アカウントをお持ちの方はこちら>>"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="13"
+			HorizontalTextAlignment="Center"
+			HeightRequest="16"
+		>
+
+		</Label>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentPage>

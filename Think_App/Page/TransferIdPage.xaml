@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.TransferIdPage"
+	xmlns:local="clr-namespace:Think_App"
+	Title="設定"
+>
+	<StackLayout
+		BackgroundColor="{x:Static local:ColorList.colorBackground}"
+		Orientation="Vertical"
+	>
+		<Label
+			Margin="16,26,16,14"
+			Text="引き継ぎコード情報"
+			FontSize="14"
+			TextColor="{x:Static local:ColorList.colorFont}"
+		/>
+		<Label
+			Margin="16,0,16,23"
+			Text="{Binding transferId}"
+			TextColor="{x:Static local:ColorList.colorFont}"
+			FontSize="18"
+			HorizontalTextAlignment="End"
+		/>
+		<Label
+			Margin="30,0,30,0"
+			Text="データ引き継ぎに使用するコードです&#xD;&#xA;機種変更時に、新しい端末で起動した当アプリにこのコードを入力することで、データを引き継ぐことができます&#xD;&#xA;また、アプリを再インストールした場合にも使用できます"
+			FontSize="14"
+			TextColor="{x:Static local:ColorList.colorFont}"
+		/>
+
+        <StackLayout
+            WidthRequest="105"
+            HeightRequest="36"
+            HorizontalOptions="End"
+            Padding="0,10,17,0"
+        >
+            <AbsoluteLayout>
+                <Image
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    Source="SeeMoreButtonShadow.png"
+                    Aspect="AspectFill"
+                />
+                <local:CustomButton
+                    x:Name="CodeCopyBtn"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    TextColor="{x:Static local:ColorList.colorFont}"
+                    BackgroundColor="{x:Static local:ColorList.colorWhite}"
+                    BorderRadius="6"
+                    FontSize="12"
+                    Text="コードをコピー"
+                    Margin="4,2,4,6"
+                />
+            </AbsoluteLayout>
+        </StackLayout>
+	</StackLayout>
+</ContentPage>

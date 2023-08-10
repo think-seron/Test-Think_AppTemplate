@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Think_App.ScanView"
+>
+	<AbsoluteLayout>
+		<Grid
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			Margin="0"
+			RowSpacing="0"
+			ColumnSpacing="0"
+		>
+		    <!-- 行の定義 -->
+		    <Grid.RowDefinitions>
+				<RowDefinition Height="1.9*" />
+				<RowDefinition Height="0.1*" />
+				<RowDefinition Height="0.15*" />
+				<RowDefinition Height="0.1*" />
+				<RowDefinition Height="4.4*" />
+				<RowDefinition Height="0.1*" />
+				<RowDefinition Height="0.15*" />
+				<RowDefinition Height="0.1*" />
+				<RowDefinition Height="3*" />
+		    </Grid.RowDefinitions>    
+		    <!-- 列の定義 -->
+		    <Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" /> <!-- 中身の幅に応じて設定 -->
+				<ColumnDefinition Width="0.15*" />
+				<ColumnDefinition Width="0.15*" />
+				<ColumnDefinition Width="0.15*" />
+				<ColumnDefinition Width="7.1*" />
+				<ColumnDefinition Width="0.15*" />
+				<ColumnDefinition Width="0.15*" />
+				<ColumnDefinition Width="0.15*" />
+		      <ColumnDefinition Width="1*" />
+		    </Grid.ColumnDefinitions>
+
+			<!-- デフォルトは0,0に配置される -->
+		    <BoxView
+				Color="Black"
+				Grid.ColumnSpan="9"
+				Opacity="0.8"
+			/> 
+		    <BoxView
+				Color="Black"
+				Opacity="0.8"
+		        Grid.Row="1"
+				Grid.RowSpan="7"
+		        Grid.Column="0"
+			/>
+		    <BoxView
+				Color="Black"
+				Opacity="0.8"
+		        Grid.Row="1"
+				Grid.RowSpan="7"
+		        Grid.Column="8"
+			/>
+			<BoxView
+				Color="Black"
+				Opacity="0.8"
+				Grid.Row="8"
+				Grid.ColumnSpan="9"
+			/>
+
+			
+
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="2"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="3"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="5"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="6"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="1"
+		        Grid.Column="7"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="2"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="2"
+		        Grid.Column="7"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="3"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="3"
+		        Grid.Column="7"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="5"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="5"
+		        Grid.Column="7"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="6"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="6"
+		        Grid.Column="7"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="1"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="2"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="3"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="5"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="6"
+			/>
+			<BoxView
+				Color="White"
+		        Grid.Row="7"
+		        Grid.Column="7"
+			/>
+
+		</Grid>
+		<Label
+			AbsoluteLayout.LayoutBounds="0.5,0.8,1,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			Text="QRコードを画面の枠に合わせてください"
+			FontSize="17"
+			TextColor="White"
+			HeightRequest="19"
+			HorizontalOptions="Center"
+		/>
+	</AbsoluteLayout>
+</ContentView>

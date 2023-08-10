@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ScheduleDayView"
+	xmlns:local="clr-namespace:Think_App"
+
+	>
+	<StackLayout
+		HorizontalOptions="Center"
+		VerticalOptions="Center"
+		Spacing="5"
+		Padding="0"
+		WidthRequest="{Binding DayWidth, Mode=TwoWay}"
+		>
+		<Label
+			Text="{Binding DayText, Mode=TwoWay}"
+			TextColor="{Binding DayTextColor, Mode=TwoWay}"
+			FontSize="{Binding DayFontSize, Mode=TwoWay}"
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="Start"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center"
+			/>
+		<Label
+			Text="{Binding DayOfWeekText, Mode=TwoWay}"
+			TextColor="{Binding DayTextColor, Mode=TwoWay}"
+			FontSize="{Binding DayFontSize, Mode=TwoWay}"
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="Start"
+			HorizontalTextAlignment="Center"
+			VerticalTextAlignment="Center"
+			/>
+	</StackLayout>
+</ContentView>

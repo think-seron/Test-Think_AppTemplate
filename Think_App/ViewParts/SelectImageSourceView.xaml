@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SelectImageSourceView"
+    BackgroundColor="{x:Static local:ColorList.colorWhite}">
+	<Grid
+		RowSpacing="0"
+		ColumnSpacing="0"
+        Padding="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="55" />
+			<RowDefinition Height="70" />
+			<RowDefinition Height="91" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Row="1"
+                     Grid.Column="0"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="CenterAndExpand"
+                     Orientation="Horizontal"
+                     Spacing="0"
+                     Padding="0">
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="0"
+                         Spacing="5">
+                <local:CustomButton
+                    HeightRequest="64"
+                    WidthRequest="64"
+                    Source="icon_message_photo.png"
+                    ImageWidth="43"
+                    ImageHeight="35"
+                    BorderRadius="12"
+                    BorderColor="#979797"
+                    BorderWidth="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding PhotoButtonClickedCommand}"
+                />
+                <Label
+                        Text="写真"
+                        FontSize="12"
+                        TextColor="#4A4A4A"
+                        VerticalTextAlignment="Start"
+                        HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="0"
+                         Spacing="5">
+                <local:CustomButton
+                    HeightRequest="64"
+                    WidthRequest="64"
+                    Source="icon_message_camera.png"
+                    ImageWidth="38"
+                    ImageHeight="33"
+                    BorderRadius="12"
+                    BorderColor="#979797"
+                    BorderWidth="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding CameraButtonClickedCommand}"
+                />
+                <Label
+                        Text="カメラ"
+                        FontSize="12"
+                        TextColor="#4A4A4A"
+                        VerticalTextAlignment="Start"
+                        HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="0"
+                         Spacing="5"
+                         >
+                <local:CustomButton
+                    HeightRequest="64"
+                    WidthRequest="64"
+                    Source="icon_message_catalog.png"
+                    ImageWidth="38"
+                    ImageHeight="35"
+                    BorderRadius="12"
+                    BorderColor="#979797"
+                    BorderWidth="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding CatalogButtonClickedCommand}"
+                />
+                <Label
+                        Text="ヘアカタログ"
+                        FontSize="12"
+                        TextColor="#4A4A4A"
+                        VerticalTextAlignment="Start"
+                        HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         Padding="0"
+                         Spacing="5"
+                         IsVisible="{Binding SimulationBtnVisible, Mode=TwoWay}">
+
+                <local:CustomButton
+                    HeightRequest="64"
+                    WidthRequest="64"
+                    Source="icon_message_simulation.png"
+                    ImageWidth="39"
+                    ImageHeight="38"
+                    BorderRadius="12"
+                    BorderColor="#979797"
+                    BorderWidth="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding SimulationButtonClickedCommand}"
+                />
+                <Label
+                        Text="ヘアシミュ"
+                        FontSize="12"
+                        TextColor="#4A4A4A"
+                        VerticalTextAlignment="Start"
+                        HorizontalTextAlignment="Center"
+                    />
+            </StackLayout>
+        </StackLayout>
+	</Grid>
+</ContentView>

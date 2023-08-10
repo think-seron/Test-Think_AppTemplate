@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.SelectSalonMessagePage"
+	xmlns:local="clr-namespace:Think_App"
+	Title="メッセージ"
+	BackgroundColor="{x:Static local:ColorList.colorBackground}"
+>
+	<ListView
+		x:Name="SalonList"
+		VerticalOptions="FillAndExpand"
+		HorizontalOptions="FillAndExpand"
+		HasUnevenRows="true"
+		SeparatorVisibility="None"
+		BackgroundColor="Transparent"
+		ItemsSource="{Binding SalonListSource}"
+	>
+		<ListView.Header>
+			<Grid
+				HeightRequest="47"
+				RowSpacing="0"
+				ColumnSpacing="0"
+				BackgroundColor="Transparent"
+			>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="27" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="0.5" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="16" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Label Grid.Row="1" Grid.Column="1"
+					Text="メッセージ一覧"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					FontSize="14"
+					VerticalTextAlignment="Start"
+					HorizontalTextAlignment="Start"
+				/>
+				<BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+					Color="{Binding SeparatorColor}"
+					VerticalOptions="FillAndExpand"
+					HorizontalOptions="FillAndExpand"
+				/>
+			</Grid>
+		</ListView.Header>
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<local:SelectSalonMessageListCell />
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
+</ContentPage>

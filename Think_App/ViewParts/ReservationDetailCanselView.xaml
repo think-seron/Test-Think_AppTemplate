@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ReservationDetailCanselView"
+	xmlns:local="clr-namespace:Think_App"
+	BackgroundColor="Transparent"
+	>
+	<Grid>
+		<ContentView
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="#000000"
+			Opacity="0.6"
+            />
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			Spacing="0"
+			Padding="18"
+			>
+	<!--		ここから予約の詳細表示部分-->
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="CenterAndExpand"
+				Padding="4"
+				Spacing="0"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				>
+						<StackLayout
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							Spacing="0"
+							Padding="16,12,16,0"
+							>
+							<Label
+								Text="{Binding ReservationDate, StringFormat='{0}〜'}"
+									FontSize="18"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+						</StackLayout>
+
+						<StackLayout
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							Spacing="0"
+							Padding="16,18,16,0"
+							>
+							<Label
+								Text="{Binding ReservationStore}"
+									FontSize="18"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+						</StackLayout>
+			
+						<StackLayout
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							Spacing="1"
+							Padding="16,18,16,0"
+							>
+							<Label
+								Text="{Binding ReservationStyList, StringFormat='スタイリスト : {0}'}"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+							<Label
+								Text="{Binding ReservationMenu, StringFormat='施術内容 : {0}'}"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+					<Label
+							Text="{Binding ReservationSource, StringFormat='予約元 : {0}'}"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+							<Label
+								Text="{Binding ReservationUsingCoupon, StringFormat='クーポン利用 : {0}'}"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+								/>
+							<Label
+									Text="{Binding ReservationCouponContent, StringFormat='クーポンの内容 : {0}'}"
+									FontSize="14"
+									TextColor="{x:Static local:ColorList.colorFont}"
+									HorizontalOptions="Start"
+									VerticalOptions="Start"
+									IsVisible="{Binding ReservationCouponContentVisible}"
+								/>
+						<StackLayout
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="Start"
+							Spacing="0"
+							Padding="0,22,0,0">
+							<Frame
+								BackgroundColor="#969696"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Start"
+								HasShadow="false"
+								Padding="0">
+								<StackLayout
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="Center"
+									Spacing="0"
+									Padding="1"
+									>
+							<Frame
+								BackgroundColor="{x:Static local:ColorList.colorWhite}"
+								HorizontalOptions="FillAndExpand"
+								VerticalOptions="Center"
+								HasShadow="false"
+								Padding="1"
+								>
+								<StackLayout
+									HorizontalOptions="FillAndExpand"
+									VerticalOptions="Center"
+									Spacing="0"
+									Padding="5">
+									<Label
+										Text="MEMO"
+										FontSize="14"
+										TextColor="{x:Static local:ColorList.colorFont}"
+										HorizontalOptions="Start"
+										VerticalOptions="Start"
+											
+									/>
+											<ScrollView
+												HorizontalOptions="FillAndExpand"
+												VerticalOptions="FillAndExpand"
+												>
+												<StackLayout
+													HorizontalOptions="FillAndExpand"
+													VerticalOptions="FillAndExpand"
+													Spacing="5"
+													Padding="0"
+													>
+													<Label
+														Text="{Binding EditorText, Mode=TwoWay}"
+														FontSize="14"
+														TextColor="{x:Static local:ColorList.colorFont}"
+														HorizontalOptions="FillAndExpand"
+														HeightRequest="114"
+														VerticalOptions="Start"
+														HorizontalTextAlignment="Start"
+														VerticalTextAlignment="Start"
+													/>
+												</StackLayout>
+											</ScrollView>
+								
+								</StackLayout>	
+							</Frame>
+							</StackLayout>
+							</Frame>
+						</StackLayout>
+					</StackLayout>
+			
+			</StackLayout>
+
+			<Label
+				Text="こちらの予約をキャンセルしますか？"
+				FontSize="20"
+				TextColor="{x:Static local:ColorList.colorWhite}"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand"
+				/>
+
+			<StackLayout
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="EndAndExpand"
+				Spacing="5"
+
+				Orientation="Horizontal"
+				Padding="12"
+			
+				>
+
+				<local:CustomButton
+					Text="いいえ"
+					Style="{StaticResource modalSelectButton_reservation}"
+					WidthRequest="{Binding BtnWidth}"
+					x:Name="NoButton"
+					HorizontalOptions="CenterAndExpand"
+					Margin="0,0,2,0"
+					BackgroundColor="{x:Static local:ColorList.colorNegative}"
+					HighlightColor="{x:Static local:ColorList.colorNegativeHightLight}"
+					UseCustomColor="true"
+					Command="{Binding NoCommand, Mode=TwoWay}"
+				/>
+
+				<local:CustomButton
+					Text="はい"
+					Style="{StaticResource modalSelectButton_reservation}"
+					WidthRequest="{Binding BtnWidth}"
+					HorizontalOptions="CenterAndExpand"
+					Margin="2,0,0,0"
+					BackgroundColor="{x:Static local:ColorList.colorPositive}"
+					HighlightColor="{x:Static local:ColorList.colorPositiveHightlight}"
+					UseCustomColor="true"
+					Command="{Binding YesCommand, Mode=TwoWay}"
+				/>
+			</StackLayout>
+		
+		</StackLayout>
+	</Grid>
+</ContentView>

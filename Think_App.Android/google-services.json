@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "380488021876",
+    "firebase_url": "https://roworl-176409.firebaseio.com",
+    "project_id": "roworl-176409",
+    "storage_bucket": "roworl-176409.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380488021876:android:c1c0d298c37ebeaf",
+        "android_client_info": {
+          "package_name": "jp.comcomcompany.ThinkApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380488021876-nasa26ihpdldo0e651q6umm1gb4mnke3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.comcomcompany.ThinkApp",
+            "certificate_hash": "947fd130ba5d845efe5c70bfaee511501808cf78"
+          }
+        },
+        {
+          "client_id": "380488021876-u4v5vrhlaguqcbgii94miccss6d8tu3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYgoCqqaiQ4iZju3fYv0696TYn6fRpwjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380488021876-u4v5vrhlaguqcbgii94miccss6d8tu3p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380488021876-g5r7vgqhqa6732shi7e47hndm5q9f23s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.comcomcompany.ThinkApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

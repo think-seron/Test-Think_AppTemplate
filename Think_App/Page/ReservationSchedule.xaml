@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ReservationSchedule"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="予約"
+	>
+	<StackLayout
+		HorizontalOptions="FillAndExpand"
+		VerticalOptions="FillAndExpand"
+		Spacing="0"
+		>
+		<StackLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Padding="16,26,16,5"
+			BackgroundColor="{x:Static local:ColorList.colorBackground}"
+			>
+			<Label
+				Text="日時選択"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				HorizontalOptions="Start"
+				VerticalOptions="Start"
+			/>
+		</StackLayout>
+		<BoxView
+			Color="#C9C3C5"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			HeightRequest="1"
+		/>
+		<StackLayout
+			
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			Spacing="0"
+			Padding="8,10,8,10"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+			>
+			<local:SegmentedControl
+				
+				Contents="{Binding SegTexts, Mode=TwoWay}"
+				FontSize="14"
+				SelectedIndex="{Binding SegSelectedIndex, Mode=TwoWay}"
+				WidthRequest="{Binding SegWidth, Mode=TwoWay}"
+				HeightRequest="30"
+				VerticalOptions="CenterAndExpand"
+				HorizontalOptions="FillAndExpand"
+				UseCustomSettings="true"
+				SelectedTextColor="{x:Static local:ColorList.colorWhite}"
+				TintColor="{x:Static local:ColorList.colorMain}"
+				BackgroundColor="Transparent"
+				IsVisible="{Binding SegBtnVisible, Mode=TwoWay}"
+				TextColor="{x:Static local:ColorList.colorMain}"
+			/>
+
+			<Frame
+				HorizontalOptions="Center"
+				VerticalOptions="FillAndExpand"
+				CornerRadius="5"
+				IsVisible="{Binding SingleFrameVisible, Mode=TwoWay}"
+				WidthRequest="{Binding SegWidth, Mode=TwoWay}"
+
+				BackgroundColor="{x:Static local:ColorList.colorMain}"
+				Padding="3,1,3,1"
+				HasShadow="false"
+
+				>
+				<StackLayout
+					HorizontalOptions="Center"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					Padding="0"
+					HeightRequest="30"
+					>
+					<Label
+						Text="サロンの空き時間"
+						FontSize="14"
+						TextColor="{x:Static local:ColorList.colorWhite}"
+						HorizontalOptions="Center"
+						VerticalOptions="CenterAndExpand"
+						/>
+				</StackLayout>
+			</Frame>
+		</StackLayout>
+		<BoxView
+			Color="#C9C3C5"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Start"
+			HeightRequest="1"
+		/>
+
+
+			<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="0"
+				Padding="0"
+				BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				>
+			
+					<StackLayout
+						Orientation="Horizontal"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="FillAndExpand"
+						Spacing="0"
+						Padding="0"
+					>
+						<ListView
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions="FillAndExpand"
+							ItemsSource="{Binding ScheduleListItemSource, Mode=TwoWay}"
+							SeparatorVisibility="Default"
+							SeparatorColor="White"
+							HasUnevenRows="true"
+							BackgroundColor="{x:Static local:ColorList.colorWhite}"
+						>
+						<ListView.Header
+						>
+
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					Padding="0"
+					BackgroundColor="{x:Static local:ColorList.colorWhite}"
+				>
+				<StackLayout
+					HorizontalOptions="CenterAndExpand"
+					VerticalOptions="Start"
+					Spacing="0"
+					Padding="10,14,10,0">
+					<Label
+						Text="{Binding SelectedDate, Mode=TwoWay}"
+						FontSize="18"
+						TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
+					/>
+				</StackLayout>
+
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Start"
+					Spacing="0"
+					Padding="0"
+					Orientation="Horizontal"
+					>
+					<StackLayout
+						HorizontalOptions="EndAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="12,12,12,0"
+						>
+                        <Button
+							ImageSource="Icon_ScheduleChangeLeftDouble.png"
+							Text="前月"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_MonthAgo, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            ContentLayout="Left,20"
+                            Padding="10,0"
+						/>
+						<!--<local:CustomButton
+							Source="Icon_ScheduleChangeLeftDouble.png"
+							Text="前月"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							ImageWidth="15"
+							ImageHeight="12"
+							ImageLayoutPosition="Left"
+							ImagePadding="10"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							UseCustomColor="false"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_MonthAgo, Mode=TwoWay}"
+						/>-->
+					</StackLayout>
+					<StackLayout
+						HorizontalOptions="StartAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="12,12,12,0"
+						>
+                        <Button
+							ImageSource="Icon_GoRightDubble.png"
+							Text="翌月"
+							HorizontalOptions="Start"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_MonthLater, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            ContentLayout="Right,20"
+                            Padding="4,0"
+						/>
+						<!--<local:CustomButton
+							Source="Icon_GoRightDubble.png"
+							Text="翌月"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							ImageWidth="15"
+							ImageHeight="12"
+							ImageLayoutPosition="Right"
+							ImagePadding="8"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							UseCustomColor="false"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_MonthLater, Mode=TwoWay}"
+						/>-->
+					</StackLayout>
+					
+				</StackLayout>
+
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Start"
+					Spacing="0"
+					Padding="0"
+					Orientation="Horizontal"
+					>
+					<StackLayout
+						HorizontalOptions="EndAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="12,12,12,0"
+						>
+                        <Button
+							ImageSource="Icon_ScheduleChangeLeftSingle.png"
+							Text="前の4日間"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_daysAgo, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            ContentLayout="Left,5"
+                            Padding="4,0"
+						/>
+						<!--<local:CustomButton
+							Source="Icon_ScheduleChangeLeftSingle.png"
+							Text="前の4日間"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							ImageWidth="7.14"
+							ImageHeight="12"
+							ImageLayoutPosition="Left"
+							ImagePadding="10"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							UseCustomColor="false"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_daysAgo, Mode=TwoWay}"
+						/>-->
+
+					</StackLayout>
+					<StackLayout
+						HorizontalOptions="StartAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="12,12,12,0"
+						>
+                        <Button
+							ImageSource="Icon_GoRight.png"
+							Text="次の4日間"
+							HorizontalOptions="Start"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_dayslater, Mode=TwoWay}"
+                            BackgroundColor="White"
+                            ContentLayout="Right,5"
+                            Padding="4,0"
+						/>
+						<!--<local:CustomButton
+							Source="Icon_GoRight.png"
+							Text="次の4日間"
+							HorizontalOptions="End"
+							VerticalOptions="Start"
+							TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+							FontSize="14"
+							ImageWidth="7.14"
+							ImageHeight="12"
+							ImageLayoutPosition="Right"
+							ImagePadding="8"
+							WidthRequest="106"
+							HeightRequest="28"
+							BorderRadius="6"
+							BorderColor="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+							UseCustomColor="false"
+							BorderWidth="2"
+							Command="{Binding UpdateScheduleComand_dayslater, Mode=TwoWay}"
+						/>-->
+					</StackLayout>
+				</StackLayout>
+
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					Padding="0,31,0,0"
+					>
+					<StackLayout
+						x:Name="DateContainer"
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="Start"
+						Spacing="0"
+						Padding="0"
+
+						Orientation="Horizontal"
+					>
+
+					<local:ScheduleDayView
+						BindingContext="{Binding ScheduleDayFirst, Mode=TwoWay}"
+							HorizontalOptions="EndAndExpand"
+					/>
+
+					<local:ScheduleDayView
+						BindingContext="{Binding ScheduleDaySecond, Mode=TwoWay}"
+							HorizontalOptions="End"
+					/>
+					<local:ScheduleDayView
+						BindingContext="{Binding ScheduleDayThird, Mode=TwoWay}"
+							HorizontalOptions="End"
+					/>
+					<local:ScheduleDayView
+						BindingContext="{Binding ScheduleDayFourth, Mode=TwoWay}"
+							HorizontalOptions="End"
+					/>
+									
+					</StackLayout>
+				</StackLayout>
+
+				</StackLayout>
+
+						</ListView.Header>
+						<ListView.Footer>
+						</ListView.Footer>
+					
+						<ListView.ItemTemplate>
+								<DataTemplate>
+								<local:CustomViewCell 
+								SelectedBackgroundColor="{x:Static local:ColorList.colorWhite}"
+								>
+										<StackLayout
+											HorizontalOptions="FillAndExpand"
+											VerticalOptions="FillAndExpand"
+											Spacing="0"
+											Padding="0"
+											BackgroundColor="{x:Static local:ColorList.colorWhite}"
+											>
+		
+										<StackLayout
+										HorizontalOptions="FillAndExpand"
+										VerticalOptions="FillAndExpand"
+										Padding="0,6,0,6"
+										Orientation="Horizontal"
+										>
+											
+											<StackLayout
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												Spacing="0"
+												Padding="0"
+												>
+												<local:ScheduleListItem	BindingContext="{Binding ListItem1, Mode=TwoWay}"/>
+											</StackLayout>
+											<StackLayout
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												Spacing="0"
+												Padding="0"
+												>
+												<local:ScheduleListItem BindingContext="{Binding ListItem2, Mode=TwoWay}"/>
+											</StackLayout>
+											<StackLayout
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												Spacing="0"
+												Padding="0"
+												>
+												<local:ScheduleListItem	BindingContext="{Binding ListItem3, Mode=TwoWay}"/>
+											</StackLayout>
+											<StackLayout
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												Spacing="0"
+												Padding="0"
+												>
+												<local:ScheduleListItem BindingContext="{Binding ListItem4, Mode=TwoWay}"/>
+											</StackLayout>
+											<StackLayout
+												HorizontalOptions="CenterAndExpand"
+												VerticalOptions="CenterAndExpand"
+												Spacing="0"
+												Padding="0"
+												>
+												<local:ScheduleListItem BindingContext="{Binding ListItem5, Mode=TwoWay}"/>
+											</StackLayout>
+											</StackLayout>												
+										</StackLayout>
+									
+								</local:CustomViewCell>
+								</DataTemplate>
+						</ListView.ItemTemplate>
+						</ListView>
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+</ContentPage>

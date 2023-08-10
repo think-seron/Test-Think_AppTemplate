@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.MyBeautyBlogInfoPage"
+	xmlns:local="clr-namespace:Think_App"
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+	Title="My 美Log"
+>
+	<ContentPage.ToolbarItems>
+		<ToolbarItem
+			x:Name="ToolbarItems"
+			Text="編集"
+			Icon=""
+			Clicked="EditClick"
+		/>
+	</ContentPage.ToolbarItems>
+	<ScrollView>
+		<StackLayout
+			Orientation="Vertical"
+			Spacing="0"
+			BackgroundColor="{x:Static local:ColorList.colorWhite}"
+		>
+			<AbsoluteLayout
+				WidthRequest="{Binding ScreenWidth}"
+				HeightRequest="{Binding ScreenWidth}"
+				BackgroundColor="Gray"
+			>
+				<ffimageloading:CachedImage
+					AbsoluteLayout.LayoutBounds="0,0,1,1"
+					AbsoluteLayout.LayoutFlags="All"
+					Source="{Binding ImgSouce, Mode=TwoWay}"
+					DownsampleToViewSize="true"
+					Aspect="AspectFit"
+					VerticalOptions="Center"
+				/>
+				<AbsoluteLayout
+					AbsoluteLayout.LayoutBounds="1,0,201,98"
+					AbsoluteLayout.LayoutFlags="PositionProportional"
+					IsVisible="{Binding MyBlogPlusListViewIsVisible}"
+				>
+					<ffimageloading:CachedImage
+						AbsoluteLayout.LayoutBounds="0,0,1,1"
+						AbsoluteLayout.LayoutFlags="All"
+						Source="MyBlogPlusListViewShadow.png"
+						Aspect="Fill"
+					/>
+					<ListView
+						x:Name="MyBlogPlusListView"
+						AbsoluteLayout.LayoutBounds="0,0,1,1"
+						AbsoluteLayout.LayoutFlags="All"
+						RowHeight="45"
+						BackgroundColor="{x:Static local:ColorList.colorWhite}"
+						CachingStrategy="RecycleElement"
+						Margin="4,2,4,6"
+					>
+						<ListView.ItemTemplate>
+							<DataTemplate>
+								 <ViewCell>
+									<Label
+										Text="{Binding MyBlogMenuSelectListText}"
+										FontSize="13"
+										HeightRequest="45"
+										Margin="20,0,0,0"
+										VerticalTextAlignment="Center"
+										TextColor="{x:Static local:ColorList.colorFont}"
+									/>
+								 </ViewCell>
+							</DataTemplate>
+						</ListView.ItemTemplate>
+					</ListView>
+				</AbsoluteLayout>
+			</AbsoluteLayout>
+            <local:ImageAndTextButtonView
+                Margin="23,15,0,0"
+                IsVisible="{Binding CtgIsVisible}"
+                BtnSize="65"
+                BtnBgColor="{Binding BtnBgColor}"
+                BtnImage="{Binding Source}"
+                BtnImageHeight="{Binding ImageHeight}"
+                BtnImageWidth="{Binding ImageWidth}"
+                BtnText="{Binding CtgTxt}"
+				BtnFontSize="10"
+				BtnTextColor="{x:Static local:ColorList.colorReservationFontColor}"
+                HorizontalOptions="Start"
+                    />
+			<!--<local:CustomButton
+				HorizontalOptions="StartAndExpand"
+				WidthRequest="65"
+	            HeightRequest="65"
+	            Margin="23,15,0,0"
+				IsEnabled="false"
+				BorderRadius="8"
+				BorderWidth="1"
+				Text="{Binding CtgTxt, Mode=TwoWay}"
+				TextColor="{x:Static local:ColorList.colorReservationFontColor}"
+				FontSize="10"
+				Source="{Binding Source, Mode=TwoWay}"
+				ImageLayoutPosition="Top"
+				ImageWidth="{Binding ImageWidth, Mode=TwoWay}"
+				ImageHeight="{Binding ImageHeight, Mode=TwoWay}"
+				ImagePadding="{Binding ImagePadding}"
+				IsVisible="{Binding CtgIsVisible}"
+			/>-->
+
+			<Label
+				Margin="23,15,23,15"
+				Text="{Binding DateTxt, Mode=TwoWay}"
+				FontSize="18"
+				TextColor="{x:Static local:ColorList.colorFont}"
+			/>
+			<Label
+				Margin="23,0,23,15"
+				Text="{Binding TitleTxt,Mode=TwoWay}"
+				FontSize="18"
+				TextColor="{x:Static local:ColorList.colorFont}"
+			/>
+			<Label
+				Margin="23,0,23,15"
+				Text="{Binding DescriptionTxt, Mode=TwoWay}"
+				FontSize="14"
+				TextColor="{x:Static local:ColorList.colorFont}"
+			/>
+		</StackLayout>
+	</ScrollView>
+</ContentPage>

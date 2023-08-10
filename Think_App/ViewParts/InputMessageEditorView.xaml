@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.InputMessageEditorView"
+>
+	<AbsoluteLayout
+		BackgroundColor="{x:Static local:ColorList.colorWhite}"
+	>
+		<local:MessageEditor
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+			AbsoluteLayout.LayoutFlags="All"
+			x:Name="MessageEditor"
+			BackgroundColor="Transparent"
+			TextColor="#4A4A4A"
+			HideDoneButtonIniPhone="true"
+			Opacity="{Binding MessageEditorOpacity}"
+			Text="{Binding MessageEditorText, Mode=TwoWay}"
+		>
+			<local:MessageEditor.Margin>
+				<OnPlatform x:TypeArguments="Thickness">
+				    <On Platform="iOS">10,10,10,7</On>
+				    <On Platform="Android">10,3,10,0</On>
+				</OnPlatform>
+			</local:MessageEditor.Margin>
+		</local:MessageEditor>
+		<!--上辺-->
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,0,1,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			HeightRequest="10"
+			Color="{x:Static local:ColorList.colorMain}"
+		/>
+		<!--下辺-->
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,1,1,AutoSize"
+			AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+			HeightRequest="7"
+			Color="{x:Static local:ColorList.colorMain}"
+		/>
+		<!--左辺-->
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Color="{x:Static local:ColorList.colorMain}"
+		/>
+		<local:CustomBoxView
+			AbsoluteLayout.LayoutBounds="0,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Margin="0,10,0,7"
+			FillColor="{x:Static local:ColorList.colorWhite}"
+			BorderThickness="0"
+			UseCornerRadiusValue="true"
+			CornerRadiusValue="5"
+		/>
+		<BoxView
+			AbsoluteLayout.LayoutBounds="0,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Margin="5,10,0,7"
+			Color="{x:Static local:ColorList.colorWhite}"
+		/>
+		<!--右辺-->
+		<BoxView
+			AbsoluteLayout.LayoutBounds="1,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Color="{x:Static local:ColorList.colorMain}"
+		/>
+		<local:CustomBoxView
+			AbsoluteLayout.LayoutBounds="1,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Margin="0,10,0,7"
+			FillColor="{x:Static local:ColorList.colorWhite}"
+			BorderThickness="0"
+			UseCornerRadiusValue="true"
+			CornerRadiusValue="5"
+		/>
+		<BoxView
+			AbsoluteLayout.LayoutBounds="1,0,AutoSize,1"
+			AbsoluteLayout.LayoutFlags="PositionProportional,HeightProportional"
+			WidthRequest="10"
+			Margin="0,10,5,7"
+			Color="{x:Static local:ColorList.colorWhite}"
+		/>
+	</AbsoluteLayout>
+</ContentView>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.HairCatalogSelectionPage"
+	Title="ヘアカタログ"
+	BackgroundColor="{x:Static local:ColorList.colorWhite}"
+>
+	<ScrollView>
+		<StackLayout
+			Spacing="0"
+		>
+			<StackLayout
+				Padding="29,12,0,0"
+				IsVisible="{Binding WomanHairStyleVisible}"
+			>
+				<Label
+					Text="レディース"
+					FontSize="12"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					VerticalTextAlignment="Start"
+					HorizontalTextAlignment="Start"
+					HeightRequest="29"
+				/>
+			</StackLayout>
+			<local:GridView
+				x:Name="WomanView"
+				Padding="{Binding HairStyleViewPadding}"
+				RowSpacing="0"
+				ColumnSpacing="{Binding HairStyleViewColumnSpacing}"
+				TileHeight="{Binding HairStyleViewTileHeight}"
+				MaxColumns="{Binding HairStyleViewMaxColumns}"
+				ItemsSource="{Binding WomanHairStyleItemsSource}"
+				Command="{Binding WomanHairStyleSelectedCommand}"
+				IsVisible="{Binding WomanHairStyleVisible}"
+			>
+				<local:GridView.ItemTemplate>
+					<DataTemplate>
+						<local:HairCatalogSelectionViewCell />
+					</DataTemplate>
+				</local:GridView.ItemTemplate>
+			</local:GridView>
+			<StackLayout
+				IsVisible="{Binding SeparatorVisible}"
+			>
+				<BoxView
+					Color="{x:Static local:ColorList.colorWhiteBtnBorderColor}"
+					HorizontalOptions="FillAndExpand"
+					HeightRequest="1"
+				/>
+			</StackLayout>
+			<StackLayout
+				Padding="29,12,0,0"
+				IsVisible="{Binding ManHairStyleVisible}"
+			>
+				<Label
+					Text="メンズ"
+					FontSize="12"
+					TextColor="{x:Static local:ColorList.colorFont}"
+					VerticalTextAlignment="Start"
+					HorizontalTextAlignment="Start"
+					HeightRequest="29"
+				/>
+			</StackLayout>
+			<local:GridView
+				x:Name="ManView"
+				Padding="{Binding HairStyleViewPadding}"
+				RowSpacing="0"
+				ColumnSpacing="{Binding HairStyleViewColumnSpacing}"
+				TileHeight="{Binding HairStyleViewTileHeight}"
+				MaxColumns="{Binding HairStyleViewMaxColumns}"
+				ItemsSource="{Binding ManHairStyleItemsSource}"
+				Command="{Binding ManHairStyleSelectedCommand}"
+				IsVisible="{Binding ManHairStyleVisible}"
+			>
+				<local:GridView.ItemTemplate>
+					<DataTemplate>
+						<local:HairCatalogSelectionViewCell />
+					</DataTemplate>
+				</local:GridView.ItemTemplate>
+			</local:GridView>
+		</StackLayout>		
+	</ScrollView>
+</ContentPage>

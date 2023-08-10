@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SaveCompletedView"
+>
+	<Grid
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="237*" />
+			<RowDefinition Height="97*" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="227*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="1*" />
+		</Grid.ColumnDefinitions>
+		
+		<Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+			Text="保存されました"
+			FontSize="{Binding InfoLblFontSize}"
+			TextColor="{x:Static local:ColorList.colorSubfont}"
+			VerticalTextAlignment="Start"
+			HorizontalTextAlignment="Center"
+		/>
+		<StackLayout Grid.Row="2" Grid.Column="1"
+			Spacing="22"
+		>
+			<local:CustomButton Grid.Row="2" Grid.Column="1"
+				x:Name="SendMessageBtn"
+				Text="メッセージに送る"
+				FontSize="{Binding ButtonFontSize}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				UseCustomColor="true"
+				BackgroundColor="{x:Static local:ColorList.colorNeutral}"
+				HighlightColor="{x:Static local:ColorList.colorNeutralHightlight}"
+				DisableColor="{x:Static local:ColorList.colorNeutralDisable}"
+				WidthRequest="{Binding ButtonWidth}"
+				HeightRequest="{Binding ButtonHeight}"
+				Command="{Binding SendMessageCommand}"
+			/>
+			<local:CustomButton Grid.Row="4" Grid.Column="1"
+				x:Name="EndBtn"
+				Text="終了"
+				FontSize="{Binding ButtonFontSize}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				UseCustomColor="true"
+				BackgroundColor="{x:Static local:ColorList.colorNegative}"
+				HighlightColor="{x:Static local:ColorList.colorNegativeHightLight}"
+				DisableColor="{x:Static local:ColorList.colorNagativeDisable}"
+				WidthRequest="{Binding ButtonWidth}"
+				HeightRequest="{Binding ButtonHeight}"
+				Command="{Binding EndCommand}"
+			/>
+		</StackLayout>
+	</Grid>
+</ContentView>

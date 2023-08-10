@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:Think_App"
+	x:Class="Think_App.SelectSalonMessageListCell"
+	Height="84"
+>
+	<Grid
+		BackgroundColor="{Binding SSMLCBackgroundColor}"
+		RowSpacing="0"
+		ColumnSpacing="0"
+	>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="0.5" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="52" />
+		</Grid.ColumnDefinitions>
+		
+		<Grid Grid.Row="0" Grid.Column="0"
+			RowSpacing="0"
+			ColumnSpacing="0"
+		>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="18" />
+				<RowDefinition Height="33" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="16" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="12" />
+			</Grid.ColumnDefinitions>
+
+			<local:MultiLineLabel Grid.Row="1" Grid.Column="1"
+				Lines="1"
+				Text="{Binding SSMLCSalonName}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="18"
+				LineBreakMode="TailTruncation"
+				VerticalTextAlignment="Start"
+				HorizontalTextAlignment="Start"
+			/>
+			<local:MultiLineLabel Grid.Row="2" Grid.Column="1"
+				Lines="1"
+				Text="{Binding SSMLCNewMessage}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="14"
+				LineBreakMode="TailTruncation"
+				VerticalTextAlignment="Start"
+				HorizontalTextAlignment="Start"
+			/>
+		</Grid>
+
+		<Grid Grid.Row="0" Grid.Column="1"
+			RowSpacing="0"
+			ColumnSpacing="0"
+		>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="11" />
+				<RowDefinition Height="14" />
+				<RowDefinition Height="28" />
+				<RowDefinition Height="*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="14" />
+				<ColumnDefinition Width="10" />
+			</Grid.ColumnDefinitions>
+
+			<local:CircleView Grid.Row="1" Grid.Column="1"
+				Color="{x:Static local:ColorList.colorbatch}"
+				IsVisible="{Binding SSMLCBatchVisible}"
+				VerticalOptions="FillAndExpand"
+				HorizontalOptions="FillAndExpand"
+			/>
+			<Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+				Text="{Binding SSMLCMessageDate}"
+				TextColor="{x:Static local:ColorList.colorFont}"
+				FontSize="12"
+				VerticalTextAlignment="Start"
+				HorizontalTextAlignment="Start"
+			/>
+		</Grid>
+
+		<BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+			Color="{Binding SSMLCSeparatorColor}"
+			VerticalOptions="FillAndExpand"
+			HorizontalOptions="FillAndExpand"
+		/>
+	</Grid>
+</ViewCell>

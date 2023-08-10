@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.CustomNavigationBar"
+	xmlns:local="clr-namespace:Think_App"
+	>
+	<ContentView.Content>
+<!--		全体-->
+	<AbsoluteLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			>
+	<StackLayout
+				AbsoluteLayout.LayoutFlags="All"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+			
+
+				
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+			BackgroundColor="{Binding NavigationBaseColor}"
+
+			Spacing="0"
+		>
+
+		<StackLayout
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				HeightRequest="{Binding NavigationBaseHight}"
+				Spacing="0"
+				>
+<!--			iOSのステータスバー-->
+			<StackLayout
+				IsVisible="{Binding iOSToppaddingVisible}"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				HeightRequest="20"
+				Padding="0"
+				Spacing="0"
+				/>
+<!--				ステータスバー以外のナビゲーションバー本体-->
+				<StackLayout
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					>
+		<AbsoluteLayout
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="FillAndExpand"
+				>
+<!--			ボタン-->
+			
+			<StackLayout
+				AbsoluteLayout.LayoutFlags="All"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				HorizontalOptions="FillAndExpand"
+				VerticalOptions="FillAndExpand"
+				Orientation="Horizontal"
+				Spacing="0"
+				Padding="{Binding NavigationParentPadding}"
+			>
+			<StackLayout
+				HorizontalOptions="StartAndExpand"
+				VerticalOptions="FillAndExpand"
+				Spacing="0"
+				Padding="0,0,30,0"
+				>
+				<Image
+				x:Name="LeftImage"
+				Source="{Binding LeftImageSource, Mode=TwoWay}"
+				HeightRequest="{Binding LeftImageHeightRequest}"
+				WidthRequest="{Binding LeftImageWidthRequest}"
+				IsVisible="{Binding LeftImageVisible, Mode=TwoWay}"
+				Aspect="AspectFit"
+				HorizontalOptions="Start"
+				VerticalOptions="EndAndExpand"
+				/>
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer
+						Command="{Binding LeftBtnClicked, Mode=TwoWay}"
+						Tapped="LeftImageTapped"
+						/>
+				</StackLayout.GestureRecognizers>
+		
+			</StackLayout>
+			<StackLayout
+					HorizontalOptions="EndAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0"
+					Padding="0">
+			<StackLayout
+				x:Name="RightText"
+				HorizontalOptions="End"
+				VerticalOptions="EndAndExpand"
+				IsVisible="{Binding RightTextVisible, Mode=TwoWay}"
+				Padding="0,0,0,1"
+				Spacing="0"
+				>
+				<StackLayout.GestureRecognizers>
+					<TapGestureRecognizer
+							Command="{Binding RightTextBtnClicked, Mode=TwoWay}"
+							Tapped="RightTextTapped"
+						/>
+				</StackLayout.GestureRecognizers>
+				<Label
+					Text="{Binding RightButtonText, Mode=TwoWay}"
+					TextColor="{Binding RightButtonTextColor}"
+					IsVisible="{Binding RightTextVisible, Mode=TwoWay}"
+					FontSize="18"
+					FontAttributes="Bold"
+					HorizontalOptions="Center"
+					VerticalOptions="End"
+					VerticalTextAlignment="End"
+					YAlign="End"
+					XAlign="Center"
+					/>
+			</StackLayout>
+			<RelativeLayout
+				x:Name="RightImageGroup"
+				HorizontalOptions="End"
+				VerticalOptions="FillAndExpand"
+				IsVisible="{Binding RightImageGroupVisible, Mode=TwoWay}"
+				>
+				<RelativeLayout.GestureRecognizers>
+					<TapGestureRecognizer
+						Command="{Binding RightImageBtnClicked, Mode=TwoWay}"
+						Tapped="RightImageTapped"
+					/>
+				</RelativeLayout.GestureRecognizers>
+				<Image
+					RelativeLayout.XConstraint ="{ConstraintExpression Type=RelativeToParent,
+				      									Property=Width, Factor=0, Constant=0}"
+					RelativeLayout.YConstraint ="{ConstraintExpression Type=RelativeToParent,
+				      									Property=Height, Factor=0, Constant=4.5}"
+					Source="{Binding RightImageSource, Mode=TwoWay}"
+					HeightRequest="{Binding RightImageHeightRequest}"
+					WidthRequest="{Binding RightImageWidthRequest}"
+					IsVisible="{Binding RightImageGroupVisible, Mode=TwoWay}"
+					Aspect="AspectFit"
+				/>
+				<local:RoundedBoxView
+					RelativeLayout.XConstraint ="{ConstraintExpression Type=RelativeToParent,
+				      									Property=Width, Factor=0, Constant=18}"
+					RelativeLayout.YConstraint ="{ConstraintExpression Type=RelativeToParent,
+				      									Property=Height, Factor=0, Constant=-5}"
+										
+					Style="{StaticResource BatchIcon}"
+				/>
+			</RelativeLayout>
+			</StackLayout>
+			</StackLayout>
+<!--			タイトル-->
+			<StackLayout
+				AbsoluteLayout.LayoutFlags="All"
+				AbsoluteLayout.LayoutBounds="0,0,1,1"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="EndAndExpand"
+				Padding="0,0,0,10"
+				Spacing="0"
+				>
+				<Label
+					Text="{Binding PageTitleText, Mode=TwoWay}"
+					TextColor="{Binding PageTitleTextColor}"
+					FontSize="20"
+					HorizontalOptions="Center"
+					VerticalOptions="End"
+					FontAttributes="Bold"
+					YAlign="Center"
+					XAlign="Center"
+					>
+				</Label>
+			</StackLayout>
+
+		</AbsoluteLayout>
+		</StackLayout>	
+		</StackLayout>
+
+	</StackLayout>
+					<ProgressBar
+					AbsoluteLayout.LayoutBounds="{Binding ProgressRectangle, Mode=TwoWay}"
+					AbsoluteLayout.LayoutFlags="XProportional, WidthProportional"
+					
+					x:Name="progressBar"
+					HeightRequest="4"
+					IsVisible="{Binding ProgresVisible, Mode=TwoWay}"
+					Progress="{Binding ProgressValue, Mode=TwoWay}"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="End"
+				/>
+	</AbsoluteLayout>
+
+<!--	ホーム			13,0,21,13-->			
+<!--	クーポン			13,0,13,13-->
+<!--	メッセージ		13,0,8,13-->
+<!--	右ボタンがテキスト	13,0,16,13-->
+			
+	</ContentView.Content>
+</ContentView>

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="Think_App.ConfigList"
+
+	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+
+	>
+<AbsoluteLayout>
+		<StackLayout
+			AbsoluteLayout.LayoutFlags="All"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+		HorizontalOptions="CenterAndExpand"
+		VerticalOptions="Start"
+		Spacing="0"
+		Padding="0"
+			>
+			<ffimageloading:CachedImage
+							x:Name="Thumnail"
+							Source="ListShadow.png"
+							Aspect="AspectFill"
+			WidthRequest="{Binding ListShadowWidth}"
+			HeightRequest="{Binding ListShadowHeight, Mode=TwoWay}"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="Start"
+						/>
+		</StackLayout>
+	<StackLayout
+			AbsoluteLayout.LayoutFlags="All"
+			AbsoluteLayout.LayoutBounds="0,0,1,1"
+		HorizontalOptions="CenterAndExpand"
+		VerticalOptions="Start"
+		Spacing="0"
+		Padding="0"
+
+		>
+	<ListView
+			x:Name="ConfigListView"
+			SeparatorVisibility="None"
+			ItemsSource="{Binding ConfigListItems, Mode=TwoWay}"
+			SelectedItem = "{Binding ConfigSelectedItem, Mode=TwoWay}"
+			HorizontalOptions="CenterAndExpand"
+			VerticalOptions="Start"
+			WidthRequest="{Binding ListWidth}"
+			HeightRequest="{Binding ListHeight, Mode=TwoWay}"
+			HasUnevenRows="True"
+			BackgroundColor="White"
+			>
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell
+						Height="45"
+							>
+					<StackLayout
+						HorizontalOptions="FillAndExpand"
+						VerticalOptions="FillAndExpand"
+						Spacing="0"
+						Padding="15,0,5,0"
+								BackgroundColor="White"
+						>
+						<Label
+							Text="{Binding ItemTitle}"
+							TextColor="{Binding ItemFontColor}"
+							FontSize="{Binding ItemFontSize}"
+							FontAttributes="Bold"
+							HorizontalOptions="Start"
+							HorizontalTextAlignment="Start"
+							VerticalOptions="CenterAndExpand"
+							VerticalTextAlignment="Center"
+							LineBreakMode="TailTruncation"
+							BackgroundColor="White"
+
+						/>
+					</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+	</ListView>
+	</StackLayout>
+</AbsoluteLayout>
+</ContentView>

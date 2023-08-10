@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="@@@buildCount" android:versionName="@@@version" package="@@@bundleId" android:installLocation="internalOnly">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="125" android:versionName="1.0.124" package="jp.thinkahead.thinksalon" android:installLocation="internalOnly">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="31" />
 	<uses-permission android:name="android.permission.CALL_PHONE" />
 	<uses-permission android:name="android.permission.CAMERA" />
@@ -10,16 +10,16 @@
 	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
 	<uses-permission android:name="android.permission.USE_CREDENTIALS" />
 	<uses-permission android:name="android.permission.VIBRATE" />
-	<application android:label="@@@appName" android:largeHeap="true" android:networkSecurityConfig="@xml/network_security_config">
+	<application android:label="Think salon kk" android:largeHeap="true" android:networkSecurityConfig="@xml/network_security_config">
 		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
 		<receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-				<category android:name="@@@bundleId" />
+				<category android:name="jp.thinkahead.thinksalon" />
 			</intent-filter>
 		</receiver>
-		<provider android:name="android.support.v4.content.FileProvider" android:authorities="@@@bundleId.fileprovider" android:exported="false" android:grantUriPermissions="true">
+		<provider android:name="android.support.v4.content.FileProvider" android:authorities="jp.thinkahead.thinksalon.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@layout/file_paths"></meta-data>
 		</provider>
 		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />

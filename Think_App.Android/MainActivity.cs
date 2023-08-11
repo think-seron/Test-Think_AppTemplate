@@ -30,14 +30,14 @@ namespace Think_App.Droid
     // 下記のThemeのところでsplashの画像のあるstyleを指定しておき
     // OnCreate内のbase.SetThemeでsplashの画像のないstyleに指定し直すことで
     // アプリ内でページ遷移した際にsplash画像がちらつくのを防止
-    [Activity(Label = "@@@appName", Icon = "@drawable/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, Exported = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "Think salon kk", Icon = "@drawable/icon", Theme = "@style/MyTheme.Splash", MainLauncher = true, Exported = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     //[Activity(Icon = "@drawable/icon", Theme = "@style/MyTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     [IntentFilter(
           actions: new[] { Intent.ActionView }
         , Categories = new[]
         { Intent.CategoryDefault, Intent.CategoryBrowsable, Intent.CategoryAppBrowser }
             , DataHost = "example.jp"
-            , DataScheme = "@@@schemeName"//アプリによってスキーム名変更
+            , DataScheme = "thinksalon"//アプリによってスキーム名変更
      )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity,
         GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, ActivityCompat.IOnRequestPermissionsResultCallback

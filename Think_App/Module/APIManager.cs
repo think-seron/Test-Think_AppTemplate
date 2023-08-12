@@ -37,8 +37,8 @@ namespace Think_App
         public static string BaseDomain()
         {
 #if DEBUG
-            return "https://think.entap.xyz/";
-            //return "https://yoyakuapp.sipss.jp/";
+            // return "https://think.entap.xyz/";
+            return "https://yoyakuapp.sipss.jp/";
 #else
 			//return "https://think.entap.xyz/";
             return "https://yoyakuapp.sipss.jp/";

@@ -12,7 +12,7 @@ namespace Think_App
 			
 		}
 
-        const string SalonId = "@@@SalonId"; 
+        const string SalonId = "9e64a31a7e94ae29"; 
 
         public string appId {
 			get { return SalonId;}

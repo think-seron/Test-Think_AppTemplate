@@ -6,13 +6,14 @@ namespace Think_App
 	public class ColorList
 	{
 		// ビルドサーバで書き換えするcolor
-        public static readonly Color colorMain = Color.FromHex("@@@colorMain");
-        public static readonly Color colorFont = Color.FromHex("@@@colorFont");
-        public static readonly Color colorbatch = Color.FromHex("@@@colorbatch");
-        public static readonly Color colorBackground = Color.FromHex("@@@colorBackground");
-        public static readonly Color colorHomeMenuBtn = Color.FromHex("@@@colorHomeMenuBtn");
+        public static readonly Color colorMain = Color.FromHex("#19B9B1");
+        public static readonly Color colorFont = Color.FromHex("#013647");
+        public static readonly Color colorbatch = Color.FromHex("#FF9330");
+        public static readonly Color colorBackground = Color.FromHex("#EEF9F7");
+        public static readonly Color colorHomeMenuBtn = Color.FromHex("#60C7C1");
 
-
+		// 書き換えるかどうか不明
+		public static readonly Color colorBottomBar = Color.FromHex("#EF8AB7");
 
 		// ビルドサーバで書き換えしないcolor
 		public static readonly Color colorNegative = Color.FromHex("#EFB2CF");

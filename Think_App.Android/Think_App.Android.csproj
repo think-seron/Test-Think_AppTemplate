@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\katouyuugo\Documents\think\temp\app-16-20230731160404\droid\thinksalon.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Repo\think-seron\Test-Think_AppTemplate\thinksalon.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>think0325</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>thinksalon</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>think0325</AndroidSigningKeyPass>

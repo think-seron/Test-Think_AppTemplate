@@ -2,37 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>380488021876-4o02724uqkjrfek1p3gae90j3agktu8k.apps.googleusercontent.com</string>
+	<string>816692623419-6tiqisn2niluu7noisn5klkcd4kc05u1.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.380488021876-4o02724uqkjrfek1p3gae90j3agktu8k</string>
-	<key>ANDROID_CLIENT_ID</key>
-	<string>380488021876-nasa26ihpdldo0e651q6umm1gb4mnke3.apps.googleusercontent.com</string>
+	<string>com.googleusercontent.apps.816692623419-6tiqisn2niluu7noisn5klkcd4kc05u1</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCtLflhD_Sgsw0fnVqKwRQoDKTNPzp-u7U</string>
+	<string>AIzaSyB1y6b7BURarHMpS2r9TahKFmz47RdM2Bc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>380488021876</string>
+	<string>816692623419</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>jp.comcomcompany.Roworl</string>
+	<string>jp.thinkahead.thinksalon</string>
 	<key>PROJECT_ID</key>
-	<string>roworl-176409</string>
+	<string>think-salon</string>
 	<key>STORAGE_BUCKET</key>
-	<string>roworl-176409.appspot.com</string>
+	<string>think-salon.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
 	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:380488021876:ios:b7e53d2fac37aa1f</string>
+	<string>1:816692623419:ios:65a3d02a831fe5e8</string>
 	<key>DATABASE_URL</key>
-	<string>https://roworl-176409.firebaseio.com</string>
+	<string>https://think-salon.firebaseio.com</string>
 </dict>
 </plist>

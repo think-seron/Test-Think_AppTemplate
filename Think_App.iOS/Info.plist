@@ -85,56 +85,56 @@
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>CFBundleIdentifier</key>
-	<string>@@@bundleId</string>
+	<string>jp.thinkahead.thinksalon</string>
 	<key>CFBundleName</key>
-	<string>@@@appName</string>
+	<string>Think salon kk</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>@@@GoogleSigninURLScheme</string>
+				<string>com.googleusercontent.apps.816692623419-6tiqisn2niluu7noisn5klkcd4kc05u1</string>
 			</array>
 			<key>CFBundleURLName</key>
-			<string>@@@bundleId</string>
+			<string>jp.thinkahead.thinksalon</string>
 			<key>CFBundleURLTypes</key>
 			<string>Viewer</string>
 		</dict>
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>@@@schemeName</string>
+				<string>thinksalon</string>
 			</array>
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string>@@@bundleId</string>
+			<string>jp.thinkahead.thinksalon</string>
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
 			<string>fb</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb@@@Facebook_AppId</string>
+				<string>fb1175270952597511</string>
 			</array>
 		</dict>
 	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>CFBundleDisplayName</key>
-	<string>@@@appName</string>
+	<string>Think salon kk</string>
 	<key>CFBundleShortVersionString</key>
-	<string>@@@version</string>
+	<string>1.0.124</string>
 	<key>CFBundleVersion</key>
-	<string>@@@buildCount</string>
+	<string>125</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>現在この機能は使用しておりません</string>
 	<key>FacebookAppID</key>
-	<string>@@@Facebook_AppId</string>
+	<string>1175270952597511</string>
 	<key>FacebookClientToken</key>
-	<string>@@@Facebook_ClientToken</string>
+	<string>dc9aeb60ec572a5e88768a415ce20b3e</string>
 	<key>FacebookDisplayName</key>
-	<string>@@@appName</string>
+	<string>Think salon kk</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

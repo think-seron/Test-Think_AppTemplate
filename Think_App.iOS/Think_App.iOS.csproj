@@ -1,175 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{28C78F66-A2CC-4058-A844-9E4694705AAC}</ProjectGuid>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Think_App.iOS</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Think_App.iOS</AssemblyName>
-    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
-    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <EnableSGenConc>true</EnableSGenConc>
+    <TargetFrameworks>net7.0-ios</TargetFrameworks>
+    <UseMaui>True</UseMaui>
+    <AssemblyTitle>Think_App.iOS</AssemblyTitle>
+    <Product>Think_App.iOS</Product>
+    <Copyright>Copyright ©  2014</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RuntimeIdentifiers>iossimulator-x64</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <MtouchLink>None</MtouchLink>
-    <MtouchArch>x86_64</MtouchArch>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RuntimeIdentifiers>iossimulator-x64</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\iPhone\Debug</OutputPath>
-    <DefineConstants>DEBUG</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARM64</MtouchArch>
     <CodesignKey>iPhone Developer: atsushi sugai (W5N7Y9YE53)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignProvision>Development</CodesignProvision>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
-    <DebugType>none</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\iPhone\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <MtouchArch>ARMv7, ARM64</MtouchArch>
     <CodesignKey>iPhone Distribution: THINK.INC (YMAKF4N827)</CodesignKey>
-    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <CodesignKey>iPhone Distribution: THINK.INC (YMAKF4N827)</CodesignKey>
     <CodesignProvision>@@@provisioningName</CodesignProvision>
     <MtouchExtraArgs>--optimize=experimental-xforms-product-type</MtouchExtraArgs>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RuntimeIdentifiers>ios-arm;ios-arm64</RuntimeIdentifiers>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
-    <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CameraUtils\OutputMetadata.cs" />
-    <Compile Include="CameraUtils\UICameraView.cs" />
-    <Compile Include="CameraUtils\OutputRecorder.cs" />
-    <Compile Include="CustomRenderer\CustomHomePageRenderer_iOS.cs" />
-    <Compile Include="CustomRenderer\RoundedBoxViewRenderer.cs" />
-    <Compile Include="CustomRenderer\BackCustomizeContentPageRenderer.cs" />
-    <Compile Include="CustomRenderer\MultiLineLabelRenderer.cs" />
-    <Compile Include="CustomRenderer\ImageControlContainerRenderer.cs" />
-    <Compile Include="CustomRenderer\MessageListViewRenderer.cs" />
-    <Compile Include="CustomRenderer\SegmentedControlRenderer.cs" />
-    <Compile Include="CustomRenderer\MessageMainPageRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomViewCellRenderer_iOS.cs" />
-    <Compile Include="CustomRenderer\CameraViewRenderer.cs" />
-    <Compile Include="CustomRenderer\MessageEditorRenderer.cs" />
-    <Compile Include="CustomRenderer\TouchableBoxViewRenderer.cs" />
-    <Compile Include="CustomRenderer\ModalPageRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomBoxViewRenderer.cs" />
-    <Compile Include="CustomRenderer\CircleViewRenderer.cs" />
-    <Compile Include="CustomRenderer\GradationViewRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomDatePickerRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomEditorRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomEntryRenderer.cs" />
-    <Compile Include="CustomRenderer\WebViewRenderer_iOS.cs" />
-    <Compile Include="CustomRenderer\CustomSliderRenderer.cs" />
-    <Compile Include="CustomRenderer\LongTappedImageButtonRenderer.cs" />
-    <Compile Include="CustomRenderer\CustomNavigationRenderer_iOS.cs" />
-    <Compile Include="CustomRenderer\CustomButtonRenderer.cs" />
-    <Compile Include="CustomRenderer\BalloonViewRenderer.cs" />
-    <Compile Include="CustomRenderer\AppendColorImageRenderer.cs" />
-    <Compile Include="DependencyService\FirebaseAnalyticsService.cs" />
-    <Compile Include="DependencyService\ClipboardService_iOS.cs" />
-    <Compile Include="DependencyService\MediaService.cs" />
-    <Compile Include="DependencyService\WebBrowserService_iOS.cs" />
-    <Compile Include="DependencyService\PushNotificationService_iOS.cs" />
-    <Compile Include="DependencyService\ImageService.cs" />
-    <Compile Include="DependencyService\ScreenService.cs" />
-    <Compile Include="DependencyService\CameraService.cs" />
-    <Compile Include="DependencyService\DeviceInfoService_iOS.cs" />
-    <Compile Include="DependencyService\ModalPageService.cs" />
-    <Compile Include="DependencyService\GoogleSignInService_iOS.cs" />
-    <Compile Include="DependencyService\TextService.cs" />
-    <Compile Include="DependencyService\DeviceModel.cs" />
-    <Compile Include="DependencyService\Toast.cs" />
-    <Compile Include="DependencyService\NotificationService.cs" />
-    <Compile Include="Extensions\AssetsLibraryExtention.cs" />
-    <Compile Include="Extensions\ImageSourceExtension.cs" />
-    <Compile Include="Extensions\UIColorExtension.cs" />
-    <Compile Include="Extensions\UIImageExtension.cs" />
-    <Compile Include="Extensions\DoubleExtension.cs" />
-    <Compile Include="Payloads\AseetsLibraryPayload.cs" />
-    <Compile Include="Extensions\GalleryService.cs" />
-    <Compile Include="Utilities\UIImageConverter.cs" />
-    <Compile Include="Utilities\AssetsLibraryManager.cs" />
-    <Compile Include="Utilities\FaceDetectionManager.cs" />
-    <Compile Include="CustomRenderer\CarouselLayoutRenderer.cs" />
-    <Compile Include="DependencyService\AppleSignInService.cs" />
-    <Compile Include="DependencyService\DateTimeService.cs" />
-    <Compile Include="DependencyService\DialogService.cs" />
-    <Compile Include="DependencyService\ViewExtensions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon60.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon58.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon80.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon120.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon120-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon180.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon20.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon40-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon29.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon58-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon40-2.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon80-1.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon76.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon152.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon-1.appiconset\icon1024.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="Xamarin.iOS" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
     <PackageReference Include="Xamarin.FFImageLoading">
       <Version>2.4.11.982</Version>
     </PackageReference>
@@ -185,215 +55,8 @@
     <PackageReference Include="Xam.Plugin.Media">
       <Version>4.0.1.5</Version>
     </PackageReference>
-    <PackageReference Include="PCLStorage">
-      <Version>1.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Firebase.iOS.CloudMessaging">
-      <Version>4.1.1.2</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
-      <Version>6.0.4.1</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.Google.iOS.SignIn">
-      <Version>5.0.1.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Think_App\Think_App.csproj">
-      <Project>{89CF3CA0-FAB8-4F69-85DB-2C08435F0E44}</Project>
-      <Name>Think_App</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\AppHeaderLogo.png" />
-    <BundleResource Include="Resources\bg_hairsimulation_01.png" />
-    <BundleResource Include="Resources\bg_hairsimulation_02.png" />
-    <BundleResource Include="Resources\bg_hairsimulation_03.png" />
-    <BundleResource Include="Resources\BigFavoIconOff.png" />
-    <BundleResource Include="Resources\BigFavoIconOff%402x.png" />
-    <BundleResource Include="Resources\BigFavoIconOff%403x.png" />
-    <BundleResource Include="Resources\BigFavoIconOn.png" />
-    <BundleResource Include="Resources\BigFavoIconOn%402x.png" />
-    <BundleResource Include="Resources\BigFavoIconOn%403x.png" />
-    <BundleResource Include="Resources\BlogCateBtnShadow.png" />
-    <BundleResource Include="Resources\BlogCateBtnShadow%402x.png" />
-    <BundleResource Include="Resources\BlogCateBtnShadow%403x.png" />
-    <BundleResource Include="Resources\Button_Shadow.png" />
-    <BundleResource Include="Resources\Button_Shadow%402x.png" />
-    <BundleResource Include="Resources\Button_Shadow%403x.png" />
-    <BundleResource Include="Resources\ButtonShadow_Square.png" />
-    <BundleResource Include="Resources\ButtonShadow_Square%402x.png" />
-    <BundleResource Include="Resources\ButtonShadow_Square%403x.png" />
-    <BundleResource Include="Resources\CommentMask.png" />
-    <BundleResource Include="Resources\CommentMask%402x.png" />
-    <BundleResource Include="Resources\CommentMask%403x.png" />
-    <BundleResource Include="Resources\googleBtn.png" />
-    <BundleResource Include="Resources\googleBtn%402x.png" />
-    <BundleResource Include="Resources\googleBtn%403x.png" />
-    <BundleResource Include="Resources\hair_back_image.png" />
-    <BundleResource Include="Resources\icon_arrow_down.png" />
-    <BundleResource Include="Resources\Icon_BookingNo.png" />
-    <BundleResource Include="Resources\Icon_BookingNo%402x.png" />
-    <BundleResource Include="Resources\Icon_BookingNo%403x.png" />
-    <BundleResource Include="Resources\Icon_BookingOk.png" />
-    <BundleResource Include="Resources\Icon_BookingOk%402x.png" />
-    <BundleResource Include="Resources\Icon_BookingOk%403x.png" />
-    <BundleResource Include="Resources\Icon_Camela%402x.png" />
-    <BundleResource Include="Resources\Icon_Camela%403x.png" />
-    <BundleResource Include="Resources\Icon_Cmera.png" />
-    <BundleResource Include="Resources\Icon_DottedLine.png" />
-    <BundleResource Include="Resources\Icon_DottedLine%402x.png" />
-    <BundleResource Include="Resources\Icon_DottedLine%403x.png" />
-    <BundleResource Include="Resources\Icon_GoLeft.png" />
-    <BundleResource Include="Resources\Icon_GoLeft%402x.png" />
-    <BundleResource Include="Resources\Icon_GoLeft%403x.png" />
-    <BundleResource Include="Resources\Icon_GoRight.png" />
-    <BundleResource Include="Resources\Icon_GoRight%402x.png" />
-    <BundleResource Include="Resources\Icon_GoRight%403x.png" />
-    <BundleResource Include="Resources\Icon_GoRightDubble.png" />
-    <BundleResource Include="Resources\Icon_GoRightDubble%402x.png" />
-    <BundleResource Include="Resources\Icon_GoRightDubble%403x.png" />
-    <BundleResource Include="Resources\icon_hair_thick.png" />
-    <BundleResource Include="Resources\icon_hair_thin.png" />
-    <BundleResource Include="Resources\Icon_Hair.png" />
-    <BundleResource Include="Resources\Icon_Hair%402x.png" />
-    <BundleResource Include="Resources\Icon_Hair%403x.png" />
-    <BundleResource Include="Resources\Icon_HairCatalog.png" />
-    <BundleResource Include="Resources\Icon_HairCatalog%402x.png" />
-    <BundleResource Include="Resources\Icon_HairCatalog%403x.png" />
-    <BundleResource Include="Resources\icon_hand.png" />
-    <BundleResource Include="Resources\icon_hand%402x.png" />
-    <BundleResource Include="Resources\icon_hand%403x.png" />
-    <BundleResource Include="Resources\Icon_Help.png" />
-    <BundleResource Include="Resources\Icon_Help%402x.png" />
-    <BundleResource Include="Resources\Icon_Help%403x.png" />
-    <BundleResource Include="Resources\Icon_Home.png" />
-    <BundleResource Include="Resources\Icon_Home%402x.png" />
-    <BundleResource Include="Resources\Icon_Home%403x.png" />
-    <BundleResource Include="Resources\Icon_homeTitleImg.png" />
-    <BundleResource Include="Resources\icon_image_minus.png" />
-    <BundleResource Include="Resources\icon_image_plus_minus_separator.png" />
-    <BundleResource Include="Resources\icon_image_plus.png" />
-    <BundleResource Include="Resources\Icon_MatsuEku.png" />
-    <BundleResource Include="Resources\Icon_MatsuEku%402x.png" />
-    <BundleResource Include="Resources\Icon_MatsuEku%403.png" />
-    <BundleResource Include="Resources\icon_message_camera.png" />
-    <BundleResource Include="Resources\icon_message_camera%402x.png" />
-    <BundleResource Include="Resources\icon_message_camera%403x.png" />
-    <BundleResource Include="Resources\icon_message_catalog.png" />
-    <BundleResource Include="Resources\icon_message_catalog%402x.png" />
-    <BundleResource Include="Resources\icon_message_catalog%403x.png" />
-    <BundleResource Include="Resources\icon_message_photo.png" />
-    <BundleResource Include="Resources\icon_message_photo%402x.png" />
-    <BundleResource Include="Resources\icon_message_photo%403x.png" />
-    <BundleResource Include="Resources\icon_message_plus.png" />
-    <BundleResource Include="Resources\icon_message_plus%402x.png" />
-    <BundleResource Include="Resources\icon_message_plus%403x.png" />
-    <BundleResource Include="Resources\icon_message_simulation.png" />
-    <BundleResource Include="Resources\icon_message_simulation%402x.png" />
-    <BundleResource Include="Resources\icon_message_simulation%403x.png" />
-    <BundleResource Include="Resources\Icon_Nail.png" />
-    <BundleResource Include="Resources\Icon_Nail%402x.png" />
-    <BundleResource Include="Resources\Icon_Nail%403x.png" />
-    <BundleResource Include="Resources\icon_navigation_back.png" />
-    <BundleResource Include="Resources\icon_pen_thick.png" />
-    <BundleResource Include="Resources\icon_pen_thin.png" />
-    <BundleResource Include="Resources\Icon_Photo.png" />
-    <BundleResource Include="Resources\Icon_Photo%402x.png" />
-    <BundleResource Include="Resources\Icon_Photo%403x.png" />
-    <BundleResource Include="Resources\icon_plus.png" />
-    <BundleResource Include="Resources\icon_plus%402x.png" />
-    <BundleResource Include="Resources\icon_plus%403x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleAble.png" />
-    <BundleResource Include="Resources\Icon_ScheduleAble%402x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleAble%403x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftDouble.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftDouble%402x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftDouble%403x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftSingle.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftSingle%402x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeLeftSingle%403x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeRightSingle.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeRightSingle%402x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleChangeRightSingle%403x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleDisable.png" />
-    <BundleResource Include="Resources\Icon_ScheduleDisable%402x.png" />
-    <BundleResource Include="Resources\Icon_ScheduleDisable%403x.png" />
-    <BundleResource Include="Resources\icon_select_color_circle.png" />
-    <BundleResource Include="Resources\icon_select_hair.png" />
-    <BundleResource Include="Resources\icon_select_hair%402x.png" />
-    <BundleResource Include="Resources\icon_select_hair%403x.png" />
-    <BundleResource Include="Resources\icon_select_pen_shadow.png" />
-    <BundleResource Include="Resources\icon_select_pen.png" />
-    <BundleResource Include="Resources\icon_switch_camera.png" />
-    <BundleResource Include="Resources\icon_take_photo.png" />
-    <BundleResource Include="Resources\Icon_UnderReservation.png" />
-    <BundleResource Include="Resources\Icon_UnderReservation%402x.png" />
-    <BundleResource Include="Resources\Icon_UnderReservation%403x.png" />
-    <BundleResource Include="Resources\icon.png" />
-    <BundleResource Include="Resources\ImageMask_White.png" />
-    <BundleResource Include="Resources\LargeWhiteButtonShadow.png" />
-    <BundleResource Include="Resources\LargeWhiteButtonShadow%402x.png" />
-    <BundleResource Include="Resources\LargeWhiteButtonShadow%403x.png" />
-    <BundleResource Include="Resources\ListShadow.png" />
-    <BundleResource Include="Resources\ListShadow%402x.png" />
-    <BundleResource Include="Resources\ListShadow%403x.png" />
-    <BundleResource Include="Resources\loginBgImg.png" />
-    <BundleResource Include="Resources\loginBgImg%402x.png" />
-    <BundleResource Include="Resources\loginBgImg%403x.png" />
-    <BundleResource Include="Resources\map.png" />
-    <BundleResource Include="Resources\map%402x.png" />
-    <BundleResource Include="Resources\map%403x.png" />
-    <BundleResource Include="Resources\mask_shadow.png" />
-    <BundleResource Include="Resources\mask_white_blur.png" />
-    <BundleResource Include="Resources\MidiumWhiteButtonShadow.png" />
-    <BundleResource Include="Resources\MidiumWhiteButtonShadow%402x.png" />
-    <BundleResource Include="Resources\MidiumWhiteButtonShadow%403x.png" />
-    <BundleResource Include="Resources\MyBlogDateShadow.png" />
-    <BundleResource Include="Resources\MyBlogDateShadow%402x.png" />
-    <BundleResource Include="Resources\MyBlogDateShadow%403x.png" />
-    <BundleResource Include="Resources\MyBlogPlusListViewShadow.png" />
-    <BundleResource Include="Resources\MyBlogPlusListViewShadow%402x.png" />
-    <BundleResource Include="Resources\MyBlogPlusListViewShadow%403x.png" />
-    <BundleResource Include="Resources\nailImg.png" />
-    <BundleResource Include="Resources\noimage.png" />
-    <BundleResource Include="Resources\noimage%402x.png" />
-    <BundleResource Include="Resources\noimage%403x.png" />
-    <BundleResource Include="Resources\ReservationTopBgImg.png" />
-    <BundleResource Include="Resources\ReservationTopBgImg%402x.png" />
-    <BundleResource Include="Resources\ReservationTopBgImg%403x.png" />
-    <BundleResource Include="Resources\SeeMoreButtonShadow.png" />
-    <BundleResource Include="Resources\SeeMoreButtonShadow%402x.png" />
-    <BundleResource Include="Resources\SeeMoreButtonShadow%403x.png" />
-    <BundleResource Include="Resources\ShortSeeMoreButtonShadow.png" />
-    <BundleResource Include="Resources\ShortSeeMoreButtonShadow%402x.png" />
-    <BundleResource Include="Resources\ShortSeeMoreButtonShadow%403x.png" />
-    <BundleResource Include="Resources\ShortWhiteButtonShadow.png" />
-    <BundleResource Include="Resources\ShortWhiteButtonShadow%402x.png" />
-    <BundleResource Include="Resources\ShortWhiteButtonShadow%403x.png" />
-    <BundleResource Include="Resources\SmallFavoIconOff.png" />
-    <BundleResource Include="Resources\SmallFavoIconOff%402x.png" />
-    <BundleResource Include="Resources\SmallFavoIconOff%403x.png" />
-    <BundleResource Include="Resources\SmallFavoIconOn.png" />
-    <BundleResource Include="Resources\SmallFavoIconOn%402x.png" />
-    <BundleResource Include="Resources\SmallFavoIconOn%403x.png" />
-    <BundleResource Include="Resources\SplashScreenImg.png" />
-    <BundleResource Include="Resources\tel.png" />
-    <BundleResource Include="Resources\tel%402x.png" />
-    <BundleResource Include="Resources\tel%403x.png" />
-    <BundleResource Include="Resources\UnreadIcon.png" />
-    <BundleResource Include="Resources\UnreadIcon%402x.png" />
-    <BundleResource Include="Resources\UnreadIcon%403x.png" />
-    <BundleResource Include="GoogleService-Info.plist" />
-    <BundleResource Include="Resources\checked_checkbox.png" />
-    <BundleResource Include="Resources\checked_checkbox%402x.png" />
-    <BundleResource Include="Resources\checkbox%403x.png" />
-    <BundleResource Include="Resources\checkbox%402x.png" />
-    <BundleResource Include="Resources\checkbox.png" />
-    <BundleResource Include="Resources\checked_checkbox%403x.png" />
-    <BundleResource Include="Resources\no_image_detail.png" />
-    <BundleResource Include="Resources\no_image_detail%402x.png" />
-    <BundleResource Include="Resources\no_image_detail%403x.png" />
+    <ProjectReference Include="..\Think_App\Think_App.csproj" />
   </ItemGroup>
 </Project>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public partial class EditHairPage : BackCustomizeContentPage
@@ -29,11 +31,11 @@ namespace Think_App
         // 画像を保存する際の、短辺の最大値。
         const double _maxImageLength = 1024;
 
-        Rectangle _hairImgRect;
+        Rect _hairImgRect;
         string _infoFilename, _hairFilename, _faceFilename, _imageFilename;
 
         bool _isGallery;
-        Rectangle _viewImageRange;
+        Rect _viewImageRange;
 
         bool SelectColorViewUpdated;
         bool IsHairRectEditted;
@@ -43,9 +45,9 @@ namespace Think_App
 
         EditHairPageModel Model { get; set; }
 
-        public EditHairPage(Rectangle hairImgRect, ImageSource baseImageSource, ImageSource hairImageSource,
+        public EditHairPage(Rect hairImgRect, ImageSource baseImageSource, ImageSource hairImageSource,
                             bool isGallery = false, double scale = 1.0, double translationX = 0.0, double translationY = 0.0,
-                            Rectangle? viewImageRange = null)
+                            Rect? viewImageRange = null)
         {
             InitializeComponent();
             NavigationPage.SetBackButtonTitle(this, "");
@@ -77,7 +79,7 @@ namespace Think_App
                 Model.GalleryImgScale = scale;
                 Model.GalleryImgTranslationX = translationX;
                 Model.GalleryImgTranslationY = translationY;
-                _viewImageRange = viewImageRange ?? Rectangle.Zero;
+                _viewImageRange = viewImageRange ?? Rect.Zero;
             }
             else
             {
@@ -91,7 +93,7 @@ namespace Think_App
                 Model.PhotoImgScale = scale;
                 Model.PhotoImgTranslationX = translationX;
                 Model.PhotoImgTranslationY = translationY;
-                _viewImageRange = viewImageRange ?? Rectangle.Zero;
+                _viewImageRange = viewImageRange ?? Rect.Zero;
             }
 
             _hairImgRect = hairImgRect;
@@ -405,8 +407,8 @@ namespace Think_App
             modalView.modalViewViewModel.ModalLabelTxt = "編集をリセットしますか？";
             modalView.modalViewViewModel.YesButtonTxt = "リセットする";
             modalView.modalViewViewModel.NoButtonTxt = "リセットしない";
-            modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.45, 1, AbsoluteLayout.AutoSize);
-            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.73, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.45, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.73, 1, AbsoluteLayout.AutoSize);
 
             modalView.yesButton.Clicked += async (sender, e) =>
             {
@@ -552,7 +554,7 @@ namespace Think_App
             }
             else
             {
-                if (_viewImageRange == Rectangle.Zero)
+                if (_viewImageRange == Rect.Zero)
                 {
                     // 単純にPhotoImgに今設定されている画像を返すだけです。
                     source = this.PhotoImg.Source;
@@ -686,11 +688,11 @@ namespace Think_App
     public class EditHairSaveData
     {
         public AppendColorImageSaveData AppendColorImageSaveData { get; set; }
-        public Rectangle HairImageRect { get; set; }
+        public Rect HairImageRect { get; set; }
         public bool isGallery { get; set; }
         public double ImageScale { get; set; }
         public double ImageTranslationX { get; set; }
         public double ImageTranslationY { get; set; }
-        public Rectangle ViewImageRange { get; set; }
+        public Rect ViewImageRange { get; set; }
     }
 }

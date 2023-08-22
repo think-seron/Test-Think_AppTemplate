@@ -4,7 +4,8 @@ using AuthenticationServices;
 using Foundation;
 using Think_App.iOS;
 using UIKit;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(AppleSignInService))]
 namespace Think_App.iOS

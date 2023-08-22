@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -23,7 +25,7 @@ namespace Think_App
 			noticePageViewModel.NoticeContents = description;
 			noticePageViewModel.NoticeTitleFontSize = ScaleManager.SizeSet(13);
 			noticePageViewModel.NoticeContentsFontSize = ScaleManager.SizeSet(17);
-			noticePageViewModel.ScrollViewRect = new Rectangle(0, 81, 1, ScaleManager.ScreenHeight - 81);
+			noticePageViewModel.ScrollViewRect = new Rect(0, 81, 1, ScaleManager.ScreenHeight - 81);
 			//if (Device.RuntimePlatform == Device.iOS)
 			//{
 			//	noticePageViewModel.ScrollViewRect = new Rectangle(0, 146, 1, ScaleManager.ScreenHeight - 146);

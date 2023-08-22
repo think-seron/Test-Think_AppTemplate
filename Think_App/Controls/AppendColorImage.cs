@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -18,7 +20,7 @@ namespace Think_App
 		public double A { get; set; }
 		public bool IsErase { get; set; }
 		public double WidthRate { get; set; }
-		public Rectangle DefaultRect { get; set; }
+		public Rect DefaultRect { get; set; }
 		public Strokes Strokes { get; set; }
 		public bool IsEditted { get; set; }
 		public AppendColorImage.BlendingMode BlendMode { get; set; }
@@ -46,10 +48,10 @@ namespace Think_App
 			}
 			set
 			{
-				R = value.R;
-				G = value.G;
-				B = value.B;
-				A = value.A;
+				R = value.Red;
+				G = value.Green;
+				B = value.Blue;
+				A = value.Alpha;
 			}
 		}
 		public double R { get; set; }
@@ -65,7 +67,7 @@ namespace Think_App
 
 		public double WidthRate { get; set; }
 
-		public Rectangle DefaultRect { get; set; }
+		public Rect DefaultRect { get; set; }
 
 		#region BlendMode BindableProperty
 		public static readonly BindableProperty BlendModeProperty =
@@ -84,7 +86,7 @@ namespace Think_App
 		{
 			// デフォルト
 			StrokeWidth = 20;
-			StrokeColor = Color.FromHex("#FF0000");
+			StrokeColor = Color.FromArgb("#FF0000");
 
 			Strokes = new Strokes();
 		}
@@ -158,10 +160,10 @@ namespace Think_App
 			return new AppendColorImageSaveData()
 			{
 				StrokeWidth = this.StrokeWidth,
-				R = this.R,
-				G = this.G,
-				B = this.B,
-				A = this.A,
+				R = this.Red,
+				G = this.Green,
+				B = this.Blue,
+				A = this.Alpha,
 				IsErase = this.IsErase,
 				WidthRate = this.WidthRate,
 				DefaultRect = this.DefaultRect,
@@ -174,11 +176,11 @@ namespace Think_App
 		public void SetSaveData(AppendColorImageSaveData data)
 		{
 			this.StrokeWidth = data.StrokeWidth;
-			this.R = data.R;
-			this.G = data.G;
-			this.B = data.B;
-			this.A = data.A;
-			this.StrokeColor = Color.FromRgba(data.R, data.G, data.B, data.A);
+			this.Red = data.Red;
+			this.Green = data.Green;
+			this.Blue = data.Blue;
+			this.Alpha = data.Alpha;
+			this.StrokeColor = Color.FromRgba(data.Red, data.Green, data.Blue, data.Alpha);
 			this.IsErase = data.IsErase;
 			this.Strokes = data.Strokes;
 			this.IsEditted = data.IsEditted;
@@ -286,10 +288,10 @@ namespace Think_App
 			}
 			set
 			{
-				R = value.R;
-				G = value.G;
-				B = value.B;
-				A = value.A;
+				R = value.Red;
+				G = value.Green;
+				B = value.Blue;
+				A = value.Alpha;
 			}
 		}
 		public double R { get; set; }

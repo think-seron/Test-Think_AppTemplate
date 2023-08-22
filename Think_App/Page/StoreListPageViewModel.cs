@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class StoreListPageViewModel : ViewModelBase
@@ -9,7 +11,7 @@ namespace Think_App
 			//CustomNavibarBC = new CustomNavigationBarViewModel("店舗一覧", CustomNavigationBarViewModel.LeftBtnKinds.BackBtn, CustomNavigationBarViewModel.RightBtnKinds.None, null);
 			//CustomNavibarBC.LeftBtnClicked = new Command(() => { ScreenTransition(); });
 		}
-		public Rectangle ListViewRect { get; set; }
+		public Rect ListViewRect { get; set; }
 
 		//private CustomNavigationBarViewModel _CustomNavibarBC;
 		//public CustomNavigationBarViewModel CustomNavibarBC

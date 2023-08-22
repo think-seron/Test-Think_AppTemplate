@@ -1,5 +1,6 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class LongTappedImageButton : CustomImageButton
@@ -29,6 +30,7 @@ namespace Think_App
 				return;
 			}
 			IsContinue = true;
+			// TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			Device.StartTimer(TimeSpan.FromSeconds(SendTappingEventIntervalSeconds), SendTappingEvent);
 			IsTimerRunning = true;
 		}

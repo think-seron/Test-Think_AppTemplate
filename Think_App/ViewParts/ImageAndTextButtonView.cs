@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -56,7 +58,7 @@ namespace Think_App
             propertyName: nameof(BtnBgColor),
             returnType: typeof(Color),
             declaringType: typeof(ImageAndTextButtonView),
-            defaultValue: Color.White,
+            defaultValue: Colors.White,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (bindable, oldValue, newValue) =>
             ((ImageAndTextButtonView)bindable).BtnBgColor = (Color)newValue);
@@ -146,7 +148,7 @@ namespace Think_App
             propertyName: nameof(BtnTextColor),
             returnType: typeof(Color),
             declaringType: typeof(ImageAndTextButtonView),
-            defaultValue: Color.White,
+            defaultValue: Colors.White,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (bindable, oldValue, newValue) =>
             ((ImageAndTextButtonView)bindable).BtnTextColor = (Color)newValue);
@@ -175,6 +177,7 @@ namespace Think_App
 
         private void Initialize()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 InitializeDroid();
             else
@@ -217,6 +220,7 @@ namespace Think_App
 
         private void UpdateBtnSize()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnSize = BtnSize;
             else
@@ -225,6 +229,7 @@ namespace Think_App
 
         private void UpdateBtnBgColor()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnBgColor = BtnBgColor;
             else
@@ -233,6 +238,7 @@ namespace Think_App
 
         private void UpdateBtnImage()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnImage = BtnImage;
             else
@@ -241,6 +247,7 @@ namespace Think_App
 
         private void UpdateBtnImageHeight()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnImageHeight = BtnImageHeight;
             else
@@ -249,6 +256,7 @@ namespace Think_App
 
         private void UpdateBtnImageWidth()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnImageWidth = BtnImageWidth;
             else
@@ -257,6 +265,7 @@ namespace Think_App
 
         private void UpdateBtnText()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnText = BtnText;
             else
@@ -265,6 +274,7 @@ namespace Think_App
 
         private void UpdateBtnFontSize()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnFontSize = BtnFontSize;
             else
@@ -273,6 +283,7 @@ namespace Think_App
 
         private void UpdateBtnTextColor()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnTextColor = BtnTextColor;
             else
@@ -281,6 +292,7 @@ namespace Think_App
 
         private void UpdateBtnCommand()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 _droidView.BtnCommand = BtnCommand;
             else

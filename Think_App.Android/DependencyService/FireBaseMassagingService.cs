@@ -5,10 +5,11 @@ using Firebase.Messaging;
 using Android.Media;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 using Xamarin.Android;
 using Android.OS;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {

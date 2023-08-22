@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using Think_App;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public partial class Home : CustomHomePage
@@ -31,6 +32,7 @@ namespace Think_App
 
 		public Home(ResponseHome response)
 		{
+			// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			if (Device.RuntimePlatform == Device.Android)
 			{
 				GASCall.Track_App_Page("Android_Home");
@@ -58,6 +60,7 @@ namespace Think_App
 			{
 				if (homeViewModel.CarouselItem != null || homeViewModel.CarouselItem.Count > 0)
 				{
+					// TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 					Device.StartTimer(TimeSpan.FromSeconds(8.0), () =>
 					{
 

@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -196,8 +198,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle noBlogTextRectangle;
-		public Rectangle NoBlogTextRectangle
+		private Rect noBlogTextRectangle;
+		public Rect NoBlogTextRectangle
 		{
 			get
 			{

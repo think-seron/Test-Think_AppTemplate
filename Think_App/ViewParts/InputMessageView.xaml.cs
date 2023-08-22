@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -42,7 +43,8 @@ namespace Think_App
         public void InputDummyText()
         {
             // アンドロイドのみ、この対応を入れないとソフトウェアキーボードに入力エリアが隠されてしまう。
-            if (Device.RuntimePlatform == Device.Android && Model != null)
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+                        if (Device.RuntimePlatform == Device.Android && Model != null)
             {
                 System.Diagnostics.Debug.WriteLine("!!Android対応。キーボードに入力エリアが隠されないように、ダミーで空白を入れて0.5秒後に消去します。");
                 Model.EditorViewModel.MessageEditorText += _dummyText;

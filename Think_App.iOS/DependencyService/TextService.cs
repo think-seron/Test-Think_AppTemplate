@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
-using Xamarin.Forms;
 using UIKit;
 using Foundation;
 using Think_App.iOS;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(TextService))]
 namespace Think_App.iOS

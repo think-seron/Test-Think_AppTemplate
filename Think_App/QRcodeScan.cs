@@ -1,8 +1,9 @@
-﻿using Xamarin.Forms;
-using System;
+﻿using System;
 using ZXing.Net.Mobile.Forms;
 using ZXing.Mobile;
 using ZXing;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {

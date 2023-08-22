@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Think_App;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -187,17 +189,17 @@ namespace Think_App
 
 										var confirmationodalView = new ModalView();
 										confirmationodalView.modalViewViewModel.ModalLabelTxt = "予約されました";
-										confirmationodalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-										confirmationodalView.modalViewViewModel.OKBtnLayoutBounds = new Rectangle(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+										confirmationodalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+										confirmationodalView.modalViewViewModel.OKBtnLayoutBounds = new Rect(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
 								
 
-										var currentApp = Xamarin.Forms.Application.Current;
+										var currentApp = Microsoft.Maui.Controls.Application.Current;
 										confirmationodalView.okButton.Clicked += async (okSender, okE) =>
 																	{
 																		if (!IsResisted)
 																		{
 																			IsResisted = true;
-																			if (currentApp != Xamarin.Forms.Application.Current)
+																			if (currentApp != Microsoft.Maui.Controls.Application.Current)
 																			{
 																				IsResisted = false;
 																				App.ProcessManager.OnComplete();

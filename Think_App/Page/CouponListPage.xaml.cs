@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -44,6 +46,7 @@ namespace Think_App
                     if (!App.ProcessManager.CanInvoke())
                         return;
                     var page = new StoreSelect(3, null, this);
+                    // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                     if (Device.RuntimePlatform == Device.iOS)
                         App.customNavigationPage.IsBadgeVisble = false;
 
@@ -162,6 +165,7 @@ namespace Think_App
 
                     int rectHeight = 223 * itemList.Count;
                     int heightAgust = 111;
+                    // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                     if (Device.RuntimePlatform == Device.Android)
                     {
                         heightAgust = heightAgust - 9;
@@ -169,11 +173,11 @@ namespace Think_App
 
                     if ((ScaleManager.ScreenHeight - heightAgust) < rectHeight)
                     {
-                        couponListPageViewModel.ListViewRect = new Rectangle(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
+                        couponListPageViewModel.ListViewRect = new Rect(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
                     }
                     else
                     {
-                        couponListPageViewModel.ListViewRect = new Rectangle(0, 46, 1, rectHeight);
+                        couponListPageViewModel.ListViewRect = new Rect(0, 46, 1, rectHeight);
                     }
 
                     Device.BeginInvokeOnMainThread(() =>
@@ -213,6 +217,7 @@ namespace Think_App
         {
             base.OnDisappearing();
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS && App.customNavigationPage.IsBadgeVisble == true)
                 App.customNavigationPage.IsBadgeVisble = false;
         }

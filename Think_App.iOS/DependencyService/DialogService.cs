@@ -6,7 +6,8 @@ using CoreGraphics;
 using Foundation;
 using StoreKit;
 using UIKit;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(Think_App.iOS.DialogService))]
 namespace Think_App.iOS

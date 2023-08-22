@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -21,7 +23,7 @@ namespace Think_App
             StaffCareerFontSize = ScaleManager.SizeSet(12);
             MessageFontSize = ScaleManager.SizeSet(14);
             GoodImageFontSize = ScaleManager.SizeSet(14);
-			BtnRect = new Rectangle(0, 0, 1, 1); // 値は固定値だがページ遷移した際のボタンの拡縮が気になるのでBindingしている
+			BtnRect = new Rect(0, 0, 1, 1); // 値は固定値だがページ遷移した際のボタンの拡縮が気になるのでBindingしている
 
             //予約できる場合は表示
             //できなければ非表示
@@ -30,7 +32,7 @@ namespace Think_App
 
         public bool ReservBtnVisible { get; set; }
 
-		public Rectangle BtnRect { get; set; }
+		public Rect BtnRect { get; set; }
 		public double StaffNameFontSize { get; set; }
 		public double StaffNameKanaFontSize { get; set; }
 		public double StaffCareerFontSize { get; set;}
@@ -103,6 +105,6 @@ namespace Think_App
 		public string GoodTechnic { get; set; }
 		//public double ScreenWidth { get; set; }
 
-		public Rectangle ScrollViewRect { get; set; }
+		public Rect ScrollViewRect { get; set; }
 	}
 }

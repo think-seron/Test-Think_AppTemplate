@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using System.Text.RegularExpressions;
 using System.Linq;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -76,7 +77,7 @@ namespace Think_App
                     string telNum = data.Data.Tel.Replace("-", "");
                     Regex re = new Regex(@"[^0-9]");
                     var tel = re.Replace(telNum, "");
-                    Device.OpenUri(new Uri("tel:" + tel));
+                    await Device.OpenAsync(new Uri("tel:" + tel));
                     App.ProcessManager.OnComplete();
                 }
             });

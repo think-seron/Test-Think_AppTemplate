@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -55,8 +57,8 @@ namespace Think_App
             {
                 var modalView = new ModalView();
                 modalView.modalViewViewModel.ModalLabelTxt = "スタッフを指名して予約しますか？";
-                modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-                modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+                modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+                modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
                 modalView.modalViewViewModel.YesButtonTxt = "指名する";
                 modalView.modalViewViewModel.NoButtonTxt = "指名しない";
 

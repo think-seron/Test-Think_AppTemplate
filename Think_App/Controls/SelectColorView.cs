@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Layouts;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -129,20 +132,20 @@ namespace Think_App
 
 				// 出来上がったグラデーションをAbsoluteLayoutに追加する。
 				_absoluteLayout.Children.Add(gradationView,
-											new Rectangle(0, _circleHeight / 2, 1, gradationHeight),
+											new Rect(0, _circleHeight / 2, 1, gradationHeight),
 											AbsoluteLayoutFlags.WidthProportional);
 
 				// 色選択ボックスビューを作成。
 				var specifyColorView = new SpecifyColorView(GradationInfoList)
 				{
-					Color = Color.Transparent,
-					BackgroundColor = Color.Transparent
+					Color = Colors.Transparent,
+					BackgroundColor = Colors.Transparent
 				};
 				specifyColorView.ColorSelected += SpecifyColorView_ColorSelected;
 
 				// 出来上がった色選択ボックスビューをAbsoluteLayoutに追加する。
 				_absoluteLayout.Children.Add(specifyColorView,
-											new Rectangle(0, _circleHeight / 2, 1, gradationHeight),
+											new Rect(0, _circleHeight / 2, 1, gradationHeight),
 											AbsoluteLayoutFlags.WidthProportional);
 
 				Device.BeginInvokeOnMainThread(() =>
@@ -170,9 +173,9 @@ namespace Think_App
 
 			for (int i = 0; i < count; ++i)
 			{
-				var r = startColor.R + (endColor.R - startColor.R) * (i / (double)(count - 1));
-				var g = startColor.G + (endColor.G - startColor.G) * (i / (double)(count - 1));
-				var b = startColor.B + (endColor.B - startColor.B) * (i / (double)(count - 1));
+				var r = startColor.Red + (endColor.Red - startColor.Red) * (i / (double)(count - 1));
+				var g = startColor.Green + (endColor.Green - startColor.Green) * (i / (double)(count - 1));
+				var b = startColor.Blue + (endColor.Blue - startColor.Blue) * (i / (double)(count - 1));
 
 				var color = Color.FromRgb(r, g, b);
 				info.AddColorToList(color);
@@ -253,7 +256,7 @@ namespace Think_App
 						_absoluteLayout.Children.Remove(_circleView);
 					}
 
-					AbsoluteLayout.SetLayoutBounds(_circleView, new Rectangle(x, y, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+					AbsoluteLayout.SetLayoutBounds(_circleView, new Rect(x, y, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 					AbsoluteLayout.SetLayoutFlags(_circleView, AbsoluteLayoutFlags.None);
 					_absoluteLayout.Children.Insert(1, _circleView);
 				});
@@ -291,7 +294,7 @@ namespace Think_App
 
 		#region CircleColor BindableProperty
 		public static readonly BindableProperty CircleColorProperty =
-			BindableProperty.Create(nameof(CircleColor), typeof(Color), typeof(SelectColorView), Color.White,
+			BindableProperty.Create(nameof(CircleColor), typeof(Color), typeof(SelectColorView), Colors.White,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((SelectColorView)bindable).CircleColor = (Color)newValue);
 
@@ -304,7 +307,7 @@ namespace Think_App
 
 		#region DefaultColor BindableProperty
 		public static readonly BindableProperty DefaultColorProperty =
-			BindableProperty.Create(nameof(DefaultColor), typeof(Color), typeof(SelectColorView), Color.Default,
+			BindableProperty.Create(nameof(DefaultColor), typeof(Color), typeof(SelectColorView), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((SelectColorView)bindable).DefaultColor = (Color)newValue);
 
@@ -388,7 +391,7 @@ namespace Think_App
 					return;
 				}
 
-				Debug.WriteLine("Selected Color R:{0} G:{1} B:{2}", color.Value.R, color.Value.G, color.Value.B);
+				Debug.WriteLine("Selected Color R:{0} G:{1} B:{2}", color.Value.Red, color.Value.Green, color.Value.Blue);
 
 				if (ColorSelected != null)
 				{

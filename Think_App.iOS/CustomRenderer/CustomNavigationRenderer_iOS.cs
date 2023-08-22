@@ -4,14 +4,17 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Linq;
 using Foundation;
-using Xamarin.Forms;
 using Xamarin.Forms.Platform;
-using Xamarin.Forms.Platform.iOS;
 using Think_App;
 using Think_App.iOS;
 using UIKit;
 using CoreAnimation;
 using CoreGraphics;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(CustomNavigationRenderer_iOS))]
 namespace Think_App.iOS
 {
@@ -61,21 +64,21 @@ namespace Think_App.iOS
                     try
                     {
                         var item = customNavigationPage.CurrentPage.ToolbarItems.FirstOrDefault((arg) =>
-                                                                                    arg.Icon != null || arg.Text != null);
+                                                                                    arg.IconImageSource != null || arg.Text != null);
                         if (item == null)
                         {
 
 
                         }
-                        else if (item.Icon != null && item.Text == null)
+                        else if (item.IconImageSource != null && item.Text == null)
                         {
-                            this.NavigationBar.TintColor = UIColor.FromRGB((nfloat)ColorList.colorWhite.R, (nfloat)ColorList.colorWhite.G, (nfloat)ColorList.colorWhite.B);
+                            this.NavigationBar.TintColor = UIColor.FromRGB((nfloat)ColorList.colorWhite.Red, (nfloat)ColorList.colorWhite.Green, (nfloat)ColorList.colorWhite.Blue);
 
                         }
-                        else if (item.Text != null && item.Icon == null)
+                        else if (item.Text != null && item.IconImageSource == null)
                         {
                             //this.NavigationBar.TintColor = UIColor.FromRGB((nfloat)ColorList.colorFont.R, (nfloat)ColorList.colorFont.G, (nfloat)ColorList.colorFont.B);
-                            this.NavigationBar.TintColor = UIColor.FromRGB((nfloat)ColorList.colorWhite.R, (nfloat)ColorList.colorWhite.G, (nfloat)ColorList.colorWhite.B);
+                            this.NavigationBar.TintColor = UIColor.FromRGB((nfloat)ColorList.colorWhite.Red, (nfloat)ColorList.colorWhite.Green, (nfloat)ColorList.colorWhite.Blue);
                         }
                         else
                         {

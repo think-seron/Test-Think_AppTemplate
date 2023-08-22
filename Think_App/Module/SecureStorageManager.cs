@@ -2,7 +2,6 @@
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Xamarin.Essentials;
 
 namespace Think_App
 {

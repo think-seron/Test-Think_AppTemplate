@@ -1,8 +1,9 @@
 ﻿using System;
 using Android.Content;
 using Android.Content.PM;
-using Xamarin.Forms;
 using Think_App.Droid;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(CameraService))]
 namespace Think_App.Droid

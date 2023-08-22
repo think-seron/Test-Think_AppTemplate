@@ -14,16 +14,18 @@ using Android.Gms.Common;
 using Android.Gms.Auth.Api.SignIn;
 using Android.Gms.Auth.Api;
 using Android.Gms.Common.Apis;
-using Xamarin.Forms;
 using System.Linq;
 using IO.Swagger.Model;
 using System.Collections.Generic;
 using Firebase.Iid;
 using Firebase.Messaging;
 using Android.Support.V4.App;
-using Xamarin.Forms.PlatformConfiguration.AndroidSpecific;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;
 using Plugin.FacebookClient;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {
@@ -39,7 +41,7 @@ namespace Think_App.Droid
             , DataHost = "example.jp"
             , DataScheme = "thinksalon"//アプリによってスキーム名変更
      )]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity,
+    public class MainActivity : Microsoft.Maui.MauiAppCompatActivity,
         GoogleApiClient.IConnectionCallbacks, GoogleApiClient.IOnConnectionFailedListener, ActivityCompat.IOnRequestPermissionsResultCallback
     {
         public static Activity activity;
@@ -195,11 +197,11 @@ namespace Think_App.Droid
                 try
                 {
                     Window.DecorView.SystemUiVisibility = 0;
-                    var statusBarHeightInfo = typeof(Xamarin.Forms.Platform.Android.FormsAppCompatActivity).GetField("_statusBarHeight", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
+                    var statusBarHeightInfo = typeof(Microsoft.Maui.MauiAppCompatActivity).GetField("_statusBarHeight", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
                     statusBarHeightInfo.SetValue(this, 0);
                     Window.ClearFlags(WindowManagerFlags.TranslucentStatus);
                     Window.AddFlags(WindowManagerFlags.DrawsSystemBarBackgrounds);
-                    var statusBarColor = Xamarin.Forms.Color.FromHex("#2196F3").ToAndroid();
+                    var statusBarColor = Xamarin.Forms.Color.FromArgb("#2196F3").ToAndroid();
                     Window.SetStatusBarColor(statusBarColor);
                 }
                 catch (Exception ex)
@@ -208,7 +210,7 @@ namespace Think_App.Droid
             }
             // Webviewで入力箇所がキーボードに隠れないようにするのに必要な処理
 
-            App.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
+            App.Current.On<Microsoft.Maui.Controls.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
             SetChannel();
         }
         public static bool BackButtonDisable;
@@ -368,8 +370,8 @@ namespace Think_App.Droid
             {
                 try
                 {
-                    var count = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.Count;
-                    var page = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack[count - 1] as BackCustomizeContentPage;
+                    var count = Microsoft.Maui.Controls.Application.Current.MainPage.Navigation.NavigationStack.Count;
+                    var page = Microsoft.Maui.Controls.Application.Current.MainPage.Navigation.NavigationStack[count - 1] as BackCustomizeContentPage;
 
                     if (page?.CustomBackButtonAction != null)
                     {
@@ -396,8 +398,8 @@ namespace Think_App.Droid
 
             try
             {
-                var count = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack.Count;
-                var thisPage = Xamarin.Forms.Application.Current.MainPage.Navigation.NavigationStack[count - 1];
+                var count = Microsoft.Maui.Controls.Application.Current.MainPage.Navigation.NavigationStack.Count;
+                var thisPage = Microsoft.Maui.Controls.Application.Current.MainPage.Navigation.NavigationStack[count - 1];
 
                 var page = thisPage as BackCustomizeContentPage;
 

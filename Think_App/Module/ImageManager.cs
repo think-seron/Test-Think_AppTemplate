@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -18,7 +20,7 @@ namespace Think_App
 			System.Diagnostics.Debug.WriteLine("ファイルを保存:{0}", filename);
 		}
 
-		public static async Task SaveCombinedImageToLocalStorageAsync(ImageSource srcSource, ImageSource dstSource, Rectangle dstRect, Size viewSize, Aspect aspect, string foldername, string filename, bool replace = true, bool resize = false, double minLength = 0)
+		public static async Task SaveCombinedImageToLocalStorageAsync(ImageSource srcSource, ImageSource dstSource, Rect dstRect, Size viewSize, Aspect aspect, string foldername, string filename, bool replace = true, bool resize = false, double minLength = 0)
 		{
 			// 2 ImageSources -> bytes
 			var service = DependencyService.Get<IImageService>();

@@ -2,8 +2,9 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public class ReservationScheduleViewModel : ViewModelBase

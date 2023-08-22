@@ -1,12 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using Think_App.iOS;
 using UIKit;
 using Foundation;
 using AssetsLibrary;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(Think_App.iOS.MediaService))]
 namespace Think_App.iOS

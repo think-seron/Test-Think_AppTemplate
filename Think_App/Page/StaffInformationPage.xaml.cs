@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using FFImageLoading.Forms;
 using IO.Swagger.Model;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -73,13 +75,14 @@ namespace Think_App
 						staffInformationPageViewModel.FavoIconSouce = "BigFavoIconOff.png";
 					}
 
+					// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 					if (Device.RuntimePlatform == Device.iOS)
 					{
-						staffInformationPageViewModel.ScrollViewRect = new Rectangle(0, 421, 1, ScaleManager.ScreenHeight - 421);
+						staffInformationPageViewModel.ScrollViewRect = new Rect(0, 421, 1, ScaleManager.ScreenHeight - 421);
 					}
 					else
 					{
-						staffInformationPageViewModel.ScrollViewRect = new Rectangle(0, 401, 1, ScaleManager.ScreenHeight - 401);
+						staffInformationPageViewModel.ScrollViewRect = new Rect(0, 401, 1, ScaleManager.ScreenHeight - 401);
 					}
 
 					var womanHairStyle = response.Data.WomanHairStyleList;
@@ -294,7 +297,7 @@ namespace Think_App
 		{
 			if (App.ProcessManager.CanInvoke())
 			{
-				FileImageSource souce = (FileImageSource)((Xamarin.Forms.Image)sender).Source;
+				FileImageSource souce = (FileImageSource)((Microsoft.Maui.Controls.Image)sender).Source;
 				var parameters = new Dictionary<string, string> { { "deviceId", Config.Instance.Data.deviceId } };
 				StaticMethod.StaffFavoriteChange(sender, souce, parameters, storeID, staffId);
 				//App.ProcessManager.OnComplete();

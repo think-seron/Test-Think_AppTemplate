@@ -2,7 +2,8 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -33,7 +34,7 @@ namespace Think_App
 			}
 		}
 
-		public static async void ScreenTransition(Xamarin.Forms.Page page =null)
+		public static async void ScreenTransition(Microsoft.Maui.Controls.Page page =null)
 		{
 			if (page == null)
 			{

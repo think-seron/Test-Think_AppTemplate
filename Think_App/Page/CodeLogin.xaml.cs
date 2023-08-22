@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
+using Microsoft.Maui.Layouts;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -194,7 +197,7 @@ namespace Think_App
 							CommonFontSize = _loadingDataViewBaseFontSize * ScaleManager.Scale
 						};
 						var view = new LoadingDataView() { BindingContext = model, ContentsCount = fileCount };
-						this.AbsLayout.Children.Add(view, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+						this.AbsLayout.Children.Add(view, new Rect(0, 0, 1, 1), AbsoluteLayoutFlags.All);
 						var navPage = this.Parent as CustomNavigationPage;
 						navPage?.UpdateShadow(true);
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -31,7 +33,7 @@ namespace Think_App
             propertyName: nameof(BtnBgColor),
             returnType: typeof(Color),
             declaringType: typeof(ImageAndTextButtonViewIOS),
-            defaultValue: Color.White,
+            defaultValue: Colors.White,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (bindable, oldValue, newValue) =>
             ((ImageAndTextButtonViewIOS)bindable).BtnBgColor = (Color)newValue);
@@ -121,7 +123,7 @@ namespace Think_App
             propertyName: nameof(BtnTextColor),
             returnType: typeof(Color),
             declaringType: typeof(ImageAndTextButtonViewIOS),
-            defaultValue: Color.White,
+            defaultValue: Colors.White,
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: (bindable, oldValue, newValue) =>
             ((ImageAndTextButtonViewIOS)bindable).BtnTextColor = (Color)newValue);

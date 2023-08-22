@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -50,6 +52,7 @@ namespace Think_App
 					if (!App.ProcessManager.CanInvoke())
 						return;
 					var page = new StoreSelect(2, null, this);
+					// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 					if (Device.RuntimePlatform == Device.iOS)
 						App.customNavigationPage.IsBadgeVisble = false;
 					await App.customNavigationPage.PushAsync(page);
@@ -172,13 +175,14 @@ namespace Think_App
 					int rectHeight = 84 * itemList.Count;
 					noticeListViewModel.HooterIsVisible = false;
 					int heightAgust = 111;
+					// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 					if (Device.RuntimePlatform == Device.Android)
 					{
 						heightAgust = heightAgust - 9;
 					}
 					if ((ScaleManager.ScreenHeight - heightAgust) < rectHeight)
 					{
-						noticeListViewModel.ListViewRect = new Rectangle(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
+						noticeListViewModel.ListViewRect = new Rect(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
 						if (isEnd == false)
 						{
 							noticeListViewModel.HooterIsVisible = true;
@@ -186,7 +190,7 @@ namespace Think_App
 					}
 					else
 					{
-						noticeListViewModel.ListViewRect = new Rectangle(0, 46, 1, rectHeight);
+						noticeListViewModel.ListViewRect = new Rect(0, 46, 1, rectHeight);
 					}
 
 					noticeListViewModel.HooterWidth = ScaleManager.ScreenWidth;
@@ -270,7 +274,7 @@ namespace Think_App
 								LabelFontSize = ScaleManager.SizeSet(14)
 							});
 						}
-						noticeListViewModel.ListViewRect = new Rectangle(0, 46, 1, 84 * itemList.Count);
+						noticeListViewModel.ListViewRect = new Rect(0, 46, 1, 84 * itemList.Count);
 					}
 					if (isEnd == true)
 					{
@@ -289,6 +293,7 @@ namespace Think_App
 		{
 			base.OnDisappearing();
 
+			// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			if (Device.RuntimePlatform == Device.iOS && App.customNavigationPage.IsBadgeVisble == true)
 				App.customNavigationPage.IsBadgeVisble = false;
 		}

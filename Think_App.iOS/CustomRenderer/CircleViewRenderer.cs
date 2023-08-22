@@ -1,11 +1,14 @@
 ﻿using System;
-using Xamarin.Forms;
 using Think_App;
 using Think_App.iOS;
-using Xamarin.Forms.Platform.iOS;
 using UIKit;
 using CoreGraphics;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CircleView), typeof(CircleViewRenderer))]
 namespace Think_App.iOS
 {

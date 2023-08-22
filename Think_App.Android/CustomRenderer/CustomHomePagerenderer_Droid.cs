@@ -5,8 +5,6 @@ using System.Reflection;
 using Android.Widget;
 using Android.Graphics;
 using Support = Android.Support.V7.Widget;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
 using Think_App;
 using Think_App.Droid;
@@ -14,7 +12,12 @@ using Think_App.Droid;
 using AProgressBar = Android.Widget.ProgressBar;
 using View = Android.Views.View;
 using Android.Views;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CustomHomePage), typeof(CustomHomePagerenderer_Droid))]
 
 namespace Think_App.Droid
@@ -26,7 +29,7 @@ namespace Think_App.Droid
 		}
 
 		CustomHomePage customContentPage;
-		protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Page> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Microsoft.Maui.Controls.Page> e)
 		{
 			base.OnElementChanged(e);
 

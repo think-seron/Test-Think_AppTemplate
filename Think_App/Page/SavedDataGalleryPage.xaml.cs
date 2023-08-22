@@ -3,7 +3,9 @@ using System.IO;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -114,7 +116,7 @@ namespace Think_App
 							Models.Add(new GalleryViewCellModel()
 							{
 								GVCThumbnailImgSource = new FileImageSource() { File = path },
-								GVCThumbnailImgBGColor = Color.Transparent,
+								GVCThumbnailImgBGColor = Colors.Transparent,
 								GVCThumbnailImgDSWidth = _tileSize * _scale,
 								GVCThumbnailImgDSHeight = _tileSize * _scale
 							});
@@ -219,10 +221,11 @@ namespace Think_App
 				modalView.modalViewViewModel.ModalLabelTxt = "この写真でよろしいですか？";
 				modalView.modalViewViewModel.YesButtonTxt = "はい";
 				modalView.modalViewViewModel.NoButtonTxt = "いいえ";
+				// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 				double posY = (Device.RuntimePlatform == Device.Android) ? 0.2 : 0.31;
-				modalView.modalViewViewModel.ImageRect = new Rectangle(0.5, posY, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
-				modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.71, 1, AbsoluteLayout.AutoSize);
-				modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.77, 1, AbsoluteLayout.AutoSize);
+				modalView.modalViewViewModel.ImageRect = new Rect(0.5, posY, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+				modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.71, 1, AbsoluteLayout.AutoSize);
+				modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.77, 1, AbsoluteLayout.AutoSize);
 
 
 				modalView.yesButton.Clicked += async (sender, e) =>

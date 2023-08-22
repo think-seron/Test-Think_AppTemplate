@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class CustomNavigationBarViewModel : ViewModelBase
@@ -39,6 +41,7 @@ namespace Think_App
 
 			RightBtnKind = rightBtnKind;
 			RightButtonText = rightBtnText;
+			// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			if (Device.RuntimePlatform == Device.iOS)
 			{
 				iOSToppaddingVisible = true;
@@ -49,14 +52,14 @@ namespace Think_App
 				iOSToppaddingVisible = false;
 				NavigationBaseHight = 45;
 			}
-			ProgressRectangle = new Rectangle(0, NavigationBaseHight, 1, 4);
+			ProgressRectangle = new Rect(0, NavigationBaseHight, 1, 4);
 		}
 
 		public double NavigationBaseHight { get; set; }
 
 
-		private Rectangle _ProgressRectangle;
-		public Rectangle ProgressRectangle
+		private Rect _ProgressRectangle;
+		public Rect ProgressRectangle
 		{
 			get { return _ProgressRectangle; }
 			set
@@ -330,7 +333,7 @@ namespace Think_App
 
 							//バッチ
 							BatchVisible = false;
-							RightBatchColor = Color.Transparent;
+							RightBatchColor = Colors.Transparent;
 							//テキスト
 							SetRightTextEmpty();
 							NavigationParentPadding = new Thickness(13, 0, 0, 13);
@@ -344,7 +347,7 @@ namespace Think_App
 							RightImageWidthRequest = 7;
 							//バッチ
 							BatchVisible = false;
-							RightBatchColor = Color.Transparent;
+							RightBatchColor = Colors.Transparent;
 							//テキスト
 							SetRightTextEmpty();
 
@@ -358,7 +361,7 @@ namespace Think_App
 							RightImageWidthRequest = 27;
 							//バッチ
 							BatchVisible = false;
-							RightBatchColor = Color.Transparent;
+							RightBatchColor = Colors.Transparent;
 							//テキスト
 							SetRightTextEmpty();
 
@@ -387,7 +390,7 @@ namespace Think_App
 							RightImageWidthRequest = 0;
 							//バッチ
 							BatchVisible = false;
-							RightBatchColor = Color.Transparent;
+							RightBatchColor = Colors.Transparent;
 							//テキスト
 							RightTextVisible = true;
 							RightButtonTextColor = ColorList.colorNavibarTextColor;
@@ -531,7 +534,7 @@ namespace Think_App
 					_RightButtonText = value;
 					if (string.IsNullOrEmpty(_RightButtonText))
 					{
-						RightButtonTextColor = Color.Transparent;
+						RightButtonTextColor = Colors.Transparent;
 					}
 						
 					OnPropertyChanged("RightButtonTextColor");
@@ -559,7 +562,7 @@ namespace Think_App
 			//テキスト
 			RightTextBtnClicked = null;
 			RightTextVisible = false;
-			RightButtonTextColor = Color.Transparent;
+			RightButtonTextColor = Colors.Transparent;
 		}
 	}
 }

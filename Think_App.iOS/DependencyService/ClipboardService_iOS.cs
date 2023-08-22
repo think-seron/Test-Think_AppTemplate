@@ -1,7 +1,8 @@
 ﻿using System;
 using UIKit;
-using Xamarin.Forms;
 using Think_App.iOS;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly: Dependency(typeof(ClipboardService_iOS))]
 namespace Think_App.iOS
 {

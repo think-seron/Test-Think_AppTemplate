@@ -1,13 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 using CoreGraphics;
 using Think_App;
 using Think_App.iOS;
 using Foundation;
 using UIKit;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(ImageControlContainer), typeof(ImageControlContainerRenderer))]
 namespace Think_App.iOS
 {

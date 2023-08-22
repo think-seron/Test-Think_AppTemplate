@@ -1,6 +1,4 @@
 ﻿using System;
-using Xamarin.Forms.Platform.iOS;
-using Xamarin.Forms;
 using Think_App.iOS;
 using Think_App;
 using Google.SignIn;
@@ -9,6 +7,10 @@ using UIKit;
 using System.Collections.Generic;
 using System.Linq;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: Dependency(typeof(GoogleSignInService_iOS))]
 
@@ -134,6 +136,7 @@ namespace Think_App.iOS
                                     App.ProcessManager.OnComplete();
                                     return;
                                 }
+                                // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                                 if (Device.RuntimePlatform == Device.Android)
                                     DeviceTokenManager.PostAndRegistDeviceToken(DeviceTokenInfo.Instance.DeviceToken);
                                 apiName = "home";

@@ -4,11 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Diagnostics;
-using Xamarin.Forms;
 
 using Plugin.Media;
 using System.Collections.Generic;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Devices;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -119,6 +122,7 @@ namespace Think_App
                 // コンテンツ表示を引っ込める。
                 SlideContent(true, 0, 0);
 
+                // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 if (Device.RuntimePlatform == Device.Android)
                 {
                     IsUpdateInBottomFlagDisable = true;
@@ -174,6 +178,7 @@ namespace Think_App
                         var page = new SelectSalonMessagePage();
                         page.SalonSelected += OnSalonSelected;
 
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.iOS)
                             App.customNavigationPage.IsBadgeVisble = false;
 
@@ -188,6 +193,7 @@ namespace Think_App
             bool res = int.TryParse(Config.Instance.Data.nativeVersion.Substring(0, 1), out version);
             if (!res)
                 return;
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android && version >= 6)
             {
                 DependencyService.Get<IScanerPermissionService>().Call();
@@ -682,7 +688,8 @@ namespace Think_App
             }
 
             Debug.WriteLine("Page Tapped");
-            if (Device.RuntimePlatform == Device.iOS && Device.Idiom == TargetIdiom.Phone)
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+            if (Device.RuntimePlatform == Device.iOS && Device.Idiom == DeviceIdiom.Phone)
             {
                 if (this.InputMessageView.IsFocused)
                 {
@@ -756,10 +763,11 @@ namespace Think_App
             modalView.modalViewViewModel.ModalLabelTxt = "この写真でよろしいですか？";
             modalView.modalViewViewModel.YesButtonTxt = "はい";
             modalView.modalViewViewModel.NoButtonTxt = "いいえ";
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             double posY = (Device.RuntimePlatform == Device.Android) ? 0.2 : 0.31;
-            modalView.modalViewViewModel.ImageRect = new Rectangle(0.5, posY, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
-            modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.71, 1, AbsoluteLayout.AutoSize);
-            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.77, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.ImageRect = new Rect(0.5, posY, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.71, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.77, 1, AbsoluteLayout.AutoSize);
 
             modalView.yesButton.Clicked += async (sender, e) =>
             {
@@ -804,6 +812,7 @@ namespace Think_App
             var page = new TakePhotoMessagePage();
             page.TakenPhotoCompleted += OnTakenPhotoCompleted;
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
                 App.customNavigationPage.IsBadgeVisble = false;
 
@@ -854,6 +863,7 @@ namespace Think_App
             var page = new HairCatalogSelectionPage(SalonId.Value, SalonName);
             page.HairSelected += OnHairSelected;
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
                 App.customNavigationPage.IsBadgeVisble = false;
 
@@ -884,6 +894,7 @@ namespace Think_App
             var page = new SavedDataGalleryPage(SavedDataGalleryPage.Purpose.SelectImage);
             page.ImageSelected += OnHairSimulationImageSelected;
 
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
                 App.customNavigationPage.IsBadgeVisble = false;
 
@@ -1024,6 +1035,7 @@ namespace Think_App
 
         void StartRefreshTimeLineTimer()
         {
+            // TODO Xamarin.Forms.Device.StartTimer is no longer supported. Use Microsoft.Maui.Dispatching.DispatcherExtensions.StartTimer instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             Device.StartTimer(TimeSpan.FromSeconds(_refreshTimeLineIntervalSeconds), () =>
             {
                 Task.Run(() =>

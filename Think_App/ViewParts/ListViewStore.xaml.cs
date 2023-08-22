@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -17,7 +18,7 @@ namespace Think_App
         {
             if (App.ProcessManager.CanInvoke())
             {
-                int id = (int)((ListViewStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.SalonID;
+                int id = (int)((ListViewStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.SalonID;
                 StaticMethod.SalonFavoriteChange(sender, id);
                 //if (ret == false)
                 //{

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -14,6 +15,7 @@ namespace Think_App
         public CustomNavigationBar()
         {
             InitializeComponent();
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
             {
                 //this.progressBar.Progress = 20;

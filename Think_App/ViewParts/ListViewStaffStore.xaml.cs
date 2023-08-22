@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -19,8 +20,8 @@ namespace Think_App
                 System.Collections.IEnumerable itemsSource = ((ListView)content).ItemsSource;
 
                 FileImageSource souce = (FileImageSource)((Image)sender).Source;
-                int staffID = (int)((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.StaffID;
-                int salonID = (int)((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.salonID;
+                int staffID = (int)((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.StaffID;
+                int salonID = (int)((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.salonID;
                 var parameters = new Dictionary<string, string> { { "deviceId", Config.Instance.Data.deviceId } };
                 StaticMethod.StaffFavoriteChange(sender, souce, parameters, salonID, staffID, itemsSource);
                 //if (ret == false)

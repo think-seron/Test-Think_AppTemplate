@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -12,7 +14,7 @@ namespace Think_App
 		}
 
 		public double ListViewRowHeight { get; set; }
-		public Rectangle ListViewRect { get; set; }
+		public Rect ListViewRect { get; set; }
 
 		private ObservableCollection<ListViewHistoryViewModel> historyItemSouce;
 		public ObservableCollection<ListViewHistoryViewModel> HistoryItemSouce

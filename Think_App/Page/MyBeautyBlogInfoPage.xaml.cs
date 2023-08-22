@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using Plugin.Media;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -60,6 +62,7 @@ namespace Think_App
 
         async void EditClick(object sender, EventArgs e)
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
             {
                 var ret = await DisplayActionSheet(null, "キャンセル", null, "編集する", "削除する");
@@ -99,8 +102,8 @@ namespace Think_App
             // お気に入りスタッフを解除モーダル
             var modalView = new ModalView();
             modalView.modalViewViewModel.ModalLabelTxt = "投稿を削除しますか？";
-            modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+            modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
             modalView.modalViewViewModel.YesButtonTxt = "削除する";
             modalView.modalViewViewModel.NoButtonTxt = "削除しない";
             modalView.yesButton.Clicked += async (ysender, ye) =>

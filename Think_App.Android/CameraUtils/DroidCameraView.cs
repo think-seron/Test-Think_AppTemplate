@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using Android.Content;
 using Android.Hardware;
 using Android.Views;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {

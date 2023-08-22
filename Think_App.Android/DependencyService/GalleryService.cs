@@ -1,6 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
 using Think_App.Droid;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(GalleryService))]
 namespace Think_App.Droid

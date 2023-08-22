@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using Firebase.Analytics;
 using Foundation;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly: Dependency(typeof(Think_App.iOS.FirebaseAnalyticsService))]
 
 namespace Think_App.iOS

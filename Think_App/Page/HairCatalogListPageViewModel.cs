@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -18,7 +20,7 @@ namespace Think_App
 		public double ItemWidth { get; set; }
 		public double ColumnSpacing { get; set; }
 		public double RowSpacing { get; set; }
-		public Rectangle GridViewRect { get; set; }
+		public Rect GridViewRect { get; set; }
 		public string LabelTxt { get; set; }
 
 		private ObservableCollection<HairStyleInfo> itemsSource;

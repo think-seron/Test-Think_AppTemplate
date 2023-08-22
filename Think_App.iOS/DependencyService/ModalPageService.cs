@@ -1,12 +1,14 @@
 ﻿using System;
-using Xamarin.Forms;
 using UIKit;
 using System.Threading.Tasks;
 using CoreGraphics;
 using System.Collections.Generic;
 using System.Reflection;
-using Xamarin.Forms.Platform.iOS;
 using Foundation;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(Think_App.iOS.ModalPageService))]
 namespace Think_App.iOS

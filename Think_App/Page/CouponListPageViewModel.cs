@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -8,10 +10,11 @@ namespace Think_App
     {
         public CouponListPageViewModel(bool soloSalon)
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS && !soloSalon)
                 ToolbarIcon = "Icon_Home.png";
         }
-        public Rectangle ListViewRect { get; set; }
+        public Rect ListViewRect { get; set; }
 
         private string salonName;
         public string SalonName

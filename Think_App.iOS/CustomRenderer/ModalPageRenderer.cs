@@ -1,8 +1,10 @@
 ﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 using System.Threading.Tasks;
 using UIKit;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 
 namespace Think_App.iOS

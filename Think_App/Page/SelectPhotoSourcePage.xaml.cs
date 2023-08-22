@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Plugin.Media;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -86,6 +87,7 @@ namespace Think_App
 			bool res = int.TryParse(Config.Instance.Data.nativeVersion.Substring(0, 1), out resInt);
 			if (!res)
 				return;
+			// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			if (Device.RuntimePlatform == Device.Android && resInt >= 6)
 			{
 				DependencyService.Get<IScanerPermissionService>().Call();

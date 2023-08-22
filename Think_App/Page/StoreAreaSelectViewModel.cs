@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -13,7 +15,7 @@ namespace Think_App
 		}
 
 		//public double ScreenSizeScale { get; set; }
-		public Rectangle ListViewRect { get; set; }
+		public Rect ListViewRect { get; set; }
 		//public Rectangle BottomLabelRect { get; set; }
 		public string LeftLabel { get; set; }
 		public string RightLabel { get; set; }

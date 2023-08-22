@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Android.OS;
 using Android.App;
 using Android.Content;
@@ -13,6 +12,8 @@ using Android.Media;
 using Android.Net;
 
 using Android.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 
 [assembly: Dependency(typeof(Think_App.Droid.MediaService))]

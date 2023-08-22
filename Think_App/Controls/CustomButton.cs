@@ -1,5 +1,6 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -20,7 +21,7 @@ namespace Think_App
 
 		#region HighlightColor BindableProperty
 		public static readonly BindableProperty HighlightColorProperty =
-			BindableProperty.Create(nameof(HighlightColor), typeof(Color), typeof(CustomButton), Color.Default,
+			BindableProperty.Create(nameof(HighlightColor), typeof(Color), typeof(CustomButton), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomButton)bindable).HighlightColor = (Color)newValue);
 
@@ -33,7 +34,7 @@ namespace Think_App
 
 		#region DisableColor BindableProperty
 		public static readonly BindableProperty DisableColorProperty =
-			BindableProperty.Create(nameof(DisableColor), typeof(Color), typeof(CustomButton), Color.Default,
+			BindableProperty.Create(nameof(DisableColor), typeof(Color), typeof(CustomButton), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomButton)bindable).DisableColor = (Color)newValue);
 

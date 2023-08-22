@@ -1,10 +1,11 @@
 ﻿using System;
 using Android.Gms.Common.Apis;
-using Xamarin.Forms;
 using Think_App.Droid;
 using Android.Gms.Auth.Api;
 using Android.Content;
 using Android.App;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(GoogleSignInService_Droid))]
 namespace Think_App.Droid

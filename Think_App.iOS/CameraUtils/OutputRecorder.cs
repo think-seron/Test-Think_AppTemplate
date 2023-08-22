@@ -73,7 +73,7 @@ namespace Think_App.iOS
 					}
 					if (newImage != null)
 					{
-						var imageSource = Xamarin.Forms.ImageSource.FromStream(() => newImage.AsPNG().AsStream());
+						var imageSource = Microsoft.Maui.Controls.ImageSource.FromStream(() => newImage.AsPNG().AsStream());
 						if (imageSource != null)
 						{
 							Camera.CompleteTakenPhotoAndSendImageSource(imageSource);

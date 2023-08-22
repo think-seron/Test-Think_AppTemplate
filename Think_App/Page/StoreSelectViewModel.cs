@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -30,7 +32,7 @@ namespace Think_App
 		public string TopRightLabelTxt { get; set; }
 		public string TopLabelTxt { get; set; }
 		//public double ScreenSizeScale { get; set; }
-		public Rectangle ListViewRect { get; set; }
+		public Rect ListViewRect { get; set; }
 		//private CustomNavigationBarViewModel _CustomNavibarBC;
 		//public CustomNavigationBarViewModel CustomNavibarBC
 		//{

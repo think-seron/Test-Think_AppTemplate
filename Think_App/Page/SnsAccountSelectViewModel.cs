@@ -4,9 +4,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
-using Xamarin.Forms;
 using Newtonsoft.Json.Linq;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -184,7 +185,8 @@ namespace Think_App
         public Command AppleCommand { get; set; }
 
 		IAppleSignInService _appleSignInService = DependencyService.Get<IAppleSignInService>();
-        public bool IsAppleSignInAvailable => Device.RuntimePlatform == Device.iOS && _appleSignInService.IsAvailable;
+        public bool IsAppleSignInAvailable => // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+Device.RuntimePlatform == Device.iOS && _appleSignInService.IsAvailable;
 
         public Thickness TextMargin => new Thickness(0, 0, 0, 13 * ScreenSizeScale);
 		public Thickness SNSButtonMargin => new Thickness(0, 14 * ScreenSizeScale, 0, 0);

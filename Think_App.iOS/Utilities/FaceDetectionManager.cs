@@ -1,14 +1,16 @@
 ﻿using System;
-using Xamarin.Forms;
 using UIKit;
 using CoreImage;
 using CoreGraphics;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.iOS
 {
 	public static class FaceDetectionManager
 	{
-		public static Rectangle? GetFaceRange(UIImage image, int index)
+		public static Rect? GetFaceRange(UIImage image, int index)
 		{
 			var context = new CIContext(new CIContextOptions());
 			var detector = CIDetector.CreateFaceDetector(context, true);
@@ -39,7 +41,7 @@ namespace Think_App.iOS
 			transform = CGAffineTransform.Translate(transform, 0, -image.Size.Height);
 			var faceRect = CGAffineTransform.CGRectApplyAffineTransform(feature.Bounds, transform);
 
-			return new Rectangle(faceRect.X, faceRect.Y, faceRect.Width, faceRect.Height);
+			return new Rect(faceRect.X, faceRect.Y, faceRect.Width, faceRect.Height);
 		}
 	}
 }

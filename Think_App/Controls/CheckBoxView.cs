@@ -1,16 +1,19 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
     public class CheckBoxView : ContentView
     {
-        private readonly Color NotSelectedColor_Droid = Color.FromHex("#767676");
-        private readonly Color SelectedColor_Droid = Color.FromHex("#009788");
+        private readonly Color NotSelectedColor_Droid = Color.FromArgb("#767676");
+        private readonly Color SelectedColor_Droid = Color.FromArgb("#009788");
         private CheckBox _checkBox;
         private Image _image;
         public CheckBoxView()
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
             {
                 Initialize_Droid();
@@ -29,6 +32,7 @@ namespace Think_App
 
         private void Checkbox_CheckedChanged(object sender, CheckedChangedEventArgs e)
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android)
                 Update_Droid();
             else
@@ -63,7 +67,7 @@ namespace Think_App
                 Source = "checkbox.png",
                 HeightRequest = 20,
                 WidthRequest = 20,
-                BackgroundColor = Color.White,
+                BackgroundColor = Colors.White,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
             };
             HeightRequest = 30;

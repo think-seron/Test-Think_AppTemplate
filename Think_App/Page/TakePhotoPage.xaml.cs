@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -19,7 +21,7 @@ namespace Think_App
 		double _imageW;
 		double _imageH;
 
-		Rectangle _hairImgRect;
+		Rect _hairImgRect;
 
 		public TakePhotoPage()
 		{
@@ -164,7 +166,7 @@ namespace Think_App
 				var top = e.FaceRange.Top - shiftTop + imageH * _shiftY;
 
 				// サイズ適用
-				_hairImgRect = new Rectangle(left, top, imageW, imageH);
+				_hairImgRect = new Rect(left, top, imageW, imageH);
 				AbsoluteLayout.SetLayoutBounds(this.HairImg, _hairImgRect);
 			}
 		}

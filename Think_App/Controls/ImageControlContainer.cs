@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -37,7 +39,7 @@ namespace Think_App
 		}
 
 		// ボーダーに表示されている画像の範囲。各辺を10000として正規化する。
-		public Rectangle ImageRange { get; private set; }
+		public Rect ImageRange { get; private set; }
 
 		public void OnPanUpdate(Point delta)
 		{
@@ -131,7 +133,7 @@ namespace Think_App
 							var croppingImageWidth = (imageWidth - viewingImageWidth) / 2.0;
 							if (croppingImageWidth > 0)
 							{
-								var croppingRect = new Rectangle(croppingImageWidth, 0, viewingImageWidth, imageHeight);
+								var croppingRect = new Rect(croppingImageWidth, 0, viewingImageWidth, imageHeight);
 								var source = await service.GetCroppedImageSourceAsync(image.Source, croppingRect);
 								image.Source = source;
 								// プロパティも変更。
@@ -145,7 +147,7 @@ namespace Think_App
 							var croppingImageHeight = (imageHeight - viewingImageHeight) / 2.0;
 							if (croppingImageHeight > 0)
 							{
-								var croppingRect = new Rectangle(0, croppingImageHeight, imageWidth, viewingImageHeight);
+								var croppingRect = new Rect(0, croppingImageHeight, imageWidth, viewingImageHeight);
 								var source = await service.GetCroppedImageSourceAsync(image.Source, croppingRect);
 								image.Source = source;
 								// プロパティも変更。
@@ -219,7 +221,7 @@ namespace Think_App
 			Task.Run(() =>
 			{
 				// 画像の境界の設定。
-				var borderRect = new Rectangle(X, Y, Width, Height);
+				var borderRect = new Rect(X, Y, Width, Height);
 
 				Debug.WriteLine("Border Left:{0} Top:{1} Right:{2} Bottom:{3}", borderRect.Left, borderRect.Top, borderRect.Right, borderRect.Bottom);
 
@@ -424,9 +426,9 @@ namespace Think_App
 			});
 		}
 
-		private void SetImageRange(double left, double top, double right, double bottom, Rectangle borderRect)
+		private void SetImageRange(double left, double top, double right, double bottom, Rect borderRect)
 		{
-			var rect = new Rectangle();
+			var rect = new Rect();
 
 			try
 			{

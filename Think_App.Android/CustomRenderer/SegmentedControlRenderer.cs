@@ -1,14 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Think_App;
 using Think_App.Droid;
 using Android.Widget;
 using Android.Content;
 using Android.Graphics;
 using System.Collections.Generic;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(SegmentedControl), typeof(SegmentedControlRenderer))]
 
 namespace Think_App.Droid
@@ -211,8 +214,8 @@ namespace Think_App.Droid
 		public override void Draw(Canvas canvas)
 		{
 			//base.Draw(canvas);
-			var blue = Xamarin.Forms.Color.FromHex(_blueHex).ToAndroid();
-			var white = Xamarin.Forms.Color.FromHex(_whiteHex).ToAndroid();
+			var blue = Xamarin.Forms.Color.FromArgb(_blueHex).ToAndroid();
+			var white = Xamarin.Forms.Color.FromArgb(_whiteHex).ToAndroid();
 			var radius = (float)(Math.Min(Width, Height) / 100.0 * CornerRadiusRate);
 
 			using (var paint = new Paint())

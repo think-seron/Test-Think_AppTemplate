@@ -1,10 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
-using Xamarin.Forms;
 using Think_App;
 using Think_App.Droid;
-using Xamarin.Forms.Platform.Android;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CameraView), typeof(CameraViewRenderer))]
 namespace Think_App.Droid
 {

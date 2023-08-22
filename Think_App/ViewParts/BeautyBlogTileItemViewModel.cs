@@ -1,7 +1,9 @@
 ﻿using System;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class BeautyBlogTileItemViewModel : ViewModelBase
@@ -34,8 +36,8 @@ namespace Think_App
 						CategoryValue = listData.Category.Value,
 						Title = listData.Title,
 						Description = listData.Description,
-						GridViewImgRect = new Rectangle(0, 0, 1, 1),
-						GridViewLabelRect = new Rectangle(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
+						GridViewImgRect = new Rect(0, 0, 1, 1),
+						GridViewLabelRect = new Rect(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
 						GridViewLabelFontSize = 12 * ScaleManager.Scale,
 						GridViewLabelHeightRequest = 14 * ScaleManager.Scale,
 						GridViewLabelWidthRequest = 69 * ScaleManager.Scale

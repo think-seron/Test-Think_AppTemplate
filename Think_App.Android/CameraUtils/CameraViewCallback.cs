@@ -1,8 +1,9 @@
 ﻿using System;
 using System.IO;
 using Android.Graphics;
-using Xamarin.Forms;
 using static Android.Hardware.Camera;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {

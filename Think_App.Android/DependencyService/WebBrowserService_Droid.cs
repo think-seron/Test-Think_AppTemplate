@@ -1,7 +1,8 @@
 ﻿using System;
 using Android.Content;
 using Think_App.Droid;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly:Dependency(typeof(WebBrowserService_Droid))]
 namespace Think_App.Droid
 {

@@ -1,12 +1,13 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class CustomBoxView : BoxView
 	{
 		#region StrokeColor BindableProperty
 		public static readonly BindableProperty StrokeColorProperty =
-			BindableProperty.Create(nameof(StrokeColor), typeof(Color), typeof(CustomBoxView), Color.Default,
+			BindableProperty.Create(nameof(StrokeColor), typeof(Color), typeof(CustomBoxView), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomBoxView)bindable).StrokeColor = (Color)newValue);
 
@@ -19,7 +20,7 @@ namespace Think_App
 
 		#region FillColor BindableProperty
 		public static readonly BindableProperty FillColorProperty =
-			BindableProperty.Create(nameof(FillColor), typeof(Color), typeof(CustomBoxView), Color.Default,
+			BindableProperty.Create(nameof(FillColor), typeof(Color), typeof(CustomBoxView), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomBoxView)bindable).FillColor = (Color)newValue);
 

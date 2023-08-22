@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class CustomEditor : Editor
@@ -32,7 +34,7 @@ namespace Think_App
 
 		#region PlaceholderColor BindableProperty
 		public static readonly BindableProperty PlaceholderColorProperty =
-			BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(CustomEditor), Color.Gray,
+			BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(CustomEditor), Colors.Gray,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomEditor)bindable).PlaceholderColor = (Color)newValue);
 

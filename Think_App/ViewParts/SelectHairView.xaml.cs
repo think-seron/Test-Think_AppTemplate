@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -21,7 +23,7 @@ namespace Think_App
         public event EventHandler InitViewCompleted = delegate { };
         public event EventHandler<HairStyleSelectedEventArgs> HairStyleSelected = delegate { };
 
-        static readonly Color UnSelectedTextColor = Color.FromHex("#9B9B9B");
+        static readonly Color UnSelectedTextColor = Color.FromArgb("#9B9B9B");
         static readonly Color SelectedTextColor = ColorList.colorWhite;
 
         // 定数定義
@@ -103,10 +105,10 @@ namespace Think_App
                                 SHCHairImgMargin = new Thickness(6, 6, 6, 6),
                                 SHCHairImgDSWidth = tileSize * _screenScale,
                                 SHCHairImgDSHeight = tileSize * _screenScale,
-                                SHCHairImgBGColor = Color.Transparent,
+                                SHCHairImgBGColor = Colors.Transparent,
                                 SHCSelectedMarkMargin = new Thickness(3, 3, 3, 3),
                                 SHCSelectedMarkBorderThickness = 3.0,
-                                SHCSelectedMarkFillColor = Color.Transparent,
+                                SHCSelectedMarkFillColor = Colors.Transparent,
                                 SHCSelectedMarkStrokeColor = ColorList.colorMain,
                                 SHCSelectedMarkRadiusRate = 0.0,
                                 SHCSelectedMarkVisible = false,
@@ -181,7 +183,7 @@ namespace Think_App
                     HorizontalTextAlignment = TextAlignment.Center,
                     VerticalOptions = LayoutOptions.FillAndExpand,
                     HorizontalOptions = LayoutOptions.FillAndExpand,
-                    BackgroundColor = Color.Transparent
+                    BackgroundColor = Colors.Transparent
                 };
                 this.HairTypeSelector.ColumnDefinitions.Add(new ColumnDefinition()
                 {

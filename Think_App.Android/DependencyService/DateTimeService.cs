@@ -1,7 +1,8 @@
 ﻿using System;
 using Java.Text;
 using Java.Util;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(Think_App.Droid.DateTimeService))]
 namespace Think_App.Droid

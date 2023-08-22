@@ -1,9 +1,11 @@
 ﻿using System;
-using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android.AppCompat;
 using Android.Views;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 
 namespace Think_App.Droid
 {

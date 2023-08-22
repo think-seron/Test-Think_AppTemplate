@@ -1,5 +1,4 @@
 ﻿using System;
-using Xamarin.Forms;
 using Think_App.iOS;
 using UIKit;
 using System.Threading.Tasks;
@@ -8,6 +7,9 @@ using CoreGraphics;
 using CoreImage;
 using Foundation;
 using System.Net.Http;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(ImageService))]
 namespace Think_App.iOS
@@ -59,7 +61,7 @@ namespace Think_App.iOS
 			return bytes;
 		}
 
-		public async Task<byte[]> ConvertImageSourceToBytesWithCombining(ImageSource srcSource, ImageSource dstSource, Rectangle dstRect, Size viewSize, Aspect aspect, bool resize = false, double minLength = 0)
+		public async Task<byte[]> ConvertImageSourceToBytesWithCombining(ImageSource srcSource, ImageSource dstSource, Rect dstRect, Size viewSize, Aspect aspect, bool resize = false, double minLength = 0)
 		{
 			// ImageSource -> UIImage
 			var srcImage = await srcSource.ToUIImageAsync();
@@ -157,9 +159,9 @@ namespace Think_App.iOS
 			return size;
 		}
 
-		public async Task<Rectangle?> GetFaceRangeFromImageSource(ImageSource source, double viewWidth, double viewHeight, Aspect aspect)
+		public async Task<Rect?> GetFaceRangeFromImageSource(ImageSource source, double viewWidth, double viewHeight, Aspect aspect)
 		{
-			Rectangle? rect = null;
+			Rect? rect = null;
 			using (var uiImage = await source.ToUIImageAsync())
 			{
 				// UIImageを元に、顔の範囲を取得する。(index == 0)
@@ -194,7 +196,7 @@ namespace Think_App.iOS
 					var w = faceRect.Value.Width * scaleW;
 					var h = faceRect.Value.Height * scaleH;
 
-					rect = new Rectangle(x, y, w, h);
+					rect = new Rect(x, y, w, h);
 				}
 			}
 			       
@@ -315,7 +317,7 @@ namespace Think_App.iOS
 			return uiimage.ToImageSource();
 		}
 
-		public async Task<ImageSource> GetCroppedImageSourceAsync(ImageSource source, Rectangle croppingRect)
+		public async Task<ImageSource> GetCroppedImageSourceAsync(ImageSource source, Rect croppingRect)
 		{
 			// ImageSource -> UIImage
 			var uiImage = await source.ToUIImageAsync();

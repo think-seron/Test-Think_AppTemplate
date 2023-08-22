@@ -3,9 +3,11 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -75,7 +77,7 @@ namespace Think_App
         {
             Dictionary<string, string> parameters = new Dictionary<string, string> { { "deviceId", Config.Instance.Data.deviceId } };
             //if (souce.File == "BigFavoIconOn.png")
-            if ((FileImageSource)((Xamarin.Forms.Image)sender).Source == "BigFavoIconOn.png")
+            if ((FileImageSource)((Microsoft.Maui.Controls.Image)sender).Source == "BigFavoIconOn.png")
             {
                 var jsonSalonFavo = await APIManager.GET("salon_favoritelist");
                 var responseSalonFavo = JsonConvert.DeserializeObject<ResponseFavoriteSalonList>(jsonSalonFavo);
@@ -85,13 +87,13 @@ namespace Think_App
                 {
                     var modalView = new ModalView();
                     modalView.modalViewViewModel.ModalLabelTxt = "お気に入り店舗は" + Environment.NewLine + "必ず１つ以上選択してください。";
-                    modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-                    modalView.modalViewViewModel.OKBtnLayoutBounds = new Rectangle(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
-                    var currentApp = Xamarin.Forms.Application.Current;
+                    modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+                    modalView.modalViewViewModel.OKBtnLayoutBounds = new Rect(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+                    var currentApp = Microsoft.Maui.Controls.Application.Current;
                     modalView.okButton.Clicked += async (okSender, okE) =>
                     {
                         await DialogManager.Instance.HideView();
-                        if (currentApp != Xamarin.Forms.Application.Current)
+                        if (currentApp != Microsoft.Maui.Controls.Application.Current)
                         {
                             throw new InvalidOperationException("Application.Current changed");
                         }
@@ -114,8 +116,8 @@ namespace Think_App
                     {
                         var modalView = new ModalView();
                         modalView.modalViewViewModel.ModalLabelTxt = "こちらの店舗は" + Environment.NewLine + "ホーム店舗に登録されています。" + Environment.NewLine + "お気に入りを解除しますか？";
-                        modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-                        modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+                        modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+                        modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
                         modalView.modalViewViewModel.YesButtonTxt = "はい";
                         modalView.modalViewViewModel.NoButtonTxt = "いいえ";
 
@@ -127,7 +129,7 @@ namespace Think_App
                                 var ret = await APIManager.Post(action, parameters);
                                 if (ret != null)
                                 {
-                                    ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOff.png";
+                                    ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOff.png";
                                     DependencyService.Get<IToast>().Show("お気に入り店舗から削除しました");
                                     //ホーム店舗解除
                                     //parameters = new Dictionary<string, string> { { "deviceId", Config.Instance.Data.deviceId } };
@@ -205,7 +207,7 @@ namespace Think_App
                         var resp = await APIManager.Post(action, parameters);
                         if (resp != null)
                         {
-                            ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOff.png";
+                            ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOff.png";
                             DependencyService.Get<IToast>().Show("お気に入り店舗から削除しました");
                         }
                         else
@@ -229,7 +231,7 @@ namespace Think_App
                 var resp = await APIManager.Post(action, parameters);
                 if (resp != null)
                 {
-                    ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOn.png";
+                    ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOn.png";
                     DependencyService.Get<IToast>().Show("お気に入り店舗に登録しました");
                 }
                 else
@@ -267,8 +269,8 @@ namespace Think_App
                     // お気に入りスタッフを解除モーダル
                     var modalView = new ModalView();
                     modalView.modalViewViewModel.ModalLabelTxt = "お気に入りスタッフを" + Environment.NewLine + "解除しますか？";
-                    modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-                    modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+                    modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+                    modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
                     modalView.modalViewViewModel.YesButtonTxt = "はい";
                     modalView.modalViewViewModel.NoButtonTxt = "いいえ";
 
@@ -282,12 +284,12 @@ namespace Think_App
                             {
                                 if (itemSouce != null)
                                 {
-                                    ((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.FavoIconSouce = "BigFavoIconOff.png";
-                                    ((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.IsFavorite = false;
+                                    ((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.FavoIconSouce = "BigFavoIconOff.png";
+                                    ((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.IsFavorite = false;
                                 }
                                 else
                                 {
-                                    ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOff.png";
+                                    ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOff.png";
                                 }
                                 DependencyService.Get<IToast>().Show("お気に入りスタッフから削除しました");
 
@@ -324,8 +326,8 @@ namespace Think_App
                         //お気に入りスタッフ変更モーダル
                         var modalView = new ModalView();
                         modalView.modalViewViewModel.ModalLabelTxt = "お気に入りスタッフを" + Environment.NewLine + "変更しますか？";
-                        modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-                        modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+                        modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+                        modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
                         modalView.modalViewViewModel.YesButtonTxt = "はい";
                         modalView.modalViewViewModel.NoButtonTxt = "いいえ";
 
@@ -354,7 +356,7 @@ namespace Think_App
                                     }
                                     else
                                     {
-                                        ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOn.png";
+                                        ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOn.png";
                                     }
                                     // アイコンクリックしたスタッフをお気に入りに登録
                                     parameters["isFavorited"] = "true";
@@ -403,12 +405,12 @@ namespace Think_App
                         {
                             if (itemSouce != null)
                             {
-                                ((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.FavoIconSouce = "BigFavoIconOn.png";
-                                ((ListViewStaffStoreViewModel)((Xamarin.Forms.Image)sender).BindingContext).BdContext.IsFavorite = true;
+                                ((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.FavoIconSouce = "BigFavoIconOn.png";
+                                ((ListViewStaffStoreViewModel)((Microsoft.Maui.Controls.Image)sender).BindingContext).BdContext.IsFavorite = true;
                             }
                             else
                             {
-                                ((Xamarin.Forms.Image)sender).Source = "BigFavoIconOn.png";
+                                ((Microsoft.Maui.Controls.Image)sender).Source = "BigFavoIconOn.png";
                             }
                             DependencyService.Get<IToast>().Show("お気に入りスタッフに登録しました");
 

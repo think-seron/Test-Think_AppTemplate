@@ -1,7 +1,8 @@
 ﻿using System;
 using Think_App.iOS;
 using UIKit;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly: Dependency(typeof(WebBrowserService_iOS))]
 
 namespace Think_App.iOS

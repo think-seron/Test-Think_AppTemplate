@@ -1,7 +1,9 @@
 ﻿using System;
-using Xamarin.Forms;
 using Android.Graphics;
 using Android.Media;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {
@@ -10,7 +12,7 @@ namespace Think_App.Droid
 		// 読み込む最大の顔の数
 		const int _maxFaceNum = 3;
 
-		public static Rectangle? GetFaceRange(Bitmap image, int index)
+		public static Rect? GetFaceRange(Bitmap image, int index)
 		{
 			if (index >= _maxFaceNum)
 			{
@@ -83,7 +85,7 @@ namespace Think_App.Droid
 			var y = midPoint.Y - faceHeight / 3.0f;
 
 			// これを元にして、顔サイズを返す。
-			return new Rectangle(x, y, faceWidth, faceHeight);
+			return new Rect(x, y, faceWidth, faceHeight);
 		}
 	}
 }

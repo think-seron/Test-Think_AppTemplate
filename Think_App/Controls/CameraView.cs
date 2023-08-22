@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -89,7 +91,7 @@ namespace Think_App
 		}
 
 		public void SendEventFaceDetection(int faceScore,
-										   Rectangle faceRange,
+										   Rect faceRange,
 										   Point? mouthPosition,
 										   Point? leftEyePosition,
 										   Point? rightEyePostion)
@@ -130,7 +132,7 @@ namespace Think_App
 	public class FaceDetectedEventArgs : EventArgs
 	{
 		public int FaceScore { get; set; }
-		public Rectangle FaceRange { get; set; }
+		public Rect FaceRange { get; set; }
 		public Point? MouthPosition { get; set; }
 		public Point? LeftEyePosition { get; set; }
 		public Point? RightEyePostion { get; set; }

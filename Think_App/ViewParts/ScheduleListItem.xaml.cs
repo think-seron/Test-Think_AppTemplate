@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Xamarin.Forms;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public partial class ScheduleListItem : ContentView

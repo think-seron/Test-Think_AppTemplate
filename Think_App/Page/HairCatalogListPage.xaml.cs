@@ -2,12 +2,14 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using DLToolkit.Forms.Controls;
 using ZXing.QrCode.Internal;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -48,7 +50,7 @@ namespace Think_App
             hairCatalogListPageViewModel.ItemHeight = 100 * hairCatalogListPageViewModel.ScreenSizeScale;
             hairCatalogListPageViewModel.ColumnSpacing = 5 * hairCatalogListPageViewModel.ScreenSizeScale;
             hairCatalogListPageViewModel.RowSpacing = 10 * hairCatalogListPageViewModel.ScreenSizeScale;
-            hairCatalogListPageViewModel.GridViewRect = new Rectangle(0, 40, 1, ScaleManager.ScreenHeight - 40);
+            hairCatalogListPageViewModel.GridViewRect = new Rect(0, 40, 1, ScaleManager.ScreenHeight - 40);
             //if (Device.RuntimePlatform == Device.Android)
             //{
             //    // GridView androidの表示iosとずれているので調整

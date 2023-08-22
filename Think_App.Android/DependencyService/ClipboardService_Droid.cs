@@ -1,7 +1,8 @@
 ﻿using System;
 using Android.Content;
-using Xamarin.Forms;
 using Think_App.Droid;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly: Dependency(typeof(ClipboardService_Droid))]
 namespace Think_App.Droid
 {

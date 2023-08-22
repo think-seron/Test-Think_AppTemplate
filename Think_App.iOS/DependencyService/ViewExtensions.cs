@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using CoreGraphics;
 using UIKit;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -12,7 +14,7 @@ namespace Think_App
     /// </summary>
     public static class ViewExtensions
     {
-        public static UIView GetNativeView(this Xamarin.Forms.View view, CGRect size)
+        public static UIView GetNativeView(this Microsoft.Maui.Controls.View view, CGRect size)
         {
             var renderer = Platform.CreateRenderer(view);
             renderer.NativeView.Frame = size;

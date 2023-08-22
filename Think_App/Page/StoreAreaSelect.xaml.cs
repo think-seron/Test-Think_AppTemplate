@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -63,17 +65,18 @@ namespace Think_App
 
 			int rectHeight = 48 * itemList.Count + 38;
 			int heightAgust = 111;
+			// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 			if (Device.RuntimePlatform == Device.Android)
 			{
 				heightAgust = heightAgust - 9;
 			}
 			if ((ScaleManager.ScreenHeight - heightAgust) < rectHeight)
 			{
-				storeAreaSelectViewModel.ListViewRect = new Rectangle(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
+				storeAreaSelectViewModel.ListViewRect = new Rect(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
 			}
 			else
 			{
-				storeAreaSelectViewModel.ListViewRect = new Rectangle(0, 46, 1, rectHeight);
+				storeAreaSelectViewModel.ListViewRect = new Rect(0, 46, 1, rectHeight);
 			}
 
 			storeAreaSelectViewModel.HooterWidth = ScaleManager.ScreenWidth;

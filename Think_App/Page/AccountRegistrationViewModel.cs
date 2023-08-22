@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 
 namespace Think_App
@@ -38,7 +40,7 @@ namespace Think_App
                 RadioGroupIsVisible = true;
                 ToolbarItemsTxt = "";
                 PageTitle = "登録";
-                RadioGroupBoxViewRect = new Rectangle(0, 0, 0, 0);
+                RadioGroupBoxViewRect = new Rect(0, 0, 0, 0);
             }
             else if (pageFlg == 4)
             {
@@ -50,7 +52,7 @@ namespace Think_App
                 RadioGroupIsVisible = true;
                 PageTitle = "設定";
                 ToolbarItemsTxt = "完了";
-                RadioGroupBoxViewRect = new Rectangle(0, 0, 0, 0);
+                RadioGroupBoxViewRect = new Rect(0, 0, 0, 0);
             }
             else
             {
@@ -62,7 +64,7 @@ namespace Think_App
                 RadioGroupIsVisible = false;
                 PageTitle = "設定";
                 ToolbarItemsTxt = "編集";
-                RadioGroupBoxViewRect = new Rectangle(0, 0, 1, 1);
+                RadioGroupBoxViewRect = new Rect(0, 0, 1, 1);
             }
 
 
@@ -77,8 +79,9 @@ namespace Think_App
         public CustomEntryCellViewModel CustomEntryKana { get; set; }
         public CustomEntryCellViewModel CustomEntryTel { get; set; }
         public CustomEntryCellViewModel CustomEntryMail { get; set; }
-        public Color SelectedRadioColor => Device.RuntimePlatform == Device.Android ?
-            Color.FromHex("#009788") : Color.Black;
+        public Color SelectedRadioColor => // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+Device.RuntimePlatform == Device.Android ?
+            Color.FromArgb("#009788") : Colors.Black;
 
         private string toolbarItemsTxt;
         public string ToolbarItemsTxt
@@ -134,8 +137,8 @@ namespace Think_App
         }
 
         // ラジオボタンを無効にするため被せているBoxViewのRectangle
-        private Rectangle radioGroupBoxViewRect;
-        public Rectangle RadioGroupBoxViewRect
+        private Rect radioGroupBoxViewRect;
+        public Rect RadioGroupBoxViewRect
         {
             get
             {

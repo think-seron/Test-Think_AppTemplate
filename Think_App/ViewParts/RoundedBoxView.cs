@@ -1,5 +1,6 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -20,7 +21,8 @@ namespace Think_App
 
 		#region Color BindableProperty
 		public static readonly BindableProperty ColorProperty =
-			BindableProperty.Create(nameof(Color), typeof(Color), typeof(RoundedBoxView), Color.Accent,
+			BindableProperty.Create(nameof(Color), typeof(Color), typeof(RoundedBoxView), // TODO Xamarin.Forms.Color.Accent is not longer supported. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#color-changes
+Color.Accent,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((RoundedBoxView)bindable).Color = (Color)newValue);
 
@@ -46,7 +48,8 @@ namespace Think_App
 
 		#region BorderColor BindableProperty
 		public static readonly BindableProperty BorderColorProperty =
-			BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(RoundedBoxView), Color.Accent,
+			BindableProperty.Create(nameof(BorderColor), typeof(Color), typeof(RoundedBoxView), // TODO Xamarin.Forms.Color.Accent is not longer supported. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#color-changes
+Color.Accent,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((RoundedBoxView)bindable).BorderColor = (Color)newValue);
 

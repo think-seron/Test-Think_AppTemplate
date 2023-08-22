@@ -1,7 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Think_App;
 using Think_App.Droid;
 using DroidListView = Android.Widget.ListView;
@@ -10,8 +8,14 @@ using DroidScrollState = Android.Widget.ScrollState;
 using Android.Views;
 using Android.Runtime;
 using Android.Widget;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(MessageListView), typeof(MessageListViewRenderer))]
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(MessageViewCell), typeof(MessageViewCellRenderer))]
 namespace Think_App.Droid
 {
@@ -20,7 +24,7 @@ namespace Think_App.Droid
 		MessageListView _MessageListView;
 		bool IsRunning { get; set; }
 
-		protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.ListView> e)
+		protected override void OnElementChanged(ElementChangedEventArgs<Microsoft.Maui.Controls.ListView> e)
 		{
 			base.OnElementChanged(e);
 
@@ -128,7 +132,7 @@ namespace Think_App.Droid
 
 		private class CustomViewScrollDetector : Java.Lang.Object, DroidAbsListView.IOnScrollListener
 		{
-			Xamarin.Forms.ListView _element;
+			Microsoft.Maui.Controls.ListView _element;
 			float _density;
 			int _contentOffset = 0;
 			TrackElement[] _trackElements =

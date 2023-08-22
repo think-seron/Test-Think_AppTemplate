@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Reflection;
 using System.Linq;
-using Xamarin.Forms.Platform.Android;
-using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Android.App;
 using Android.Views;
 using Android.Content;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
 
 [assembly: Dependency(typeof(Think_App.Droid.ModalPageService))]
 namespace Think_App.Droid
@@ -62,7 +64,7 @@ namespace Think_App.Droid
 
 		}
 
-		public DroidModalPageNavigationPage(Xamarin.Forms.Page rootPage) : base(rootPage)
+		public DroidModalPageNavigationPage(Microsoft.Maui.Controls.Page rootPage) : base(rootPage)
 		{
 
 		}

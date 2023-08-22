@@ -2,7 +2,9 @@
 using System.Diagnostics;
 using Android.Hardware;
 using Android.Views;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.Droid
 {
@@ -36,7 +38,7 @@ namespace Think_App.Droid
                 }
 
                 int faceScore;
-                Rectangle faceRange;
+                Rect faceRange;
                 Point? mouthPosition = null, leftEyePostion = null, rightEyePosition = null;
 
                 Debug.WriteLine("Face Id:{0}", face.Id);
@@ -47,7 +49,7 @@ namespace Think_App.Droid
 
                 // 顔範囲
                 var faceRect = GetPixelRectFromFace(face);
-                faceRange = new Rectangle(faceRect.Left.ToDpFromPixel(), faceRect.Top.ToDpFromPixel(), faceRect.Width().ToDpFromPixel(), faceRect.Height().ToDpFromPixel());
+                faceRange = new Rect(faceRect.Left.ToDpFromPixel(), faceRect.Top.ToDpFromPixel(), faceRect.Width().ToDpFromPixel(), faceRect.Height().ToDpFromPixel());
                 Debug.WriteLine("Face Range L:{0} T:{1} R:{2} B{3}", faceRange.Left, faceRange.Top, faceRange.Right, faceRange.Bottom);
 
                 // 顔パーツ認識

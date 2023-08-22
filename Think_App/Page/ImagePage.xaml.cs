@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
 	public partial class ImagePage : BackCustomizeContentPage
 	{
-		Rectangle? _faceRect;
-		Rectangle _hairImgRect;
+		Rect? _faceRect;
+		Rect _hairImgRect;
 
 		bool IsRunning;
 		bool IsInitialized;
@@ -121,9 +123,9 @@ namespace Think_App
 			await Navigation.PushAsync(page);
 		}
 
-		Rectangle CalcHairImageViewRect(Rectangle orgHairImageRect, double imageWidth, double imageHeight, double scale, Rectangle viewImageRange)
+		Rect CalcHairImageViewRect(Rect orgHairImageRect, double imageWidth, double imageHeight, double scale, Rect viewImageRange)
 		{
-			var rect = Rectangle.Zero;
+			var rect = Rect.Zero;
 
 			double viewWidth, viewHeight;
 			if (_isGallery)
@@ -279,7 +281,7 @@ namespace Think_App
 					// イメージソース設定
 					this.HairImg.Source = source;
 
-					var faceRange = Rectangle.Zero;
+					var faceRange = Rect.Zero;
 					if (_faceRect != null)
 					{
 						// 顔認識がされている場合。
@@ -302,7 +304,7 @@ namespace Think_App
 						this.HairImg.IsVisible = true;
 					}
 					// サイズ適用
-					_hairImgRect = new Rectangle(left, top, scaledImageW, scaledImageH);
+					_hairImgRect = new Rect(left, top, scaledImageW, scaledImageH);
 					AbsoluteLayout.SetLayoutBounds(this.HairImg, _hairImgRect);
 				}
 			});
@@ -332,7 +334,7 @@ namespace Think_App
 				double h = 224;
 				double x = (width - w) / 2.0;
 				double y = 102;
-				_faceRect = new Rectangle(x, y, w, h);
+				_faceRect = new Rect(x, y, w, h);
 				this.FaceDetectionAttention.IsVisible = true;
 			}
 			else

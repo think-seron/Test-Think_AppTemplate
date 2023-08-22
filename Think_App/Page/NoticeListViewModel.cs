@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -14,12 +16,13 @@ namespace Think_App
             //CustomNavibarBC.RightImageBtnClicked = new Command(() => { ScreenTransition(new StoreSelect(2, null)); });
 
             //iosかつ複数店舗の場合
-            if (Device.RuntimePlatform == Device.iOS && !soloSalon)
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
+                                                                        if (Device.RuntimePlatform == Device.iOS && !soloSalon)
                 ToolbarIcon = "Icon_Home.png";
         }
 
         //public double ScreenSizeScale { get; set; }
-        public Rectangle ListViewRect { get; set; }
+        public Rect ListViewRect { get; set; }
 
         private string salonName;
         public string SalonName

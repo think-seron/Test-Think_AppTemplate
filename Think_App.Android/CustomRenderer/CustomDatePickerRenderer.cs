@@ -1,11 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
 using Android.Views;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Think_App;
 using Think_App.Droid;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 namespace Think_App.Droid
 {
@@ -71,15 +74,15 @@ namespace Think_App.Droid
 
 		void UpdateTextAlignment()
 		{
-			if (_CustomDatePicker.HorizontalTextAlignment == Xamarin.Forms.TextAlignment.Start)
+			if (_CustomDatePicker.HorizontalTextAlignment == Microsoft.Maui.TextAlignment.Start)
 			{
 				Control.Gravity = (_CustomDatePicker.BorderHidden) ? GravityFlags.Left | GravityFlags.CenterVertical : GravityFlags.Left;
 			}
-			else if (_CustomDatePicker.HorizontalTextAlignment == Xamarin.Forms.TextAlignment.Center)
+			else if (_CustomDatePicker.HorizontalTextAlignment == Microsoft.Maui.TextAlignment.Center)
 			{
 				Control.Gravity = GravityFlags.Center;
 			}
-			else if (_CustomDatePicker.HorizontalTextAlignment == Xamarin.Forms.TextAlignment.End)
+			else if (_CustomDatePicker.HorizontalTextAlignment == Microsoft.Maui.TextAlignment.End)
 			{
 				Control.Gravity = (_CustomDatePicker.BorderHidden) ? GravityFlags.Right | GravityFlags.CenterVertical : GravityFlags.Right;
 			}

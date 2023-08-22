@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -74,8 +76,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle modalBgLayoutBounds;
-		public Rectangle ModalBgLayoutBounds
+		private Rect modalBgLayoutBounds;
+		public Rect ModalBgLayoutBounds
 		{
 			get
 			{
@@ -91,8 +93,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle okBtnLayoutBounds;
-		public Rectangle OKBtnLayoutBounds
+		private Rect okBtnLayoutBounds;
+		public Rect OKBtnLayoutBounds
 		{
 			get
 			{
@@ -108,8 +110,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle nomalModalLabelRect;
-		public Rectangle NomalModalLabelRect
+		private Rect nomalModalLabelRect;
+		public Rect NomalModalLabelRect
 		{
 			get
 			{
@@ -125,8 +127,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle modalViewLayoutBounds;
-		public Rectangle ModalViewLayoutBounds
+		private Rect modalViewLayoutBounds;
+		public Rect ModalViewLayoutBounds
 		{
 			get
 			{
@@ -142,8 +144,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle selectBtnLayoutBounds;
-		public Rectangle SelectBtnLayoutBounds
+		private Rect selectBtnLayoutBounds;
+		public Rect SelectBtnLayoutBounds
 		{
 			get
 			{
@@ -159,8 +161,8 @@ namespace Think_App
 			}
 		}
 
-		private Rectangle imageRect;
-		public Rectangle ImageRect
+		private Rect imageRect;
+		public Rect ImageRect
 		{
 			get
 			{

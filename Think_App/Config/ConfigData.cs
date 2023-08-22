@@ -1,6 +1,7 @@
 using System;
-using Xamarin.Forms;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -140,6 +141,7 @@ namespace Think_App
 			get
 			{
 #if DEBUG
+				// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 				if (Device.RuntimePlatform == Device.iOS)
 				{
 					return 3;

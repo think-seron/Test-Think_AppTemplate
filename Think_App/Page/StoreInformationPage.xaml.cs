@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.Text.RegularExpressions;
-
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -165,7 +165,7 @@ namespace Think_App
 				//{
 				Regex re = new Regex(@"[^0-9]");
 				var tel = re.Replace(telNum, "");
-				Device.OpenUri(new Uri("tel:" + tel));
+				Device.OpenAsync(new Uri("tel:" + tel));
 				//}
 				App.ProcessManager.OnComplete();
 			}
@@ -175,6 +175,7 @@ namespace Think_App
 		{
 			if (App.ProcessManager.CanInvoke())
 			{
+				// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 				if (Device.RuntimePlatform == Device.iOS)
 				{
 					// 参考 https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html

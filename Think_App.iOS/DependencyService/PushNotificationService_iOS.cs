@@ -1,9 +1,10 @@
 ﻿using System;
-using Xamarin.Forms;
 using Think_App.iOS;
 using UIKit;
 using Foundation;
 using UserNotifications;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(PushNotificationService_iOS))]
 namespace Think_App.iOS

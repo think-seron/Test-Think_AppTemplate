@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.IO;
 
 using Plugin.Media;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -30,12 +32,12 @@ namespace Think_App
             App.customNavigationPage.IsRunning = true;
             _mediaPluginManager = new MediaPluginManager();
             // ---------------GridViewのサイズ指定とitem追加-------------------
-            myBeautyBlogListPageViewModel.GridViewRect = new Rectangle(0, 87, 1, ScaleManager.ScreenHeight - 152);
+            myBeautyBlogListPageViewModel.GridViewRect = new Rect(0, 87, 1, ScaleManager.ScreenHeight - 152);
             myBeautyBlogListPageViewModel.ItemHeight = 100 * ScaleManager.Scale;
             myBeautyBlogListPageViewModel.ItemWidth = 100 * ScaleManager.Scale;
             myBeautyBlogListPageViewModel.ColumnSpacing = 5 * ScaleManager.Scale;
             myBeautyBlogListPageViewModel.RowSpacing = 10 * ScaleManager.Scale;
-            myBeautyBlogListPageViewModel.MyBlogPlusListViewRect = new Rectangle(
+            myBeautyBlogListPageViewModel.MyBlogPlusListViewRect = new Rect(
                 17,
                 87 + myBeautyBlogListPageViewModel.ItemHeight + myBeautyBlogListPageViewModel.RowSpacing,
                 201,
@@ -59,10 +61,10 @@ namespace Think_App
                 itemsSources.Clear();
                 itemsSources.Add(new MyBeautyBlogModel()
                 {
-                    GridViewLabelRect = new Rectangle(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
+                    GridViewLabelRect = new Rect(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
                     ImgSouce = "icon_plus.png",
                     DateStr = "",
-                    GridViewImgRect = new Rectangle(0.5, 0.5, 0.23, 0.23),
+                    GridViewImgRect = new Rect(0.5, 0.5, 0.23, 0.23),
                     BtnIsVisible = false,
                     GridViewBgColor = ColorList.colorMain
                 });
@@ -102,6 +104,7 @@ namespace Think_App
                 if (bilog.ImgSouce == "icon_plus.png")
                 {
 
+                    // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                     if (Device.RuntimePlatform == Device.iOS)
                     {
 
@@ -223,10 +226,10 @@ namespace Think_App
                     //itemsSources.Add(new MyBeautyBlogModel(null, true)); // +ボタン
                     itemsSources.Add(new MyBeautyBlogModel()
                     {
-                        GridViewLabelRect = new Rectangle(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
+                        GridViewLabelRect = new Rect(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
                         ImgSouce = "icon_plus.png",
                         DateStr = "",
-                        GridViewImgRect = new Rectangle(0.5, 0.5, 0.23, 0.23),
+                        GridViewImgRect = new Rect(0.5, 0.5, 0.23, 0.23),
                         BtnIsVisible = false,
                         GridViewBgColor = ColorList.colorMain
                     });
@@ -247,8 +250,8 @@ namespace Think_App
                                     CategoryValue = val.Category.Value,
                                     Title = val.Title,
                                     Description = val.Description,
-                                    GridViewImgRect = new Rectangle(0, 0, 1, 1),
-                                    GridViewLabelRect = new Rectangle(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
+                                    GridViewImgRect = new Rect(0, 0, 1, 1),
+                                    GridViewLabelRect = new Rect(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
                                     GridViewLabelFontSize = 12 * ScaleManager.Scale,
                                     GridViewLabelHeightRequest = 14 * ScaleManager.Scale,
                                     GridViewLabelWidthRequest = 69 * ScaleManager.Scale
@@ -321,8 +324,8 @@ namespace Think_App
                                     CategoryValue = val.Category.Value,
                                     Title = val.Title,
                                     Description = val.Description,
-                                    GridViewImgRect = new Rectangle(0, 0, 1, 1),
-                                    GridViewLabelRect = new Rectangle(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
+                                    GridViewImgRect = new Rect(0, 0, 1, 1),
+                                    GridViewLabelRect = new Rect(0.5, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize),
                                     GridViewLabelFontSize = 12 * ScaleManager.Scale,
                                     GridViewLabelHeightRequest = 14 * ScaleManager.Scale,
                                     GridViewLabelWidthRequest = 69 * ScaleManager.Scale

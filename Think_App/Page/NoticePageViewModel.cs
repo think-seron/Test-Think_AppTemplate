@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -12,7 +14,7 @@ namespace Think_App
 		}
 
 		public string NoticeContents { get; set; }
-		public Rectangle ScrollViewRect { get; set; }
+		public Rect ScrollViewRect { get; set; }
 		public string NoticeTitle { get; set; }
 		public double NoticeTitleFontSize { get; set; }
 		public double NoticeContentsFontSize { get; set; }

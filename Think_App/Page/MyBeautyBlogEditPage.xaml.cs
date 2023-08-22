@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Xamarin.Forms;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
 using Plugin.Media;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -337,6 +338,7 @@ namespace Think_App
 
         async void OnImageClicked(object sender, EventArgs e)
         {
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.iOS)
             {
                 var ret = await DisplayActionSheet(null, "キャンセル", null, "ギャラリーから写真を選択", "写真を撮影する");

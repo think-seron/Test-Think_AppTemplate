@@ -1,6 +1,8 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -10,12 +12,12 @@ namespace Think_App
 		{
 		}
 
-		public Rectangle GridViewRect { get; set; }
+		public Rect GridViewRect { get; set; }
 		public double ItemHeight { get; set; }
 		public double ItemWidth { get; set; }
 		public double ColumnSpacing { get; set; }
 		public double RowSpacing { get; set; }
-		public Rectangle MyBlogPlusListViewRect { get; set; }
+		public Rect MyBlogPlusListViewRect { get; set; }
 
 		//private ObservableCollection<MyBeautyBlogModel> itemsSource;
 		//public ObservableCollection<MyBeautyBlogModel> ItemsSource

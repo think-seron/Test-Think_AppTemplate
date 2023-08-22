@@ -1,5 +1,6 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class CustomNavigationPage : NavigationPage
@@ -10,7 +11,7 @@ namespace Think_App
 		{
 
 		}
-		public CustomNavigationPage(Xamarin.Forms.Page page) : base(page)
+		public CustomNavigationPage(Microsoft.Maui.Controls.Page page) : base(page)
 		{
 
 		}

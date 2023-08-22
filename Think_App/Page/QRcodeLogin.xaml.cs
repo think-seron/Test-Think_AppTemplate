@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using IO.Swagger.Model;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -83,10 +85,10 @@ namespace Think_App
 			var modalView = new ModalView();
 
 			modalView.modalViewViewModel.ModalLabelTxt = "登録情報と異なるため" + Environment.NewLine + "新規登録をしてください";
-			modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-			modalView.modalViewViewModel.OKBtnLayoutBounds = new Rectangle(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+			modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+			modalView.modalViewViewModel.OKBtnLayoutBounds = new Rect(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
 
-			var currentApp = Xamarin.Forms.Application.Current;
+			var currentApp = Microsoft.Maui.Controls.Application.Current;
 
 			modalView.okButton.Clicked += async (sender, e) =>
 			{
@@ -96,7 +98,7 @@ namespace Think_App
 					await App.customNavigationPage.PopAsync();
 					await App.customNavigationPage.PushAsync(new AccountRegistration(1));
 					await DialogManager.Instance.HideView();
-					if (currentApp != Xamarin.Forms.Application.Current)
+					if (currentApp != Microsoft.Maui.Controls.Application.Current)
 					{
 						throw new InvalidOperationException("Application.Current changed");
 					}

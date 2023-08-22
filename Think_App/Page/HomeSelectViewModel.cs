@@ -3,8 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using IO.Swagger.Model;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class HomeSelectViewModel : ViewModelBase
@@ -47,8 +49,8 @@ namespace Think_App
 			{
 				var modalView = new ModalView();
 				modalView.modalViewViewModel.ModalLabelTxt = "ホーム店舗を変更しますか？";
-				modalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-				modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rectangle(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
+				modalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+				modalView.modalViewViewModel.SelectBtnLayoutBounds = new Rect(0.9, 0.6, 1, AbsoluteLayout.AutoSize);
 				modalView.modalViewViewModel.YesButtonTxt = "はい";
 				modalView.modalViewViewModel.NoButtonTxt = "いいえ";
 
@@ -105,15 +107,15 @@ namespace Think_App
 								//ここからホーム店舗登録後の処理
 								var confirmationodalView = new ModalView();
 								confirmationodalView.modalViewViewModel.ModalLabelTxt = "ホーム店舗に選択されました";
-								confirmationodalView.modalViewViewModel.NomalModalLabelRect = new Rectangle(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
-								confirmationodalView.modalViewViewModel.OKBtnLayoutBounds = new Rectangle(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
-								var currentApp = Xamarin.Forms.Application.Current;
+								confirmationodalView.modalViewViewModel.NomalModalLabelRect = new Rect(0.5, 0.4, 1, AbsoluteLayout.AutoSize);
+								confirmationodalView.modalViewViewModel.OKBtnLayoutBounds = new Rect(0.5, 0.6, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize);
+								var currentApp = Microsoft.Maui.Controls.Application.Current;
 								confirmationodalView.okButton.Clicked += async (okSender, okE) =>
 																					{
 																						if (App.ProcessManager.CanInvoke())
 																						{
 																							await DialogManager.Instance.HideView();
-																							if (currentApp != Xamarin.Forms.Application.Current)
+																							if (currentApp != Microsoft.Maui.Controls.Application.Current)
 																							{
 																								throw new InvalidOperationException("Application.Current changed");
 																							}

@@ -6,8 +6,6 @@ using System.Reflection;
 using Android.Widget;
 using Android.Graphics;
 using Support = Android.Support.V7.Widget;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
 using Think_App;
 using Think_App.Droid;
@@ -16,7 +14,12 @@ using AProgressBar = Android.Widget.ProgressBar;
 using View = Android.Views.View;
 using Android.Views;
 using Android.Content;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(CustomNavigationPage), typeof(CustomNavigationPageRenderer))]
 namespace Think_App.Droid
 {

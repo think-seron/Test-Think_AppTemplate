@@ -1,6 +1,8 @@
 ﻿using System;
 using AVFoundation;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App.iOS
 {
@@ -33,7 +35,7 @@ namespace Think_App.iOS
 					var transformed = PreviewLayer.GetTransformedMetadataObject(face);
 					var bounds = transformed.Bounds;
 					System.Diagnostics.Debug.WriteLine("Face Range L:{0} T:{1} R;{2} B:{3}", bounds.Left, bounds.Top, bounds.Right, bounds.Bottom);
-					var rectangle = new Rectangle(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+					var rectangle = new Rect(bounds.X, bounds.Y, bounds.Width, bounds.Height);
 
 					if (Camera != null)
 					{

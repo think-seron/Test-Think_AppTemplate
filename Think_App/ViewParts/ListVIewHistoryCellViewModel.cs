@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using IO.Swagger.Model;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
 	public class ListVIewHistoryCellViewModel : ViewModelBase

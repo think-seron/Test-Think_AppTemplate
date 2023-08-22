@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using Think_App;
 using IO.Swagger.Model;
 using System.Collections.Generic;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public class ScheduleListItemViewModel : ViewModelBase

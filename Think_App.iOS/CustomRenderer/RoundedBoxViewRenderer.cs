@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.iOS;
 using UIKit;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
+// TODO Xamarin.Forms.ExportRendererAttribute is not longer supported. For more details see https://github.com/dotnet/maui/wiki/Using-Custom-Renderers-in-.NET-MAUI
 [assembly: ExportRenderer(typeof(Think_App.RoundedBoxView), typeof(Think_App.iOS.RoundedBoxViewRenderer))]
 
 namespace Think_App.iOS

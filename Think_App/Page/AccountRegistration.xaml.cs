@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.Linq;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -379,7 +381,7 @@ namespace Think_App
                 accountRegistrationViewModel.CustomEntryMail.EntryIsEnabled = true;
                 accountRegistrationViewModel.RadioGroupIsVisible = true;
                 this.ToolbarItems.Text = "完了";
-                accountRegistrationViewModel.RadioGroupBoxViewRect = new Rectangle(0, 0, 0, 0);
+                accountRegistrationViewModel.RadioGroupBoxViewRect = new Rect(0, 0, 0, 0);
             }
             else if (this.ToolbarItems.Text == "完了")
             {
@@ -441,7 +443,7 @@ namespace Think_App
                             accountRegistrationViewModel.CustomEntryMail.EntryIsEnabled = false;
                             accountRegistrationViewModel.RadioGroupIsVisible = false;
                             this.ToolbarItems.Text = "編集";
-                            accountRegistrationViewModel.RadioGroupBoxViewRect = new Rectangle(0, 0, 1, 1);
+                            accountRegistrationViewModel.RadioGroupBoxViewRect = new Rect(0, 0, 1, 1);
 
 
                             if (PageFlag == 4)

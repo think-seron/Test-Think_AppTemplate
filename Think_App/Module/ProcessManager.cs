@@ -3,7 +3,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -107,7 +108,7 @@ namespace Think_App
 
 
 		//Pageで管理する場合
-		public void AddTasks(Task<object> task, Xamarin.Forms.Page page)
+		public void AddTasks(Task<object> task, Microsoft.Maui.Controls.Page page)
 		{
 			try
 			{

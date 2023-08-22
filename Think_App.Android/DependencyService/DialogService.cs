@@ -9,9 +9,12 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 using static Android.Views.View;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls.Handlers.Compatibility;
+using Microsoft.Maui.Controls.Platform;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(Think_App.Droid.DialogService))]
 namespace Think_App.Droid
@@ -23,7 +26,7 @@ namespace Think_App.Droid
     {
         Activity _currentActivity => MainActivity.activity;
         global::Android.Views.View _nativeView;
-        public Task DisplayFormsViewAsync(Xamarin.Forms.View formsView)
+        public Task DisplayFormsViewAsync(Microsoft.Maui.Controls.View formsView)
         {
             var density = ScaleManager.AndroidDensity;
             var taskCompletionSource = new TaskCompletionSource<Task>();
@@ -38,7 +41,7 @@ namespace Think_App.Droid
                 var decoreWidht = decoreView.Width;
                 var height = rectangle.Bottom - rectangle.Top;
                 _nativeView = formsView.GetNativeView(
-                    new Rectangle(0, 0, decoreWidht / density, height / density));
+                    new Rect(0, 0, decoreWidht / density, height / density));
                 _nativeView.SetOnTouchListener(new CustomOnTouchListener(ignoreTouch: true));
                 MainActivity.BackButtonDisable = true;
                 _currentActivity.Window.AddContentView(_nativeView, new ViewGroup.LayoutParams(decoreWidht, height));

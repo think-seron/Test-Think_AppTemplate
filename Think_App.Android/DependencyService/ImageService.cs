@@ -3,8 +3,10 @@ using System.IO;
 using System.Threading.Tasks;
 using Android.Graphics;
 using Android.Media;
-using Xamarin.Forms;
 using Think_App.Droid;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(ImageService))]
 namespace Think_App.Droid
@@ -56,7 +58,7 @@ namespace Think_App.Droid
 			return bytes;
 		}
 
-		public async Task<byte[]> ConvertImageSourceToBytesWithCombining(ImageSource srcSource, ImageSource dstSource, Rectangle dstRect, Size viewSize, Aspect aspect, bool resize = false, double minLength = 0)
+		public async Task<byte[]> ConvertImageSourceToBytesWithCombining(ImageSource srcSource, ImageSource dstSource, Rect dstRect, Size viewSize, Aspect aspect, bool resize = false, double minLength = 0)
 		{
 			// ImageSource -> Bitmap
 			var srcBitmap = await srcSource.ToBitmapAsync();
@@ -161,9 +163,9 @@ namespace Think_App.Droid
 			return size;
 		}
 
-		public async Task<Rectangle?> GetFaceRangeFromImageSource(ImageSource source, double viewWidth, double viewHeight, Aspect aspect)
+		public async Task<Rect?> GetFaceRangeFromImageSource(ImageSource source, double viewWidth, double viewHeight, Aspect aspect)
 		{
-			Rectangle? rect = null;
+			Rect? rect = null;
 			using (var bitmap = await source.ToBitmapAsync())
 			{
 				// Bitmapを元に、顔の範囲を取得する。(index == 0)
@@ -198,7 +200,7 @@ namespace Think_App.Droid
 					var w = faceRect.Value.Width * scaleW;
 					var h = faceRect.Value.Height * scaleH;
 
-					rect = new Rectangle(x, y, w, h);
+					rect = new Rect(x, y, w, h);
 				}
 			}
 
@@ -298,7 +300,7 @@ namespace Think_App.Droid
 			return bitmap.ToImageSource();
 		}
 
-		public async Task<ImageSource> GetCroppedImageSourceAsync(ImageSource source, Rectangle croppingRect)
+		public async Task<ImageSource> GetCroppedImageSourceAsync(ImageSource source, Rect croppingRect)
 		{
 			// ImageSource -> Bitmap
 			var bitmap = await source.ToBitmapAsync();

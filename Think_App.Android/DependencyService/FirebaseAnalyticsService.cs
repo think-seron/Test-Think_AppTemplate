@@ -3,7 +3,8 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Firebase.Analytics;
-using Xamarin.Forms;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 [assembly: Dependency(typeof(Think_App.Droid.FirebaseAnalyticsService))]
 namespace Think_App.Droid
 {

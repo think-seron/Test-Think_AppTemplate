@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Xamarin.Forms;
+using Microsoft.Maui.Layouts;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -86,7 +89,7 @@ namespace Think_App
 						Opacity = (i == 0) ? 1.0 : 0.0
 					};
 					ImageList.Add(image);
-					this.Children.Add(image, new Rectangle(0, 0, 1, 1), AbsoluteLayoutFlags.All);
+					this.Children.Add(image, new Rect(0, 0, 1, 1), AbsoluteLayoutFlags.All);
 				}
 			}
 		}

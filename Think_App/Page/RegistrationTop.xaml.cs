@@ -1,9 +1,10 @@
-﻿using Xamarin.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using IO.Swagger.Model;
 using System.Threading.Tasks;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public partial class RegistrationTop : ContentPage
@@ -121,6 +122,7 @@ namespace Think_App
             bool res = int.TryParse(Config.Instance.Data.nativeVersion.Substring(0, 1), out version);
             if (!res)
                 return;
+            // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
             if (Device.RuntimePlatform == Device.Android && version >= 6)
             {
                 DependencyService.Get<IScanerPermissionService>().Call();

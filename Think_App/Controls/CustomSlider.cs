@@ -1,5 +1,7 @@
 ﻿using System;
-using Xamarin.Forms;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -7,7 +9,7 @@ namespace Think_App
 	{
 		#region ThumbColor BindableProperty
 		public static readonly BindableProperty ThumbColorProperty =
-			BindableProperty.Create(nameof(ThumbColorProperty), typeof(Color), typeof(CustomSlider), Color.White,
+			BindableProperty.Create(nameof(ThumbColorProperty), typeof(Color), typeof(CustomSlider), Colors.White,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomSlider)bindable).ThumbColor = (Color)newValue);
 
@@ -46,7 +48,7 @@ namespace Think_App
 
 		#region BarColor BindableProperty
 		public static readonly BindableProperty BarColorProperty =
-			BindableProperty.Create(nameof(BarColorProperty), typeof(Color), typeof(CustomSlider), Color.Default,
+			BindableProperty.Create(nameof(BarColorProperty), typeof(Color), typeof(CustomSlider), null,
 				propertyChanged: (bindable, oldValue, newValue) =>
 					((CustomSlider)bindable).BarColor = (Color)newValue);
 

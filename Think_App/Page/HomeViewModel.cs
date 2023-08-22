@@ -2,10 +2,11 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using IO.Swagger.Model;
 using Newtonsoft.Json;
 using System.Linq;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 namespace Think_App
 {
     public class HomeViewModel : ViewModelBase
@@ -36,6 +37,7 @@ namespace Think_App
             ConfigListBC = new ConfigListVIewModel(HomeResponseData);
             ToolbarCommand = new Command(() =>
             {
+                // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 if (Device.RuntimePlatform == Device.Android)
                 {
                     ConfigVisible = !ConfigVisible;
@@ -979,6 +981,7 @@ namespace Think_App
             {
                 if (!App.ProcessManager.CanInvoke())
                     return;
+                // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                 if (Device.RuntimePlatform == Device.Android)
                 {
                     GASCall.Track_App_Page("Android_予約");
@@ -1017,6 +1020,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_お知らせ");
@@ -1038,6 +1042,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_クーポン");
@@ -1057,6 +1062,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_メッセージ");
@@ -1076,6 +1082,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_店舗一覧");
@@ -1124,6 +1131,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_履歴");
@@ -1141,6 +1149,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_ヘアシミュ");
@@ -1158,6 +1167,7 @@ namespace Think_App
                     {
                         if (!App.ProcessManager.CanInvoke())
                             return;
+                        // TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
                         if (Device.RuntimePlatform == Device.Android)
                         {
                             GASCall.Track_App_Page("Android_ブログ");

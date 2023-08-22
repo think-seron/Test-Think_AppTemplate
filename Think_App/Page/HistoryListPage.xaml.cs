@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using IO.Swagger.Model;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Linq;
+using Microsoft.Maui.Graphics;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -64,13 +66,14 @@ namespace Think_App
 				int rectHeight = (int)historyListPageViewModel.ListViewRowHeight * itemList.Count;
 				historyListPageViewModel.HooterIsVisible = false;
 				int heightAgust = 111;
+				// TODO Xamarin.Forms.Device.RuntimePlatform is no longer supported. Use Microsoft.Maui.Devices.DeviceInfo.Platform instead. For more details see https://learn.microsoft.com/en-us/dotnet/maui/migration/forms-projects#device-changes
 				if (Device.RuntimePlatform == Device.Android)
 				{
 					heightAgust = heightAgust - 9;
 				}
 				if ((ScaleManager.ScreenHeight - heightAgust) < rectHeight)
 				{
-					historyListPageViewModel.ListViewRect = new Rectangle(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
+					historyListPageViewModel.ListViewRect = new Rect(0, 46, 1, (ScaleManager.ScreenHeight - heightAgust));
 					if (isEnd == false)
 					{
 						historyListPageViewModel.HooterIsVisible = true;
@@ -78,7 +81,7 @@ namespace Think_App
 				}
 				else
 				{
-					historyListPageViewModel.ListViewRect = new Rectangle(0, 46, 1, rectHeight);
+					historyListPageViewModel.ListViewRect = new Rect(0, 46, 1, rectHeight);
 				}
 			}
 			Device.BeginInvokeOnMainThread(() =>

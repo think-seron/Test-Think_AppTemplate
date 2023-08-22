@@ -1,8 +1,9 @@
 ﻿using System;
-using Xamarin.Forms;
 using Think_App.iOS;
 using UIKit;
 using Foundation;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 [assembly: Dependency(typeof(DeviceInfoService_iOS))]
 namespace Think_App.iOS

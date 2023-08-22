@@ -3,11 +3,12 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Xamarin.Forms;
 using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using ZXing.OneD;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui;
 
 namespace Think_App
 {
@@ -273,7 +274,7 @@ namespace Think_App
                                                        await App.Current.MainPage.DisplayAlert("新しいアプリがあります。", response.message, "アップデート"));
 
                         if (!String.IsNullOrEmpty(update.Data.Stores))
-                            Device.OpenUri(new Uri(update.Data.Stores));
+                            await Device.OpenAsync(new Uri(update.Data.Stores));
 
                         if (update.Data.Force == 0)
                             break;
